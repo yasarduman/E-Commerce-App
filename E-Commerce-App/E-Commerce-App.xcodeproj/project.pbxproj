@@ -12,6 +12,10 @@
 		8342F6EF2B07932800DD29BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8342F6EE2B07932800DD29BB /* Assets.xcassets */; };
 		8342F6F22B07932800DD29BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8342F6F02B07932800DD29BB /* LaunchScreen.storyboard */; };
 		8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7032B07950800DD29BB /* MainTabBarController.swift */; };
+		8342F7062B0795B200DD29BB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7052B0795B200DD29BB /* HomeVC.swift */; };
+		8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7072B0795B600DD29BB /* SearchVC.swift */; };
+		8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7092B0795B900DD29BB /* CartVC.swift */; };
+		8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F70B2B0795BD00DD29BB /* ProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		8342F6F12B07932800DD29BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8342F6F32B07932800DD29BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8342F7032B07950800DD29BB /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		8342F7052B0795B200DD29BB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		8342F7072B0795B600DD29BB /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		8342F7092B0795B900DD29BB /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
+		8342F70B2B0795BD00DD29BB /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +119,7 @@
 		8342F6FE2B07942D00DD29BB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8342F70B2B0795BD00DD29BB /* ProfileVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -118,6 +127,7 @@
 		8342F6FF2B07943A00DD29BB /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				8342F7092B0795B900DD29BB /* CartVC.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -125,6 +135,7 @@
 		8342F7002B07943D00DD29BB /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8342F7072B0795B600DD29BB /* SearchVC.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 		8342F7012B07944300DD29BB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8342F7052B0795B200DD29BB /* HomeVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -215,6 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8342F6E62B07932700DD29BB /* AppDelegate.swift in Sources */,
+				8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */,
+				8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */,
+				8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */,
+				8342F7062B0795B200DD29BB /* HomeVC.swift in Sources */,
 				8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,
 			);
@@ -362,10 +378,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ACB3S45S75;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "E-Commerce-App/Info.plist";
+				INFOPLIST_FILE = "E-Commerce-App/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -390,10 +406,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ACB3S45S75;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "E-Commerce-App/Info.plist";
+				INFOPLIST_FILE = "E-Commerce-App/SupportingFiles/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
