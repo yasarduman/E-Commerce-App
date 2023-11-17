@@ -16,6 +16,19 @@
 		8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7072B0795B600DD29BB /* SearchVC.swift */; };
 		8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7092B0795B900DD29BB /* CartVC.swift */; };
 		8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F70B2B0795BD00DD29BB /* ProfileVC.swift */; };
+		8342F7122B0798B700DD29BB /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7102B0798B700DD29BB /* AlertVC.swift */; };
+		8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7112B0798B700DD29BB /* AlertContainerView.swift */; };
+		8342F7172B0798D900DD29BB /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7142B0798D900DD29BB /* UIViewController+Ext.swift */; };
+		8342F7182B0798D900DD29BB /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7152B0798D900DD29BB /* UIColor+Ext.swift */; };
+		8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7162B0798D900DD29BB /* UIView+Ext.swift */; };
+		8342F71E2B0798FA00DD29BB /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */; };
+		8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F71C2B0798FA00DD29BB /* TitleLabel.swift */; };
+		8342F7202B0798FA00DD29BB /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F71D2B0798FA00DD29BB /* BodyLabel.swift */; };
+		8342F7232B07990A00DD29BB /* MusicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7222B07990A00DD29BB /* MusicButton.swift */; };
+		8342F7262B07997200DD29BB /* MovieDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7252B07997200DD29BB /* MovieDataLoadingVC.swift */; };
+		8342F7292B079A4F00DD29BB /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7282B079A4F00DD29BB /* CustomStackView.swift */; };
+		8342F72E2B07A4C700DD29BB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F72D2B07A4C700DD29BB /* NetworkManager.swift */; };
+		8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F72F2B07BC7600DD29BB /* AlamofireService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +43,19 @@
 		8342F7072B0795B600DD29BB /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		8342F7092B0795B900DD29BB /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		8342F70B2B0795BD00DD29BB /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		8342F7102B0798B700DD29BB /* AlertVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		8342F7112B0798B700DD29BB /* AlertContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertContainerView.swift; sourceTree = "<group>"; };
+		8342F7142B0798D900DD29BB /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		8342F7152B0798D900DD29BB /* UIColor+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
+		8342F7162B0798D900DD29BB /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		8342F71C2B0798FA00DD29BB /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		8342F71D2B0798FA00DD29BB /* BodyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
+		8342F7222B07990A00DD29BB /* MusicButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicButton.swift; sourceTree = "<group>"; };
+		8342F7252B07997200DD29BB /* MovieDataLoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDataLoadingVC.swift; sourceTree = "<group>"; };
+		8342F7282B079A4F00DD29BB /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		8342F72D2B07A4C700DD29BB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8342F72F2B07BC7600DD29BB /* AlamofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +88,9 @@
 		8342F6E42B07932700DD29BB /* E-Commerce-App */ = {
 			isa = PBXGroup;
 			children = (
-				8342F6FD2B07939500DD29BB /* Utils */,
-				8342F6FC2B07938F00DD29BB /* Extensions */,
+				8342F6FD2B07939500DD29BB /* Helpers */,
+				8342F72A2B07A3F000DD29BB /* Network */,
 				8342F6FB2B07938800DD29BB /* Screens */,
-				8342F6FA2B07938000DD29BB /* CustomComponents */,
 				8342F6F92B07937400DD29BB /* SupportingFiles */,
 			);
 			path = "E-Commerce-App";
@@ -86,6 +111,11 @@
 		8342F6FA2B07938000DD29BB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				8342F7272B079A1F00DD29BB /* StackViews */,
+				8342F7242B07994000DD29BB /* LoadingIndicator */,
+				8342F7212B07990100DD29BB /* Button */,
+				8342F71A2B0798F100DD29BB /* Label */,
+				8342F70F2B0798AD00DD29BB /* Alert */,
 			);
 			path = CustomComponents;
 			sourceTree = "<group>";
@@ -105,15 +135,20 @@
 		8342F6FC2B07938F00DD29BB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8342F7152B0798D900DD29BB /* UIColor+Ext.swift */,
+				8342F7162B0798D900DD29BB /* UIView+Ext.swift */,
+				8342F7142B0798D900DD29BB /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		8342F6FD2B07939500DD29BB /* Utils */ = {
+		8342F6FD2B07939500DD29BB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				8342F6FC2B07938F00DD29BB /* Extensions */,
+				8342F6FA2B07938000DD29BB /* CustomComponents */,
 			);
-			path = Utils;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		8342F6FE2B07942D00DD29BB /* Profile */ = {
@@ -154,6 +189,74 @@
 				8342F7032B07950800DD29BB /* MainTabBarController.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		8342F70F2B0798AD00DD29BB /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				8342F7112B0798B700DD29BB /* AlertContainerView.swift */,
+				8342F7102B0798B700DD29BB /* AlertVC.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		8342F71A2B0798F100DD29BB /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				8342F71D2B0798FA00DD29BB /* BodyLabel.swift */,
+				8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */,
+				8342F71C2B0798FA00DD29BB /* TitleLabel.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		8342F7212B07990100DD29BB /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				8342F7222B07990A00DD29BB /* MusicButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		8342F7242B07994000DD29BB /* LoadingIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				8342F7252B07997200DD29BB /* MovieDataLoadingVC.swift */,
+			);
+			path = LoadingIndicator;
+			sourceTree = "<group>";
+		};
+		8342F7272B079A1F00DD29BB /* StackViews */ = {
+			isa = PBXGroup;
+			children = (
+				8342F7282B079A4F00DD29BB /* CustomStackView.swift */,
+			);
+			path = StackViews;
+			sourceTree = "<group>";
+		};
+		8342F72A2B07A3F000DD29BB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8342F72B2B07A48800DD29BB /* Manager */,
+				8342F72C2B07A48D00DD29BB /* Service */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8342F72B2B07A48800DD29BB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8342F72D2B07A4C700DD29BB /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8342F72C2B07A48D00DD29BB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8342F72F2B07BC7600DD29BB /* AlamofireService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,12 +329,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8342F72E2B07A4C700DD29BB /* NetworkManager.swift in Sources */,
 				8342F6E62B07932700DD29BB /* AppDelegate.swift in Sources */,
+				8342F7122B0798B700DD29BB /* AlertVC.swift in Sources */,
+				8342F7172B0798D900DD29BB /* UIViewController+Ext.swift in Sources */,
+				8342F71E2B0798FA00DD29BB /* SecondaryTitleLabel.swift in Sources */,
 				8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */,
+				8342F7182B0798D900DD29BB /* UIColor+Ext.swift in Sources */,
+				8342F7292B079A4F00DD29BB /* CustomStackView.swift in Sources */,
 				8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */,
 				8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */,
 				8342F7062B0795B200DD29BB /* HomeVC.swift in Sources */,
+				8342F7232B07990A00DD29BB /* MusicButton.swift in Sources */,
+				8342F7262B07997200DD29BB /* MovieDataLoadingVC.swift in Sources */,
+				8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */,
+				8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */,
+				8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */,
+				8342F7202B0798FA00DD29BB /* BodyLabel.swift in Sources */,
 				8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */,
+				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
