@@ -1,9 +1,10 @@
 //
 //  UIViewController+Ext.swift
-//  Music
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 9.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
 
 import UIKit.UIViewController
 
@@ -30,7 +31,7 @@ extension UIViewController {
     // MARK: - Loading Indicator
     // Shows a loading indicator view on top of the current view controller.
     func showLoading() {
-        let loadingViewController = MovieDataLoadingVC()
+        let loadingViewController = CustomLoadingVC()
         loadingViewController.showLoadingView()
         loadingViewController.modalPresentationStyle  = .overFullScreen
         loadingViewController.modalTransitionStyle    = .crossDissolve

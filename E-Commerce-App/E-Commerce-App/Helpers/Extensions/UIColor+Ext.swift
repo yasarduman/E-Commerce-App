@@ -1,9 +1,10 @@
 //
 //  UIColor+Ext.swift
-//  Movie-App
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 2.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
 
 import UIKit.UIColor
 

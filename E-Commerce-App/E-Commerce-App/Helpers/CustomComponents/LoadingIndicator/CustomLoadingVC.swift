@@ -1,15 +1,16 @@
 //
-//  MovieDataLoadingVCswift
-//  Movie-App
+//  CustomLoadingVC.swift
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 30.10.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
 
 import UIKit
 
-class MovieDataLoadingVC: UIViewController {
+final class CustomLoadingVC: UIViewController {
     // MARK: - Properties
-    var containerView: UIView!
+    private var containerView: UIView!
     
     // MARK: - Loading View Methods
     func showLoadingView() {
@@ -29,6 +30,7 @@ class MovieDataLoadingVC: UIViewController {
         activityIndicator.startAnimating()
     }
     
+    // MARK: - Dismiss Loading View Methods
     func dismissLoadingView() {
         DispatchQueue.main.async {
             self.containerView.removeFromSuperview()

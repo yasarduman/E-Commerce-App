@@ -12,6 +12,7 @@ final class MainTabBarController : UITabBarController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
         // Tab bar arka plan rengi
         tabBar.backgroundColor = .tertiarySystemBackground
@@ -21,7 +22,7 @@ final class MainTabBarController : UITabBarController {
 
         // Seçilmeyen öğelerin rengi
         tabBar.unselectedItemTintColor = .systemGray
-        
+       
         viewControllers = [
             createHomeNC(),
             createSearchNC(),

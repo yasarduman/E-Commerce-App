@@ -1,15 +1,14 @@
 //
 //  AlertVC.swift
-//  Music
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 9.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
 
 
 import UIKit
 
-class AlertVC: UIViewController {
-    
+final class AlertVC: UIViewController {
     // MARK: - Properties
     var alertTitle: String?
     var message: String?
@@ -18,9 +17,9 @@ class AlertVC: UIViewController {
     
     //MARK: - UI Elements
     lazy var containerView  = AlertContainerView()
-    lazy var titleLabel     = TitleLabel(textAlignment: .center, fontSize: 20)
-    lazy var messageLabel   = BodyLabel(textAlignment: .center)
-    lazy var actionButton   = MusicButton(bgColor: .systemPink, color: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
+    lazy var titleLabel     = TitleLabel( fontSize: 20, textAlignment: .center,lineBreakMode: .byTruncatingTail)
+    lazy var messageLabel   = SecondaryTitleLabel(fontSize:17 ,textAlignment: .center,lineBreakMode: .byWordWrapping)
+    lazy var actionButton   = CustomButton(bgColor: .systemPink, color: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
     
     
     //MARK: - Initializers
@@ -41,20 +40,24 @@ class AlertVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         view.addSubviewsExt(containerView, titleLabel, actionButton, messageLabel)
-        configureContainerView()
-        configureTitleLabel()  
-        configureActionButton()
-        configureMessageLabel()
+        configureUI()
     }
     
     
     // MARK: - UI Configuration
-    func configureContainerView() {
+    private func configureUI() {
+           configureContainerView()
+           configureTitleLabel()
+           configureMessageLabel()
+           configureActionButton()
+    }
+    
+    private func configureContainerView() {
         containerView.centerInSuperview()
         containerView.anchor(size: .init(width: 280, height: 220))
     }
     
-    func configureTitleLabel() {
+    private func configureTitleLabel() {
         titleLabel.text = alertTitle ?? "Something went wrong"
         
         titleLabel.anchor(top: containerView.topAnchor,
@@ -64,7 +67,7 @@ class AlertVC: UIViewController {
                           size: .init(width: 0, height: 28))
     }
     
-    func configureMessageLabel(){
+    private func configureMessageLabel(){
         messageLabel.text           = message ?? "Unable to complete request"
         messageLabel.numberOfLines  = 4
         
@@ -76,7 +79,7 @@ class AlertVC: UIViewController {
       
     }
     
-    func configureActionButton() {
+    private func configureActionButton() {
         actionButton.setTitle(buttonTitle ?? "Ok", for: .normal)
         actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         
@@ -89,7 +92,7 @@ class AlertVC: UIViewController {
     }
     
     // MARK: - Actions
-    @objc func dismissVC() {
+    @objc private func dismissVC() {
         dismiss(animated: true)
     }
 }

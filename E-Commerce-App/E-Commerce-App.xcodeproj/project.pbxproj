@@ -23,12 +23,14 @@
 		8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7162B0798D900DD29BB /* UIView+Ext.swift */; };
 		8342F71E2B0798FA00DD29BB /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */; };
 		8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F71C2B0798FA00DD29BB /* TitleLabel.swift */; };
-		8342F7202B0798FA00DD29BB /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F71D2B0798FA00DD29BB /* BodyLabel.swift */; };
-		8342F7232B07990A00DD29BB /* MusicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7222B07990A00DD29BB /* MusicButton.swift */; };
-		8342F7262B07997200DD29BB /* MovieDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7252B07997200DD29BB /* MovieDataLoadingVC.swift */; };
+		8342F7232B07990A00DD29BB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7222B07990A00DD29BB /* CustomButton.swift */; };
+		8342F7262B07997200DD29BB /* CustomLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7252B07997200DD29BB /* CustomLoadingVC.swift */; };
 		8342F7292B079A4F00DD29BB /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7282B079A4F00DD29BB /* CustomStackView.swift */; };
 		8342F72E2B07A4C700DD29BB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F72D2B07A4C700DD29BB /* NetworkManager.swift */; };
 		8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F72F2B07BC7600DD29BB /* AlamofireService.swift */; };
+		8342F7332B07BD7A00DD29BB /* CustomCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7322B07BD7A00DD29BB /* CustomCollection.swift */; };
+		8342F7362B07BDCC00DD29BB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7352B07BDCC00DD29BB /* CustomImageView.swift */; };
+		8342F7382B07DE7000DD29BB /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7372B07DE7000DD29BB /* UIStackView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,12 +52,14 @@
 		8342F7162B0798D900DD29BB /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		8342F71C2B0798FA00DD29BB /* TitleLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		8342F71D2B0798FA00DD29BB /* BodyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
-		8342F7222B07990A00DD29BB /* MusicButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicButton.swift; sourceTree = "<group>"; };
-		8342F7252B07997200DD29BB /* MovieDataLoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDataLoadingVC.swift; sourceTree = "<group>"; };
+		8342F7222B07990A00DD29BB /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		8342F7252B07997200DD29BB /* CustomLoadingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLoadingVC.swift; sourceTree = "<group>"; };
 		8342F7282B079A4F00DD29BB /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		8342F72D2B07A4C700DD29BB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8342F72F2B07BC7600DD29BB /* AlamofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
+		8342F7322B07BD7A00DD29BB /* CustomCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollection.swift; sourceTree = "<group>"; };
+		8342F7352B07BDCC00DD29BB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		8342F7372B07DE7000DD29BB /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 		8342F6FA2B07938000DD29BB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				8342F7342B07BDB100DD29BB /* ImageViews */,
+				8342F7312B07BD5800DD29BB /* CollectionViews */,
 				8342F7272B079A1F00DD29BB /* StackViews */,
 				8342F7242B07994000DD29BB /* LoadingIndicator */,
 				8342F7212B07990100DD29BB /* Button */,
@@ -138,6 +144,7 @@
 				8342F7152B0798D900DD29BB /* UIColor+Ext.swift */,
 				8342F7162B0798D900DD29BB /* UIView+Ext.swift */,
 				8342F7142B0798D900DD29BB /* UIViewController+Ext.swift */,
+				8342F7372B07DE7000DD29BB /* UIStackView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -203,9 +210,8 @@
 		8342F71A2B0798F100DD29BB /* Label */ = {
 			isa = PBXGroup;
 			children = (
-				8342F71D2B0798FA00DD29BB /* BodyLabel.swift */,
-				8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */,
 				8342F71C2B0798FA00DD29BB /* TitleLabel.swift */,
+				8342F71B2B0798FA00DD29BB /* SecondaryTitleLabel.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -213,7 +219,7 @@
 		8342F7212B07990100DD29BB /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				8342F7222B07990A00DD29BB /* MusicButton.swift */,
+				8342F7222B07990A00DD29BB /* CustomButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -221,7 +227,7 @@
 		8342F7242B07994000DD29BB /* LoadingIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				8342F7252B07997200DD29BB /* MovieDataLoadingVC.swift */,
+				8342F7252B07997200DD29BB /* CustomLoadingVC.swift */,
 			);
 			path = LoadingIndicator;
 			sourceTree = "<group>";
@@ -257,6 +263,22 @@
 				8342F72F2B07BC7600DD29BB /* AlamofireService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8342F7312B07BD5800DD29BB /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				8342F7322B07BD7A00DD29BB /* CustomCollection.swift */,
+			);
+			path = CollectionViews;
+			sourceTree = "<group>";
+		};
+		8342F7342B07BDB100DD29BB /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				8342F7352B07BDCC00DD29BB /* CustomImageView.swift */,
+			);
+			path = ImageViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -336,16 +358,18 @@
 				8342F71E2B0798FA00DD29BB /* SecondaryTitleLabel.swift in Sources */,
 				8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */,
 				8342F7182B0798D900DD29BB /* UIColor+Ext.swift in Sources */,
+				8342F7382B07DE7000DD29BB /* UIStackView+Ext.swift in Sources */,
+				8342F7362B07BDCC00DD29BB /* CustomImageView.swift in Sources */,
 				8342F7292B079A4F00DD29BB /* CustomStackView.swift in Sources */,
 				8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */,
 				8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */,
 				8342F7062B0795B200DD29BB /* HomeVC.swift in Sources */,
-				8342F7232B07990A00DD29BB /* MusicButton.swift in Sources */,
-				8342F7262B07997200DD29BB /* MovieDataLoadingVC.swift in Sources */,
+				8342F7232B07990A00DD29BB /* CustomButton.swift in Sources */,
+				8342F7262B07997200DD29BB /* CustomLoadingVC.swift in Sources */,
 				8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */,
+				8342F7332B07BD7A00DD29BB /* CustomCollection.swift in Sources */,
 				8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */,
 				8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */,
-				8342F7202B0798FA00DD29BB /* BodyLabel.swift in Sources */,
 				8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */,
 				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,

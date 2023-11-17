@@ -1,14 +1,14 @@
 //
 //  AlertContainerView.swift
-//  Music
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 9.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
 
 
 import UIKit
 
-class AlertContainerView: UIView {
+final class AlertContainerView: UIView {
     
     //MARK: - Initializers
     override init(frame: CGRect) {

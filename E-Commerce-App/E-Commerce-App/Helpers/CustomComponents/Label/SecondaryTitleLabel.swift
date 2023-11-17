@@ -1,13 +1,15 @@
 //
 //  SecondaryTitleLabel.swift
-//  Music
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 9.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
+
 
 import UIKit
 
-class SecondaryTitleLabel: UILabel {
+final class SecondaryTitleLabel: UILabel {
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -19,19 +21,20 @@ class SecondaryTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(fontSize: CGFloat) {
+    // MARK: - Convenience Initializer
+    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, lineBreakMode: NSLineBreakMode) {
         self.init(frame: .zero)
-        font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
+        self.textAlignment = textAlignment
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.lineBreakMode = lineBreakMode
     }
     
     //MARK: - Configuration Methods
     private func configureUI() {
         textColor                                 = .secondaryLabel
-        adjustsFontForContentSizeCategory         = true
-        adjustsFontSizeToFitWidth                 = true
-        minimumScaleFactor                        = 0.90
-        lineBreakMode                             = .byTruncatingTail
+        adjustsFontForContentSizeCategory         = true // İçerik boyutu kategorisine göre yazı fontunu ayarlar.
+        adjustsFontSizeToFitWidth                 = true // Yazının genişliğine sığdırılmasını sağlar.
+        minimumScaleFactor                        = 0.9  // Eğer yazı sığdırılamazsa en küçük ölçek faktörü.
         translatesAutoresizingMaskIntoConstraints = false
     }
-    
 }

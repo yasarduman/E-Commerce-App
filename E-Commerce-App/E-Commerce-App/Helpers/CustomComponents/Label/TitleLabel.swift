@@ -1,12 +1,14 @@
 //
 //  TitleLabel.swift
-//  Music
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 9.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
+
 import UIKit
 
-class TitleLabel: UILabel {
+final class TitleLabel: UILabel {
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -18,18 +20,20 @@ class TitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+    // MARK: - Convenience Initializer
+    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, lineBreakMode: NSLineBreakMode) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.lineBreakMode = lineBreakMode
     }
     
     //MARK: - Configuration Methods
     private func configureUI() {
         textColor                                 = .label
-        adjustsFontSizeToFitWidth                 = true
-        minimumScaleFactor                        = 0.9
-        lineBreakMode                             = .byTruncatingTail
+        adjustsFontSizeToFitWidth                 = true // Yazının genişliğine sığdırılmasını sağlar.
+        minimumScaleFactor                        = 0.9 // Eğer yazı sığdırılamazsa en küçük ölçek faktörü
+    
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

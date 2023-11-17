@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CartVC: UIViewController {
+final class CartVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
