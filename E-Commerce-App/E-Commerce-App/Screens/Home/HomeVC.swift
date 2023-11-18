@@ -29,6 +29,7 @@ final class HomeVC: UIViewController {
     private func collectionCellRegister() {
         homeView.specialProductsCollection.register(SpecialCollectionCell.self, forCellWithReuseIdentifier: SpecialCollectionCell.identifier)
         homeView.categoryCollection.register(CategoryCollectionCell.self, forCellWithReuseIdentifier: CategoryCollectionCell.identifier)
+        homeView.productCollection.register(ProductCollectionCell.self, forCellWithReuseIdentifier: ProductCollectionCell.identifier)
     }
     
     //MARK: - Setup Delegates
@@ -38,6 +39,9 @@ final class HomeVC: UIViewController {
         
         homeView.categoryCollection.dataSource = self
         homeView.categoryCollection.delegate = self
+        
+        homeView.productCollection.dataSource = self
+        homeView.productCollection.delegate = self
     }
 }
 
@@ -49,6 +53,8 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
             return 5
         case homeView.categoryCollection:
             return CategoryMockData.categories.count
+        case homeView.productCollection:
+            return 6
             
         default:
             return 0
@@ -61,17 +67,22 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
             guard let cell = homeView.specialProductsCollection.dequeueReusableCell(withReuseIdentifier: SpecialCollectionCell.identifier, for: indexPath) as? SpecialCollectionCell else {
                 return UICollectionViewCell()
             }
-            
             cell.specialTitleLabel.text = "DenemeTitle"
             cell.specialDetailLabel.text = "DEtail Deneme sadsa das dasdas"
             
             return cell
+            
         case homeView.categoryCollection:
             guard let cell = homeView.categoryCollection.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as? CategoryCollectionCell else {
                 return UICollectionViewCell()
             }
             cell.categoryImage.image = UIImage(named: CategoryMockData.categories[indexPath.row].imageName)
             cell.categoryName.text = CategoryMockData.categories[indexPath.row].name
+            return cell
+        case homeView.productCollection:
+            guard let cell = homeView.productCollection.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.identifier, for: indexPath) as? ProductCollectionCell else {
+                return UICollectionViewCell()
+            }
             return cell
         default:
             return UICollectionViewCell()
@@ -84,6 +95,9 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
             return CGSize(width: homeView.specialProductsCollection.frame.width , height: homeView.specialProductsCollection.frame.height)
         case homeView.categoryCollection:
             return CGSize(width: homeView.categoryCollection.frame.height, height: homeView.categoryCollection.frame.height)
+        case homeView.productCollection:
+            return CGSize(width: homeView.productCollection.frame.width / 2 - 10, height: homeView.productCollection.frame.width / 2)
+            
         default:
             return CGSize(width: 20, height: 20)
         }

@@ -30,6 +30,7 @@ final class HomeView: UIView {
     
     lazy var categoryCollection = CustomCollection(showsScrollIndicator: false, paging: false, layout: UICollectionViewFlowLayout(), scrollDirection: .horizontal)
     
+    lazy var productCollection = CustomCollection(showsScrollIndicator: false, paging: false, layout: UICollectionViewFlowLayout(), scrollDirection: .vertical)
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -43,15 +44,16 @@ final class HomeView: UIView {
     
     
     // MARK: - UI Configuration
-    
     private func configureUI() {
         backgroundColor = .secondarySystemBackground
-        addSubviewsExt(specialProductsTitle,specialProductsCollection,pageControl,categoriesTitle,categoryCollection)
+        addSubviewsExt(specialProductsTitle, specialProductsCollection, pageControl, categoriesTitle, categoryCollection, productCollection)
+        
         configureSpecialProductsTitle()
         configureSpecialProductsCollection()
         configurePageControl()
         configureCategoriesTitle()
         configureCategoryCollection()
+        configureProductCollection()
     }
     
     private func configureSpecialProductsTitle() {
@@ -86,12 +88,21 @@ final class HomeView: UIView {
                                trailing: trailingAnchor,
                                padding: .init(top: 10, leading: 10))
     }
+    
     private func configureCategoryCollection() {
         categoryCollection.anchor(top: categoriesTitle.bottomAnchor,
                                   leading: leadingAnchor,
                                   trailing: trailingAnchor,
                                   padding: .init(top: 10),
                                   size: .init(heightSize: 90))
+    }
+    
+    private func configureProductCollection() {
+        productCollection.anchor(top: categoryCollection.bottomAnchor,
+                                 leading: leadingAnchor,
+                                 bottom: safeAreaLayoutGuide.bottomAnchor,
+                                 trailing: trailingAnchor,
+                                 padding: .init(top: 10, leading: 10, trailing: 10))
     }
     
     

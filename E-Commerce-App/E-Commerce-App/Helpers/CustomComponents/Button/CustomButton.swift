@@ -25,9 +25,9 @@ final class CustomButton: UIButton {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(bgColor: UIColor, color: UIColor, title: String, fontSize: Int = 18, fontWeight: FontWeight = .semibold, systemImageName: String? = nil, cornerStyle: UIButton.Configuration.CornerStyle? = .medium) {
+    convenience init(bgColor: UIColor, color: UIColor, title: String, fontSize: Int = 18, fontWeight: FontWeight = .semibold, systemImageName: String? = nil, pointSize: CGFloat? = 15 , cornerStyle: UIButton.Configuration.CornerStyle? = .medium) {
         self.init(frame: .zero)
-        set(bgColor: bgColor, color: color, title: title, fontSize: fontSize, fontWeight: fontWeight, systemImageName: systemImageName, cornerStyle: cornerStyle)
+        set(bgColor: bgColor, color: color, title: title, fontSize: fontSize, fontWeight: fontWeight, systemImageName: systemImageName, pointSize: pointSize, cornerStyle: cornerStyle)
     }
     
     //MARK: - Configuration Methods
@@ -38,14 +38,14 @@ final class CustomButton: UIButton {
     }
     
     //MARK: - Helper Functions
-    private func set(bgColor: UIColor, color: UIColor, title: String, fontSize: Int, fontWeight: FontWeight, systemImageName: String?, cornerStyle: UIButton.Configuration.CornerStyle?) {
+    private func set(bgColor: UIColor, color: UIColor, title: String, fontSize: Int, fontWeight: FontWeight, systemImageName: String?, pointSize: CGFloat? = 15, cornerStyle: UIButton.Configuration.CornerStyle?) {
         configuration?.baseBackgroundColor = bgColor
         configuration?.baseForegroundColor = color
         configuration?.cornerStyle = cornerStyle ?? .medium
         configuration?.title = title
         
         if let imageName = systemImageName {
-            configuration?.image = UIImage(systemName: imageName)
+            configuration?.image = UIImage(systemName: imageName,withConfiguration: UIImage.SymbolConfiguration(pointSize: pointSize ?? 10))
             configuration?.imagePadding = 6
         }
         

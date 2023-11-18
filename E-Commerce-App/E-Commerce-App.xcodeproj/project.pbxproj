@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */; };
+		8315AFD62B092C83006FDA1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315AFD52B092C83006FDA1F /* CustomView.swift */; };
 		8342F6E62B07932700DD29BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F6E52B07932700DD29BB /* AppDelegate.swift */; };
 		8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F6E72B07932700DD29BB /* SceneDelegate.swift */; };
 		8342F6EF2B07932800DD29BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8342F6EE2B07932800DD29BB /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
+		8315AFD52B092C83006FDA1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		8342F6E22B07932700DD29BB /* E-Commerce-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8342F6E52B07932700DD29BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8342F6E72B07932700DD29BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8315AFD42B092C5F006FDA1F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8315AFD52B092C83006FDA1F /* CustomView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8342F6D92B07932700DD29BB = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 		8342F6FA2B07938000DD29BB /* CustomComponents */ = {
 			isa = PBXGroup;
 			children = (
+				8315AFD42B092C5F006FDA1F /* Views */,
 				8342F7342B07BDB100DD29BB /* ImageViews */,
 				8342F7312B07BD5800DD29BB /* CollectionViews */,
 				8342F7272B079A1F00DD29BB /* StackViews */,
@@ -318,6 +331,7 @@
 			children = (
 				8343AE142B08B7450075CA7D /* SpecialCollectionCell.swift */,
 				8343AE162B08F7680075CA7D /* CategoryCollectionCell.swift */,
+				8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -413,10 +427,12 @@
 				8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */,
 				8343AE152B08B7450075CA7D /* SpecialCollectionCell.swift in Sources */,
 				8343AE172B08F7680075CA7D /* CategoryCollectionCell.swift in Sources */,
+				8315AFD62B092C83006FDA1F /* CustomView.swift in Sources */,
 				8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */,
 				8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */,
 				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,
+				8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
