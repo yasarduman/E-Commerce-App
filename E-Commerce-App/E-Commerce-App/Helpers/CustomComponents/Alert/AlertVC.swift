@@ -18,9 +18,8 @@ final class AlertVC: UIViewController {
     //MARK: - UI Elements
     lazy var containerView  = AlertContainerView()
     lazy var titleLabel     = TitleLabel( fontSize: 20, textAlignment: .center,lineBreakMode: .byTruncatingTail)
-    lazy var messageLabel   = SecondaryTitleLabel(fontSize:17 ,textAlignment: .center,lineBreakMode: .byWordWrapping)
+    lazy var messageLabel   = SecondaryTitleLabel(fontSize: 17, textAlignment: .center, lineBreakMode: .byWordWrapping)
     lazy var actionButton   = CustomButton(bgColor: .systemPink, color: .systemPink, title: "Ok", systemImageName: "checkmark.circle")
-    
     
     //MARK: - Initializers
     init(title: String, message: String, buttonTitle: String) {
@@ -42,7 +41,6 @@ final class AlertVC: UIViewController {
         view.addSubviewsExt(containerView, titleLabel, actionButton, messageLabel)
         configureUI()
     }
-    
     
     // MARK: - UI Configuration
     private func configureUI() {
@@ -76,7 +74,6 @@ final class AlertVC: UIViewController {
                             bottom: actionButton.topAnchor,
                             trailing: containerView.trailingAnchor,
                             padding: .init(top: 8, left: 20, bottom: 12, right: 20))
-      
     }
     
     private func configureActionButton() {
@@ -88,7 +85,6 @@ final class AlertVC: UIViewController {
                             trailing: containerView.trailingAnchor,
                             padding: .init(top: 0, left: 20, bottom: 20, right: 20),
                             size: .init(width: 0, height: 44))
-      
     }
     
     // MARK: - Actions

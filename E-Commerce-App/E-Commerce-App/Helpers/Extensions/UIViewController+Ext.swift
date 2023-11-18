@@ -19,7 +19,7 @@ extension UIViewController {
     
     // Presents a default error alert with a standard message.
     func presentDefualtError() {
-        let alertVC = AlertVC(title: "Something Wnt Wrong !",
+        let alertVC = AlertVC(title: "Something Went Wrong !",
                               message: "We were unable to complete your task at this time . Please try again.",
                               buttonTitle: "Ok")
         alertVC.modalPresentationStyle  = .overFullScreen
