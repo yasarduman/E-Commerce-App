@@ -31,6 +31,9 @@
 		8342F7332B07BD7A00DD29BB /* CustomCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7322B07BD7A00DD29BB /* CustomCollection.swift */; };
 		8342F7362B07BDCC00DD29BB /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7352B07BDCC00DD29BB /* CustomImageView.swift */; };
 		8342F7382B07DE7000DD29BB /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F7372B07DE7000DD29BB /* UIStackView+Ext.swift */; };
+		8343AE102B08B3EB0075CA7D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343AE0F2B08B3EB0075CA7D /* HomeView.swift */; };
+		8343AE152B08B7450075CA7D /* SpecialCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343AE142B08B7450075CA7D /* SpecialCollectionCell.swift */; };
+		8343AE172B08F7680075CA7D /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343AE162B08F7680075CA7D /* CategoryCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		8342F7322B07BD7A00DD29BB /* CustomCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollection.swift; sourceTree = "<group>"; };
 		8342F7352B07BDCC00DD29BB /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		8342F7372B07DE7000DD29BB /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		8343AE0F2B08B3EB0075CA7D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8343AE142B08B7450075CA7D /* SpecialCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialCollectionCell.swift; sourceTree = "<group>"; };
+		8343AE162B08F7680075CA7D /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,9 @@
 		8342F7012B07944300DD29BB /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8343AE0C2B08A0E70075CA7D /* Model */,
+				8343AE0D2B08A0ED0075CA7D /* View */,
+				8343AE0E2B08A0F00075CA7D /* ViewModel */,
 				8342F7052B0795B200DD29BB /* HomeVC.swift */,
 			);
 			path = Home;
@@ -281,6 +290,38 @@
 			path = ImageViews;
 			sourceTree = "<group>";
 		};
+		8343AE0C2B08A0E70075CA7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8343AE0D2B08A0ED0075CA7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8343AE112B08B4100075CA7D /* Cells */,
+				8343AE0F2B08B3EB0075CA7D /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8343AE0E2B08A0F00075CA7D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8343AE112B08B4100075CA7D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8343AE142B08B7450075CA7D /* SpecialCollectionCell.swift */,
+				8343AE162B08F7680075CA7D /* CategoryCollectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +400,7 @@
 				8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */,
 				8342F7182B0798D900DD29BB /* UIColor+Ext.swift in Sources */,
 				8342F7382B07DE7000DD29BB /* UIStackView+Ext.swift in Sources */,
+				8343AE102B08B3EB0075CA7D /* HomeView.swift in Sources */,
 				8342F7362B07BDCC00DD29BB /* CustomImageView.swift in Sources */,
 				8342F7292B079A4F00DD29BB /* CustomStackView.swift in Sources */,
 				8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */,
@@ -369,6 +411,8 @@
 				8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */,
 				8342F7332B07BD7A00DD29BB /* CustomCollection.swift in Sources */,
 				8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */,
+				8343AE152B08B7450075CA7D /* SpecialCollectionCell.swift in Sources */,
+				8343AE172B08F7680075CA7D /* CategoryCollectionCell.swift in Sources */,
 				8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */,
 				8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */,
 				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,

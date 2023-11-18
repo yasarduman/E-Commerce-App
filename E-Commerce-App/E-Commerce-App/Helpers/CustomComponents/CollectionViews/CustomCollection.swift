@@ -20,10 +20,17 @@ final class CustomCollection: UICollectionView {
     }
 
     // MARK: - Convenience Initializer
-    convenience init(backgroundColor: UIColor? = nil, cornerRadius: CGFloat = 0, showsScrollIndicator: Bool = true, paging: Bool = false, layout: UICollectionViewFlowLayout) {
+    convenience init(backgroundColor: UIColor? = nil, cornerRadius: CGFloat = 0, showsScrollIndicator: Bool = true, paging: Bool = false, layout: UICollectionViewFlowLayout,scrollDirection: UICollectionView.ScrollDirection? = nil) {
         self.init(frame: .zero, collectionViewLayout: layout)
         setupLayout(layout)
         set(backgroundColor: backgroundColor, cornerRadius: cornerRadius, showsScrollIndicator: showsScrollIndicator, paging: paging)
+        
+        if let scrollDirection = scrollDirection {
+            layout.scrollDirection = scrollDirection
+        }
+        
+        layout.minimumLineSpacing = 0
+      
     }
 
     // MARK: - Configuration

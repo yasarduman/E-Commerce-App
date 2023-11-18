@@ -11,6 +11,10 @@ import UIKit
 
 final class SecondaryTitleLabel: UILabel {
     
+    enum FontWeight {
+        case regular, semibold, bold
+    }
+    
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,11 +26,11 @@ final class SecondaryTitleLabel: UILabel {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, lineBreakMode: NSLineBreakMode) {
+    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .semibold, lineBreakMode: NSLineBreakMode? = nil) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
-        self.lineBreakMode = lineBreakMode
+        self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWightToUIFontWeight(weight: fontWeight))
+        self.lineBreakMode = lineBreakMode ?? .byTruncatingTail
     }
     
     //MARK: - Configuration Methods
@@ -36,5 +40,16 @@ final class SecondaryTitleLabel: UILabel {
         adjustsFontSizeToFitWidth                 = true // Yazının genişliğine sığdırılmasını sağlar.
         minimumScaleFactor                        = 0.9  // Eğer yazı sığdırılamazsa en küçük ölçek faktörü.
         translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func fontWightToUIFontWeight(weight: FontWeight) -> UIFont.Weight {
+        switch weight {
+        case .regular:
+            return .regular
+        case .semibold:
+            return .semibold
+        case .bold:
+            return .bold
+        }
     }
 }
