@@ -25,7 +25,7 @@ final class CustomButton: UIButton {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(bgColor: UIColor, color: UIColor, title: String, fontSize: Int = 18, fontWeight: FontWeight = .semibold, systemImageName: String? = nil, pointSize: CGFloat? = 15 , cornerStyle: UIButton.Configuration.CornerStyle? = .medium) {
+    convenience init(bgColor: UIColor, color: UIColor, title: String = "", fontSize: Int = 18, fontWeight: FontWeight = .semibold, systemImageName: String? = nil, pointSize: CGFloat? = 15 , cornerStyle: UIButton.Configuration.CornerStyle? = .medium) {
         self.init(frame: .zero)
         set(bgColor: bgColor, color: color, title: title, fontSize: fontSize, fontWeight: fontWeight, systemImageName: systemImageName, pointSize: pointSize, cornerStyle: cornerStyle)
     }

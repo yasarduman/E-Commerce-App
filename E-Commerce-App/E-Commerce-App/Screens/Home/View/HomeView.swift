@@ -13,23 +13,18 @@ final class HomeView: UIView {
 
     //MARK: - UI Elements
     private let specialProductsTitle = TitleLabel(fontSize: 22, textAlignment: .left, lineBreakMode: .byTruncatingTail)
-    
-    lazy var specialProductsCollection = CustomCollection(backgroundColor: .tertiarySystemBackground, cornerRadius: 30, showsScrollIndicator: false, paging: true ,layout: UICollectionViewFlowLayout(), scrollDirection: .horizontal)
-   
+    lazy var specialProductsCollection = CustomCollection(backgroundColor: .white, cornerRadius: 30, showsScrollIndicator: false, paging: true ,layout: UICollectionViewFlowLayout(), scrollDirection: .horizontal)
     lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
-        pageControl.numberOfPages = 5
+        pageControl.numberOfPages = 0
         pageControl.currentPage = 0
         pageControl.tintColor = .red
         pageControl.pageIndicatorTintColor = .gray
         pageControl.currentPageIndicatorTintColor = .purple
         return pageControl
     }()
-   
     private let categoriesTitle = TitleLabel(fontSize: 22, textAlignment: .left, lineBreakMode: .byTruncatingTail)
-    
     lazy var categoryCollection = CustomCollection(showsScrollIndicator: false, paging: false, layout: UICollectionViewFlowLayout(), scrollDirection: .horizontal)
-    
     lazy var productCollection = CustomCollection(showsScrollIndicator: false, paging: false, layout: UICollectionViewFlowLayout(), scrollDirection: .vertical)
     
     //MARK: - Initializers
@@ -61,7 +56,7 @@ final class HomeView: UIView {
         specialProductsTitle.anchor(top: safeAreaLayoutGuide.topAnchor,
                                     leading: leadingAnchor,
                                     trailing: trailingAnchor,
-                                    padding: .init(top: 20, leading: 10))
+                                    padding: .init(leading: 10))
     }
     
     private func configureSpecialProductsCollection() {
@@ -104,9 +99,6 @@ final class HomeView: UIView {
                                  trailing: trailingAnchor,
                                  padding: .init(top: 10, leading: 10, trailing: 10))
     }
-    
-    
-    
     
     
     // MARK: - @Actions

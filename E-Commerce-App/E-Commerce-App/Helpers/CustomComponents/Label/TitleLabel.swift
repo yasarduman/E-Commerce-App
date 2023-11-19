@@ -17,7 +17,6 @@ final class TitleLabel: UILabel {
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -25,21 +24,17 @@ final class TitleLabel: UILabel {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .bold, lineBreakMode: NSLineBreakMode? = nil) {
+    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .bold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWightToUIFontWeight(weight: fontWeight))
         self.lineBreakMode = lineBreakMode ?? .byTruncatingTail
-    }
-    
-    //MARK: - Configuration Methods
-    private func configureUI() {
-        textColor                                 = .label
-        adjustsFontSizeToFitWidth                 = true // Yazının genişliğine sığdırılmasını sağlar.
-        minimumScaleFactor                        = 0.9 // Eğer yazı sığdırılamazsa en küçük ölçek faktörü
-    
+        self.textColor = textColor
+        adjustsFontSizeToFitWidth = true
+        minimumScaleFactor = 0.9
         translatesAutoresizingMaskIntoConstraints = false
     }
+   
     
     private func fontWightToUIFontWeight(weight: FontWeight) -> UIFont.Weight {
         switch weight {
@@ -52,3 +47,5 @@ final class TitleLabel: UILabel {
         }
     }
 }
+
+

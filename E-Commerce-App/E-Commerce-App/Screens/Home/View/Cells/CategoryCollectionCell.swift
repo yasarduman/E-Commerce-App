@@ -40,6 +40,10 @@ final class CategoryCollectionCell: UICollectionViewCell {
         categoryVStack.anchor(size: .init(width: 80, height: 80))
     }
     
+    func configure(with data: Category ) {
+        categoryImage.image = data.image
+        categoryName.text = data.name
+    }
    
 }
 

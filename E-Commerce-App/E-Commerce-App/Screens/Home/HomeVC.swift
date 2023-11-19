@@ -7,17 +7,28 @@
 
 import UIKit
 
+protocol HomeVCInterface: AnyObject {
+    func configureViewController()
+    func specialProductReloadData()
+    func categoryCollectionReloadData()
+}
 
 final class HomeVC: UIViewController {
 
     //MARK: - Properties
     private let homeView = HomeView()
+    private let viewModel = HomeVM()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionCellRegister()
-        setupDelegates()
+        viewModel.view = self
+        viewModel.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
     }
     
     override func loadView() {
@@ -50,83 +61,113 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case homeView.specialProductsCollection:
-            return 5
+            return viewModel.specialProductsAll.count
         case homeView.categoryCollection:
-            return CategoryMockData.categories.count
+            return viewModel.categories.count
         case homeView.productCollection:
-            return 6
-            
+            return viewModel.productByCategory.count
         default:
             return 0
         }
     }
     
+    // MARK: - UICollectionView -> cellForItemAt
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case homeView.specialProductsCollection:
             guard let cell = homeView.specialProductsCollection.dequeueReusableCell(withReuseIdentifier: SpecialCollectionCell.identifier, for: indexPath) as? SpecialCollectionCell else {
                 return UICollectionViewCell()
             }
-            cell.specialTitleLabel.text = "DenemeTitle"
-            cell.specialDetailLabel.text = "DEtail Deneme sadsa das dasdas"
-            
+            let data = viewModel.specialProductsAll[indexPath.item]
+            cell.configure(with: data)
             return cell
             
         case homeView.categoryCollection:
             guard let cell = homeView.categoryCollection.dequeueReusableCell(withReuseIdentifier: CategoryCollectionCell.identifier, for: indexPath) as? CategoryCollectionCell else {
                 return UICollectionViewCell()
             }
-            cell.categoryImage.image = UIImage(named: CategoryMockData.categories[indexPath.row].imageName)
-            cell.categoryName.text = CategoryMockData.categories[indexPath.row].name
+            let data = viewModel.categories[indexPath.item]
+            cell.configure(with: data)
             return cell
+            
         case homeView.productCollection:
             guard let cell = homeView.productCollection.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.identifier, for: indexPath) as? ProductCollectionCell else {
                 return UICollectionViewCell()
             }
+            let data = viewModel.productByCategory[indexPath.item]
+            cell.configure(with: data)
             return cell
+            
         default:
             return UICollectionViewCell()
         }
     }
     
+    // MARK: - UICollectionViewLayout -> sizeForItemAt
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case homeView.specialProductsCollection:
             return CGSize(width: homeView.specialProductsCollection.frame.width , height: homeView.specialProductsCollection.frame.height)
+            
         case homeView.categoryCollection:
             return CGSize(width: homeView.categoryCollection.frame.height, height: homeView.categoryCollection.frame.height)
+            
         case homeView.productCollection:
-            return CGSize(width: homeView.productCollection.frame.width / 2 - 10, height: homeView.productCollection.frame.width / 2)
+            return CGSize(width: homeView.productCollection.frame.width / 2 - 10, height: (homeView.productCollection.frame.width / 2) - 20)
             
         default:
             return CGSize(width: 20, height: 20)
         }
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case homeView.specialProductsCollection:
+            print("specialProductsCollection")
+        case homeView.categoryCollection:
+            let category = viewModel.categories[indexPath.row]
+            if category.rawValue == Category.allCases[0].rawValue {
+                viewModel.fetchProductByCategoryAll()
+            } else {
+                viewModel.fetchProductByCategory(category.rawValue)
+            }
+        case homeView.productCollection:
+            print("productCollection")
+        default:
+            return
+        }
+    }
 }
 
 // MARK: - UIScrollViewDelegate
 extension HomeVC: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
-        homeView.pageControl.currentPage = currentPage
+        switch scrollView{
+        case homeView.specialProductsCollection:
+            let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+            homeView.pageControl.currentPage = currentPage
+        default:
+            return
+        }
     }
 }
 
-struct Category {
-    let imageName: String
-    let name: String
+//MARK: - HomeViewInterface
+extension HomeVC: HomeVCInterface {
+    
+    func configureViewController() {
+        collectionCellRegister()
+        setupDelegates()
+    }
+    
+    func specialProductReloadData() {
+        homeView.specialProductsCollection.reloadData()
+        homeView.pageControl.numberOfPages = viewModel.specialProductsAll.count
+    }
+    
+    func categoryCollectionReloadData() {
+        homeView.categoryCollection.reloadData()
+        homeView.productCollection.reloadData()
+    }
 }
 
-struct CategoryMockData {
-    static let categories: [Category] = [
-            Category(imageName: "allCategories", name: "All"),
-            Category(imageName: "men", name: "men"),
-            Category(imageName: "women", name: "women"),
-            Category(imageName: "headset", name: "electironics"),
-            Category(imageName: "jewelery", name: "jewelery")
-           
-        
-    ]
-}

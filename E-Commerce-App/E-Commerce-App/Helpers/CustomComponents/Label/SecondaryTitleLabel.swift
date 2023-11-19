@@ -26,16 +26,16 @@ final class SecondaryTitleLabel: UILabel {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .semibold, lineBreakMode: NSLineBreakMode? = nil) {
+    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .semibold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label) {
         self.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWightToUIFontWeight(weight: fontWeight))
         self.lineBreakMode = lineBreakMode ?? .byTruncatingTail
+        self.textColor = textColor
     }
     
     //MARK: - Configuration Methods
     private func configureUI() {
-        textColor                                 = .secondaryLabel
         adjustsFontForContentSizeCategory         = true // İçerik boyutu kategorisine göre yazı fontunu ayarlar.
         adjustsFontSizeToFitWidth                 = true // Yazının genişliğine sığdırılmasını sağlar.
         minimumScaleFactor                        = 0.9  // Eğer yazı sığdırılamazsa en küçük ölçek faktörü.
