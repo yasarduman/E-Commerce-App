@@ -20,6 +20,8 @@ final class SpecialCollectionCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
+        layer.cornerRadius = 30 
         configureUI()
     }
     
@@ -33,6 +35,9 @@ final class SpecialCollectionCell: UICollectionViewCell {
         
         configureSpecialImage()
         configureSpecialLabelVStack()
+        // TODO: - Burayı işin bitince sill mocData
+        self.specialTitleLabel.text = "Deneme Special"
+        self.specialDetailLabel.text = "Deneme Special"
     }
     
     private func configureSpecialImage() {

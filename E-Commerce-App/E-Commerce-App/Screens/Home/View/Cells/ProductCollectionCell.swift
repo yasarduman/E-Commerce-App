@@ -7,10 +7,21 @@
 
 import UIKit
 
+protocol ProductCollectionCellDelegate: AnyObject {
+    func toggleFavoriteStatus(of product: Product)
+}
+
+
 final class ProductCollectionCell: UICollectionViewCell {
     
     //MARK: - Cell's Identifier
     static let identifier = "ProductCollectionCell"
+    
+    //MARK: - Properties
+    private var product: Product?
+    
+    weak var delegate: ProductCollectionCellDelegate?
+    lazy var isFavorite: Bool = false
     
     //MARK: - UI Elements
     private lazy var infoSeperatorView = CustomView(backgroundColor: UIColor.ProductCollectionSeperatorBG, cornerRadius: 10)
@@ -27,6 +38,7 @@ final class ProductCollectionCell: UICollectionViewCell {
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
+   
         configureUI()
     }
     
@@ -70,6 +82,7 @@ final class ProductCollectionCell: UICollectionViewCell {
                                      trailing: imageContainerView.trailingAnchor,
                                      padding: .init(top: 4, trailing: 4),
                                      size: .init(width: 25, height: 25))
+        productFavoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
     }
     
     private func configureProductInfoHStackView() {
@@ -89,7 +102,16 @@ final class ProductCollectionCell: UICollectionViewCell {
         priceLabel.textColor = .black
     }
     
+    //MARK: - CongifureCell
     func configure(with data: Product){
+        self.product = data
+//        if isFavorite {
+//            productFavoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+//        } else {
+//            productFavoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+//        }
+        
+        
         if let imageURL = data.image {
             productImageView.downloadSetImage(url: imageURL)
         }
@@ -100,4 +122,11 @@ final class ProductCollectionCell: UICollectionViewCell {
             priceLabel.text = "£" + String(productPrice)
         }
     }
+    
+    // MARK: - @Actions
+    @objc private func favoriteButtonTapped() {
+          guard let product = product else { return }
+          //self.isFavorite.toggle()
+        delegate?.toggleFavoriteStatus(of: product)
+      }
 }

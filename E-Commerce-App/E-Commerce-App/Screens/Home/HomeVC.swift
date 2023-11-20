@@ -22,6 +22,8 @@ final class HomeVC: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavBar()
+        homeView.delegate = self
         viewModel.view = self
         viewModel.viewDidLoad()
     }
@@ -30,9 +32,16 @@ final class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         viewModel.viewWillAppear()
     }
+ 
     
     override func loadView() {
         view = homeView
+    }
+    
+    //MARK: - Configure ViewController
+    private func configureNavBar() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .black
     }
  
     
@@ -45,6 +54,8 @@ final class HomeVC: UIViewController {
     
     //MARK: - Setup Delegates
     private func setupDelegates() {
+      
+        
         homeView.specialProductsCollection.dataSource = self
         homeView.specialProductsCollection.delegate = self
         
@@ -94,6 +105,7 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
             guard let cell = homeView.productCollection.dequeueReusableCell(withReuseIdentifier: ProductCollectionCell.identifier, for: indexPath) as? ProductCollectionCell else {
                 return UICollectionViewCell()
             }
+            cell.delegate = self
             let data = viewModel.productByCategory[indexPath.item]
             cell.configure(with: data)
             return cell
@@ -168,6 +180,20 @@ extension HomeVC: HomeVCInterface {
     func categoryCollectionReloadData() {
         homeView.categoryCollection.reloadData()
         homeView.productCollection.reloadData()
+    }
+}
+
+extension HomeVC: HomeViewProtocol {
+    func seeAllOfSpecialProducts() {
+        // TODO: - poduct detay sayafasına geçiş yapılacak
+        let vc = SpecialProductVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeVC: ProductCollectionCellDelegate {
+    func toggleFavoriteStatus(of product: Product) {
+        viewModel.toggleFavoriteStatus(for: product)
     }
 }
 

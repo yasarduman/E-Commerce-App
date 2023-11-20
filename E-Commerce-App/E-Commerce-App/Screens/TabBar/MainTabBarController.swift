@@ -22,7 +22,7 @@ final class MainTabBarController : UITabBarController {
 
         // Seçilmeyen öğelerin rengi
         tabBar.unselectedItemTintColor = .systemGray
-       
+
         viewControllers = [
             createHomeNC(),
             createSearchNC(),
@@ -37,9 +37,7 @@ final class MainTabBarController : UITabBarController {
         
         homeVC.tabBarItem = UITabBarItem(title: "Home",
                                          image: UIImage(systemName: "house"),
-                                         tag: 0)
-        
-        homeVC.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
+                                         selectedImage: UIImage(systemName: "house.fill"))
         
         return UINavigationController(rootViewController: homeVC)
     }
@@ -50,7 +48,7 @@ final class MainTabBarController : UITabBarController {
         
         searcVC.tabBarItem = UITabBarItem(title: "Search",
                                           image: UIImage(systemName: "magnifyingglass"),
-                                          tag: 1)
+                                          selectedImage: UIImage(systemName: "magnifyingglass"))
         
         return UINavigationController(rootViewController: searcVC)
     }
@@ -61,9 +59,7 @@ final class MainTabBarController : UITabBarController {
         
         cartVC.tabBarItem = UITabBarItem(title: "Cart",
                                          image: UIImage(systemName: "cart"),
-                                         tag: 2)
-        
-        cartVC.tabBarItem.selectedImage = UIImage(systemName: "cart.fill")
+                                         selectedImage: UIImage(systemName: "cart.fill"))
         
         return UINavigationController(rootViewController: cartVC)
     }
@@ -74,9 +70,7 @@ final class MainTabBarController : UITabBarController {
         
         profileVC.tabBarItem = UITabBarItem(title: "Profile",
                                             image: UIImage(systemName: "person"),
-                                            tag: 3)
-        
-        profileVC.tabBarItem.selectedImage = UIImage(systemName: "person.fill")
+                                            selectedImage: UIImage(systemName: "person.fill"))
         
         return UINavigationController(rootViewController: profileVC)
     }

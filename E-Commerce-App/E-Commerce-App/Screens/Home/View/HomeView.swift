@@ -8,12 +8,20 @@
 import UIKit
 
 
+protocol HomeViewProtocol: AnyObject {
+    func seeAllOfSpecialProducts()
+}
 
 final class HomeView: UIView {
-
+    
+    //MARK: - Properties
+    weak var delegate: HomeViewProtocol?
+    
     //MARK: - UI Elements
+    lazy var specialProductsHStack = CustomStackView(axis: .horizontal, distiribution: .fill)
     private let specialProductsTitle = TitleLabel(fontSize: 22, textAlignment: .left, lineBreakMode: .byTruncatingTail)
-    lazy var specialProductsCollection = CustomCollection(backgroundColor: .white, cornerRadius: 30, showsScrollIndicator: false, paging: true ,layout: UICollectionViewFlowLayout(), scrollDirection: .horizontal)
+    private let specialProductsSeeAllButton = CustomButton(bgColor: .clear, color: UIColor.label)
+    lazy var specialProductsCollection = CustomCollection(backgroundColor: .white, cornerRadius: 30, showsScrollIndicator: false, paging: true , scrollDirection: .horizontal)
     lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.numberOfPages = 0
@@ -24,13 +32,14 @@ final class HomeView: UIView {
         return pageControl
     }()
     private let categoriesTitle = TitleLabel(fontSize: 22, textAlignment: .left, lineBreakMode: .byTruncatingTail)
-    lazy var categoryCollection = CustomCollection(showsScrollIndicator: false, paging: false, layout: UICollectionViewFlowLayout(), scrollDirection: .horizontal)
-    lazy var productCollection = CustomCollection(showsScrollIndicator: false, paging: false, layout: UICollectionViewFlowLayout(), scrollDirection: .vertical)
+    lazy var categoryCollection = CustomCollection(showsScrollIndicator: false, paging: false, scrollDirection: .horizontal)
+    lazy var productCollection = CustomCollection(showsScrollIndicator: false, paging: false, scrollDirection: .vertical)
     
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
+       
     }
     
     required init?(coder: NSCoder) {
@@ -41,7 +50,7 @@ final class HomeView: UIView {
     // MARK: - UI Configuration
     private func configureUI() {
         backgroundColor = .secondarySystemBackground
-        addSubviewsExt(specialProductsTitle, specialProductsCollection, pageControl, categoriesTitle, categoryCollection, productCollection)
+        addSubviewsExt(specialProductsHStack, specialProductsCollection, pageControl, categoriesTitle, categoryCollection, productCollection)
         
         configureSpecialProductsTitle()
         configureSpecialProductsCollection()
@@ -52,11 +61,15 @@ final class HomeView: UIView {
     }
     
     private func configureSpecialProductsTitle() {
+        specialProductsHStack.addArrangedSubviewsExt(specialProductsTitle, UIView(), specialProductsSeeAllButton)
+        specialProductsSeeAllButton.setTitle("See All", for: .normal)
         specialProductsTitle.text = "Special Products"
-        specialProductsTitle.anchor(top: safeAreaLayoutGuide.topAnchor,
+        specialProductsHStack.anchor(top: safeAreaLayoutGuide.topAnchor,
                                     leading: leadingAnchor,
                                     trailing: trailingAnchor,
-                                    padding: .init(leading: 10))
+                                    padding: .init(leading: 10, trailing: 10))
+ 
+        specialProductsSeeAllButton.addTarget(self, action: #selector(seeAllButtonTapped), for: .touchUpInside)
     }
     
     private func configureSpecialProductsCollection() {
@@ -106,5 +119,9 @@ final class HomeView: UIView {
         let selectedPage = pageControl.currentPage
         let indexPath = IndexPath(item: selectedPage, section: 0)
         specialProductsCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    @objc func seeAllButtonTapped() {
+        self.delegate?.seeAllOfSpecialProducts()
     }
 }

@@ -62,6 +62,13 @@ final class HomeVM {
             print(error)
         }
     }
+    func toggleFavoriteStatus(for product: Product) {
+          // TODO: - isFavorite eklenecek Firebase ...
+        print("------->>>>>> DEBUG: Firebase Ekleme İşlemi yapıldı...")
+        dump(product)
+        
+        view?.categoryCollectionReloadData()
+      }
 }
 
 
