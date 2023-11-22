@@ -22,8 +22,6 @@ final class HomeVC: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavBar()
-        homeView.delegate = self
         viewModel.view = self
         viewModel.viewDidLoad()
     }
@@ -174,6 +172,8 @@ extension HomeVC: UIScrollViewDelegate {
 extension HomeVC: HomeVCInterface {
     
     func configureViewController() {
+        configureNavBar()
+        homeView.delegate = self
         collectionCellRegister()
         setupDelegates()
     }

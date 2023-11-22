@@ -19,7 +19,6 @@ final class ProductDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        productDetailView.delegate = self
         viewModel.view = self
         viewModel.viewDidLoad()
     }
@@ -52,7 +51,7 @@ final class ProductDetailVC: UIViewController {
 
 extension ProductDetailVC: ProductDetailVCInterface {
     func configureViewController() {
-        
+        productDetailView.delegate = self
     }
 }
 
