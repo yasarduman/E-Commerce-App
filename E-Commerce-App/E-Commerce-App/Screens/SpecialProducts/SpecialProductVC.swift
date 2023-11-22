@@ -11,7 +11,7 @@ protocol SpecialVCInterface: AnyObject {
     func configureViewController()
 }
 
-class SpecialProductVC: UIViewController {
+final class SpecialProductVC: UIViewController {
 
     //MARK: - Properties
     private let specialProductView = SpecialProductView()

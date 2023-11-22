@@ -41,7 +41,7 @@ final class HomeVC: UIViewController {
     //MARK: - Configure ViewController
     private func configureNavBar() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem?.tintColor = .black
+        navigationItem.backBarButtonItem?.tintColor = .label
     }
  
     
@@ -136,6 +136,8 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
         switch collectionView {
         case homeView.specialProductsCollection:
             print("specialProductsCollection")
+            let vc = ProductDetailVC()
+            navigationController?.pushViewController(vc, animated: true)
         case homeView.categoryCollection:
             let category = viewModel.categories[indexPath.row]
             if category.rawValue == Category.allCases[0].rawValue {

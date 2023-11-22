@@ -24,8 +24,10 @@ final class TitleLabel: UILabel {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .bold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label) {
+    convenience init(text:String? = nil ,fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .bold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label, numberOfLines: Int = 0) {
         self.init(frame: .zero)
+        self.text = text
+        self.numberOfLines = numberOfLines
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWightToUIFontWeight(weight: fontWeight))
         self.lineBreakMode = lineBreakMode ?? .byTruncatingTail

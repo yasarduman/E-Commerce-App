@@ -12,9 +12,9 @@ final class CategoryCollectionCell: UICollectionViewCell {
     static let identifier = "CategoryCollectionCell"
     
     //MARK: - UI Elements
-    lazy var categoryImage = CustomImageView(contentMode: .scaleAspectFit, cornerRadius: 30)
-    lazy var categoryName = TitleLabel(fontSize: 12, textAlignment: .center, fontWeight: .regular, lineBreakMode: .byWordWrapping)
-    lazy var categoryVStack = CustomStackView(axis: .vertical, alignment: .center,spacing: 8)
+    private lazy var categoryImage = CustomImageView(contentMode: .scaleAspectFit, cornerRadius: 30)
+    private lazy var categoryName = TitleLabel(fontSize: 12, textAlignment: .center, fontWeight: .regular, lineBreakMode: .byWordWrapping)
+    private lazy var categoryVStack = CustomStackView(axis: .vertical, alignment: .center,spacing: 8)
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)

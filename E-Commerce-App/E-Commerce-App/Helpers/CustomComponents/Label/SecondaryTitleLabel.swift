@@ -32,6 +32,7 @@ final class SecondaryTitleLabel: UILabel {
         self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWightToUIFontWeight(weight: fontWeight))
         self.lineBreakMode = lineBreakMode ?? .byTruncatingTail
         self.textColor = textColor
+        self.numberOfLines = 0
     }
     
     //MARK: - Configuration Methods

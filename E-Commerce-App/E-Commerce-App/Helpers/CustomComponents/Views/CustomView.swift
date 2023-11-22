@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomView: UIView {
+final class CustomView: UIView {
 
     //MARK: - Initializers
     override init(frame: CGRect) {

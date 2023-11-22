@@ -21,18 +21,18 @@ final class ProductCollectionCell: UICollectionViewCell {
     private var product: Product?
     
     weak var delegate: ProductCollectionCellDelegate?
-    lazy var isFavorite: Bool = false
+    private lazy var isFavorite: Bool = false
     
     //MARK: - UI Elements
     private lazy var infoSeperatorView = CustomView(backgroundColor: UIColor.ProductCollectionSeperatorBG, cornerRadius: 10)
     private lazy var imageContainerView = CustomView(backgroundColor: UIColor.white, cornerRadius: 10)
-    lazy var productImageView = CustomImageView(image: UIImage(named: "headset"), contentMode: .scaleAspectFit)
-    lazy var productFavoriteButton = CustomButton(bgColor: UIColor.ProductCollectionFavoriteButtonBG, color: UIColor.ProductCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 14,cornerStyle: .capsule)
+    private lazy var productImageView = CustomImageView(image: UIImage(named: "headset"), contentMode: .scaleAspectFit)
+    private lazy var productFavoriteButton = CustomButton(bgColor: UIColor.ProductCollectionFavoriteButtonBG, color: UIColor.ProductCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 14,cornerStyle: .capsule)
     private lazy var productInfoHStackView = CustomStackView(axis: .horizontal,alignment: .center)
     private lazy var productInfoVStackView = CustomStackView(axis: .vertical, alignment: .leading)
-    lazy var productInfoLabel = TitleLabel(fontSize: 12, textAlignment: .left, fontWeight: .regular)
-    lazy var priceLabel = TitleLabel(fontSize: 14, textAlignment: .left, fontWeight: .regular)
-    lazy var addToCartButton = CustomButton(bgColor: .clear, color: UIColor.ProductCollectionFavoriteButtonBG, systemImageName: "cart")
+    private lazy var productInfoLabel = TitleLabel(fontSize: 12, textAlignment: .left, fontWeight: .regular)
+    private lazy var priceLabel = TitleLabel(fontSize: 14, textAlignment: .left, fontWeight: .regular)
+    private lazy var addToCartButton = CustomButton(bgColor: .clear, color: UIColor.ProductCollectionFavoriteButtonBG, systemImageName: "cart")
   
     
     //MARK: - Initializers
