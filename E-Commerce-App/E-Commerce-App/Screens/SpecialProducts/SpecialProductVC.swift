@@ -31,7 +31,6 @@ final class SpecialProductVC: UIViewController {
     //MARK: - Configure NavBar
     private func configureNavBar() {
         title = "Special Products"
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .black
     }
     
@@ -39,6 +38,7 @@ final class SpecialProductVC: UIViewController {
     private func collectionCellRegister() {
         specialProductView.allProductCollection.register(SpecialCollectionCell.self, forCellWithReuseIdentifier: SpecialCollectionCell.identifier)
     }
+    
     //MARK: - Setup Delegates
     private func setupDelegates() {
         specialProductView.allProductCollection.delegate = self
@@ -57,6 +57,12 @@ extension SpecialProductVC: UICollectionViewDelegate, UICollectionViewDataSource
         }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = ProductDetailVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: specialProductView.allProductCollection.frame.width, height: specialProductView.allProductCollection.frame.width / 2 - 10)
@@ -79,6 +85,7 @@ extension SpecialProductVC: UICollectionViewDelegate, UICollectionViewDataSource
 
 extension SpecialProductVC: SpecialVCInterface {
     func configureViewController() {
+        
         configureNavBar()
         collectionCellRegister()
         setupDelegates()

@@ -17,6 +17,7 @@ final class SpecialCollectionCell: UICollectionViewCell {
     private lazy var specialTitleLabel = TitleLabel(fontSize: 15, textAlignment: .center, lineBreakMode: .byWordWrapping,textColor: .black)
     private lazy var specialHStack = CustomStackView(axis: .horizontal ,alignment: .center,distiribution: .fillEqually,spacing: 18)
     
+    //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
@@ -28,6 +29,7 @@ final class SpecialCollectionCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - UI Configuration
     private func configureUI() {
         addSubview(specialHStack)
         specialHStack.addArrangedSubviewsExt(specialTitleLabel, specialImage)

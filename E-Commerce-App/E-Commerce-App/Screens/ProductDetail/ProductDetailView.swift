@@ -7,8 +7,16 @@
 
 import UIKit
 
-final class ProductDetailView: UIView {
+protocol ProductDetailViewProtocol: AnyObject {
+    func addToFavorites()
+    func addProductToCart()
+}
 
+final class ProductDetailView: UIView {
+    
+    //MARK: - Properties
+    weak var delegate: ProductDetailViewProtocol?
+    
     //MARK: - UI Elements
     private lazy var productImage = CustomImageView(image: UIImage(named: "tekTas"),contentMode: .scaleAspectFit)
     private lazy var productTitle = TitleLabel(text: "Lorem Ipsum is simple",fontSize: 20, textAlignment: .left, lineBreakMode: .byTruncatingTail)
@@ -34,7 +42,7 @@ final class ProductDetailView: UIView {
     private lazy var seperatorView2 = CustomView(backgroundColor: .tertiaryLabel)
     private lazy var priceTitleAndButttonHStack = CustomStackView(axis: .horizontal, distiribution: .equalCentering, spacing: 5)
     private lazy var priceVStack = CustomStackView(axis: .vertical, alignment: .center, spacing: 5)
-    private lazy var priceTitle = TitleLabel(text: "Total Price", fontSize: 15, textAlignment: .center, fontWeight: .semibold)
+    private lazy var priceTitle = TitleLabel(text: "Price", fontSize: 15, textAlignment: .center, fontWeight: .semibold)
     private lazy var priceLabel = TitleLabel(text: "£18.65", fontSize: 22, textAlignment: .center)
     private lazy var addToCartButton = CustomButton(bgColor: UIColor.ProductCollectionFavoriteButtonBG, color: UIColor.ProductCollectionFavoriteButtonBG,title: "Add To Cart", systemImageName: "handbag",cornerStyle: .capsule)
     
@@ -65,15 +73,20 @@ final class ProductDetailView: UIView {
         productImage.anchor(top: safeAreaLayoutGuide.topAnchor,
                             leading: leadingAnchor,
                             trailing: trailingAnchor,
-                            size: .init(heightSize: 300))
+                            size: .init(heightSize: 230))
     }
     
     private func configureFavAndTitleHStack() {
         favAndTitleHStack.addArrangedSubviewsExt(productTitle, addToFavoritesButton)
+        
+        addToFavoritesButton.widthAnchor.constraint(equalTo: addToFavoritesButton.heightAnchor).isActive = true
+        
         favAndTitleHStack.anchor(top: productImage.bottomAnchor,
                                  leading: leadingAnchor,
                                  trailing: trailingAnchor,
                                  padding: .init(leading: 10,trailing: 10))
+        
+        addToFavoritesButton.addTarget(self, action: #selector(addToFavoritesTapped), for: .touchUpInside)
     }
     
     private func configureSeperator() {
@@ -122,6 +135,7 @@ final class ProductDetailView: UIView {
                                           bottom: safeAreaLayoutGuide.bottomAnchor,
                                           trailing: trailingAnchor,
                                           padding: .init(leading: 10,bottom: 10,trailing: 10))
+        addToCartButton.addTarget(self, action: #selector(addToCartTapped), for: .touchUpInside)
     }
     
     private func configureSeperatorView2() {
@@ -130,5 +144,14 @@ final class ProductDetailView: UIView {
                               trailing: trailingAnchor,
                               padding: .init(leading: 10,bottom: 10,trailing: 10),
                               size: .init(heightSize: 0.9))
+    }
+    
+    // MARK: - @Actions
+    @objc private func addToFavoritesTapped(){
+        self.delegate?.addToFavorites()
+    }
+    
+    @objc private func addToCartTapped(){
+        self.delegate?.addProductToCart()
     }
 }
