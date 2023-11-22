@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// TODO: - illerde kullanılmazsa kaldır !!
 protocol ProductDetailVCInterface: AnyObject {
     func configureViewController()
 }
@@ -33,6 +33,21 @@ final class ProductDetailVC: UIViewController {
         view = productDetailView
     }
     
+    func updateUI(with data: Product) {
+        
+        if let image = data.image {
+            productDetailView.productImage.downloadSetImage(url: image)            
+        }
+        productDetailView.productTitle.text = data.title
+        productDetailView.descriptionLabel.text = data.description
+        if let rating = data.rating {
+            productDetailView.salesAmountLabel.text = String(rating.count!) + " Sold"
+            productDetailView.ratingCountLabel.text = String(rating.rate!)
+        }
+        if let price = data.price {
+            productDetailView.priceLabel.text = "£" + String(price)
+        }
+    }
 }
 
 extension ProductDetailVC: ProductDetailVCInterface {

@@ -16,6 +16,8 @@ final class SpecialProductVC: UIViewController {
     //MARK: - Properties
     private let specialProductView = SpecialProductView()
     private let viewModel = SpecialProductVM()
+    var specialProducts: [Product] = []
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,10 @@ final class SpecialProductVC: UIViewController {
         specialProductView.allProductCollection.delegate = self
         specialProductView.allProductCollection.dataSource = self
     }
+    
+    func updateUI(with data: [Product]) {
+        specialProducts = data
+    }
 }
 
 extension SpecialProductVC: UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout{
@@ -55,11 +61,13 @@ extension SpecialProductVC: UICollectionViewDelegate, UICollectionViewDataSource
         guard let cell = specialProductView.allProductCollection.dequeueReusableCell(withReuseIdentifier: SpecialCollectionCell.identifier, for: indexPath) as? SpecialCollectionCell else {
             return UICollectionViewCell()
         }
+        cell.configure(with: specialProducts[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ProductDetailVC()
+        vc.updateUI(with: specialProducts[indexPath.item])
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -85,7 +93,6 @@ extension SpecialProductVC: UICollectionViewDelegate, UICollectionViewDataSource
 
 extension SpecialProductVC: SpecialVCInterface {
     func configureViewController() {
-        
         configureNavBar()
         collectionCellRegister()
         setupDelegates()

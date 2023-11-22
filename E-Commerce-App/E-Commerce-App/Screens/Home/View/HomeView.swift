@@ -18,7 +18,7 @@ final class HomeView: UIView {
     weak var delegate: HomeViewProtocol?
     
     //MARK: - UI Elements
-    lazy var specialProductsHStack = CustomStackView(axis: .horizontal, distiribution: .fill)
+    private lazy var specialProductsHStack = CustomStackView(axis: .horizontal, distiribution: .fill)
     private let specialProductsTitle = TitleLabel(fontSize: 22, textAlignment: .left, lineBreakMode: .byTruncatingTail)
     private let specialProductsSeeAllButton = CustomButton(bgColor: .clear, color: UIColor.label)
     lazy var specialProductsCollection = CustomCollection(backgroundColor: .white, cornerRadius: 30, showsScrollIndicator: false, paging: true , scrollDirection: .horizontal)

@@ -18,38 +18,38 @@ final class ProductDetailView: UIView {
     weak var delegate: ProductDetailViewProtocol?
     
     //MARK: - UI Elements
-    private lazy var productImage = CustomImageView(image: UIImage(named: "tekTas"),contentMode: .scaleAspectFit)
-    private lazy var productTitle = TitleLabel(text: "Lorem Ipsum is simple",fontSize: 20, textAlignment: .left, lineBreakMode: .byTruncatingTail)
+    lazy var productImage = CustomImageView(image: UIImage(named: "tekTas"),contentMode: .scaleAspectFit)
+    lazy var productTitle = TitleLabel(text: "Lorem Ipsum is simple",fontSize: 20, textAlignment: .left, lineBreakMode: .byTruncatingTail, numberOfLines: 1)
     private lazy var addToFavoritesButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 20,cornerStyle: .capsule)
     private lazy var favAndTitleHStack = CustomStackView(axis: .horizontal, distiribution: .fill, spacing: 6)
     private lazy var seperatorView = CustomView(backgroundColor: .tertiaryLabel)
-    private lazy var descriptionLabel : UITextView = {
+    lazy var descriptionLabel : UITextView = {
         let textView = UITextView()
         textView.isScrollEnabled = true
         textView.font = UIFont.systemFont(ofSize: 16)
-        textView.backgroundColor = .systemGray6
+        textView.backgroundColor = .systemBackground
         textView.isEditable = false
         textView.isSelectable = false
-        
         return textView
     }()
     private lazy var ratingHstack = CustomStackView(axis: .horizontal,distiribution: .equalCentering, spacing: 8)
-    private lazy var salesAmountView = CustomView(backgroundColor: .systemGray5, cornerRadius: 12)
-    private lazy var salesAmountLabel = TitleLabel(text: "320 sold", fontSize: 15, textAlignment: .center)
-    private lazy var ratingCountHstack = CustomStackView(axis: .horizontal,alignment: .center, spacing: 8)
+    private lazy var salesAmountView = CustomView(backgroundColor: .systemGray6, cornerRadius: 12)
+    lazy var salesAmountLabel = TitleLabel(text: "320 sold", fontSize: 15, textAlignment: .center)
+    private lazy var ratingCountHstack = CustomStackView(axis: .horizontal, alignment: .center, spacing: 8)
     private lazy var ratingCountImageView = CustomImageView(image: UIImage(systemName: "star.leadinghalf.filled"))
-    private lazy var ratingCountLabel = TitleLabel(text:"4.5",fontSize: 16, textAlignment: .left)
+    lazy var ratingCountLabel = TitleLabel(text:"4.5",fontSize: 16, textAlignment: .left)
     private lazy var seperatorView2 = CustomView(backgroundColor: .tertiaryLabel)
     private lazy var priceTitleAndButttonHStack = CustomStackView(axis: .horizontal, distiribution: .equalCentering, spacing: 5)
     private lazy var priceVStack = CustomStackView(axis: .vertical, alignment: .center, spacing: 5)
     private lazy var priceTitle = TitleLabel(text: "Price", fontSize: 15, textAlignment: .center, fontWeight: .semibold)
-    private lazy var priceLabel = TitleLabel(text: "£18.65", fontSize: 22, textAlignment: .center)
+    lazy var priceLabel = TitleLabel(text: "£18.65", fontSize: 22, textAlignment: .center)
     private lazy var addToCartButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG,title: "Add To Cart", systemImageName: "handbag",cornerStyle: .capsule)
     
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +58,7 @@ final class ProductDetailView: UIView {
 
     // MARK: - UI Configuration
     private func configureUI() {
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = .systemBackground
         addSubviewsExt(productImage ,favAndTitleHStack, seperatorView, ratingHstack, descriptionLabel, priceTitleAndButttonHStack, seperatorView2)
         configureProductImage()
         configureFavAndTitleHStack()
@@ -70,6 +70,7 @@ final class ProductDetailView: UIView {
     }
     
     private func configureProductImage() {
+        productImage.backgroundColor = .white
         productImage.anchor(top: safeAreaLayoutGuide.topAnchor,
                             leading: leadingAnchor,
                             trailing: trailingAnchor,

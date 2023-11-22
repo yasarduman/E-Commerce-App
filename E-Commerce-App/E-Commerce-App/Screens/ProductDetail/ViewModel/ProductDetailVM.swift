@@ -19,12 +19,10 @@ final class ProductDetailVM {
 
 extension ProductDetailVM: ProductDetailVMIterface{
     func viewDidLoad() {
-        
+        view?.configureViewController()
     }
-    
+    // TODO: - kullanamzsan kaldır !!
     func viewWillAppear() {
         
     }
-    
-    
 }

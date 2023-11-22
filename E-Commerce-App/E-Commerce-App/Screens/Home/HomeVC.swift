@@ -135,8 +135,9 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case homeView.specialProductsCollection:
-            print("specialProductsCollection")
+            let data = viewModel.specialProductsAll[indexPath.item]
             let vc = ProductDetailVC()
+            vc.updateUI(with: data)
             navigationController?.pushViewController(vc, animated: true)
         case homeView.categoryCollection:
             let category = viewModel.categories[indexPath.row]
@@ -146,7 +147,10 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
                 viewModel.fetchProductByCategory(category.rawValue)
             }
         case homeView.productCollection:
-            print("productCollection")
+            let data = viewModel.productByCategory[indexPath.item]
+            let vc = ProductDetailVC()
+            vc.updateUI(with: data)
+            navigationController?.pushViewController(vc, animated: true)
         default:
             return
         }
@@ -189,11 +193,16 @@ extension HomeVC: HomeViewProtocol {
     func seeAllOfSpecialProducts() {
         // TODO: - poduct detay sayafasına geçiş yapılacak
         let vc = SpecialProductVC()
+        vc.updateUI(with: viewModel.specialProductsAll)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 extension HomeVC: ProductCollectionCellDelegate {
+    func addToCartButtonTapped(of product: Product) {
+        viewModel.productCartStatus(for: product)
+    }
+    
     func toggleFavoriteStatus(of product: Product) {
         viewModel.toggleFavoriteStatus(for: product)
     }

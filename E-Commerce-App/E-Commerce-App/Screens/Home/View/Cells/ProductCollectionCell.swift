@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProductCollectionCellDelegate: AnyObject {
     func toggleFavoriteStatus(of product: Product)
+    func addToCartButtonTapped(of product: Product)
 }
 
 
@@ -30,8 +31,8 @@ final class ProductCollectionCell: UICollectionViewCell {
     private lazy var productFavoriteButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 14,cornerStyle: .capsule)
     private lazy var productInfoHStackView = CustomStackView(axis: .horizontal,alignment: .center)
     private lazy var productInfoVStackView = CustomStackView(axis: .vertical, alignment: .leading)
-    private lazy var productInfoLabel = TitleLabel(fontSize: 12, textAlignment: .left, fontWeight: .regular)
-    private lazy var priceLabel = TitleLabel(fontSize: 14, textAlignment: .left, fontWeight: .regular)
+    private lazy var productInfoLabel = TitleLabel(fontSize: 12, textAlignment: .left, fontWeight: .regular, textColor: .black, numberOfLines: 1)
+    private lazy var priceLabel = TitleLabel(fontSize: 14, textAlignment: .left, fontWeight: .regular, textColor: .black)
     private lazy var addToCartButton = CustomButton(bgColor: .clear, color: .productCollectionFavoriteButtonBG, systemImageName: "cart")
   
     
@@ -93,13 +94,8 @@ final class ProductCollectionCell: UICollectionViewCell {
         productInfoHStackView.anchor(top: imageContainerView.bottomAnchor,
                                     leading: imageContainerView.leadingAnchor,
                                     trailing: infoSeperatorView.trailingAnchor,
-                                    padding: .init(top: 10))
-        
-        productInfoLabel.text = "Deneme bir başlık"
-        priceLabel.text = "£65,00"
-        // TODO: - renk düzenlemeri yapılacak tekrardan !!
-        productInfoLabel.textColor = .black
-        priceLabel.textColor = .black
+                                    padding: .init(top: 5))
+        addToCartButton.addTarget(self, action: #selector(addToCartButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - CongifureCell
@@ -128,5 +124,11 @@ final class ProductCollectionCell: UICollectionViewCell {
           guard let product = product else { return }
           //self.isFavorite.toggle()
         delegate?.toggleFavoriteStatus(of: product)
+      }
+    
+    @objc private func addToCartButtonTapped() {
+          guard let product = product else { return }
+    
+        delegate?.addToCartButtonTapped(of: product)
       }
 }
