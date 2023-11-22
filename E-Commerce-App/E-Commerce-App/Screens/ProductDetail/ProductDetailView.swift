@@ -20,7 +20,7 @@ final class ProductDetailView: UIView {
     //MARK: - UI Elements
     private lazy var productImage = CustomImageView(image: UIImage(named: "tekTas"),contentMode: .scaleAspectFit)
     private lazy var productTitle = TitleLabel(text: "Lorem Ipsum is simple",fontSize: 20, textAlignment: .left, lineBreakMode: .byTruncatingTail)
-    private lazy var addToFavoritesButton = CustomButton(bgColor: UIColor.ProductCollectionFavoriteButtonBG, color: UIColor.ProductCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 20,cornerStyle: .capsule)
+    private lazy var addToFavoritesButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 20,cornerStyle: .capsule)
     private lazy var favAndTitleHStack = CustomStackView(axis: .horizontal, distiribution: .fill, spacing: 6)
     private lazy var seperatorView = CustomView(backgroundColor: .tertiaryLabel)
     private lazy var descriptionLabel : UITextView = {
@@ -44,7 +44,7 @@ final class ProductDetailView: UIView {
     private lazy var priceVStack = CustomStackView(axis: .vertical, alignment: .center, spacing: 5)
     private lazy var priceTitle = TitleLabel(text: "Price", fontSize: 15, textAlignment: .center, fontWeight: .semibold)
     private lazy var priceLabel = TitleLabel(text: "£18.65", fontSize: 22, textAlignment: .center)
-    private lazy var addToCartButton = CustomButton(bgColor: UIColor.ProductCollectionFavoriteButtonBG, color: UIColor.ProductCollectionFavoriteButtonBG,title: "Add To Cart", systemImageName: "handbag",cornerStyle: .capsule)
+    private lazy var addToCartButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG,title: "Add To Cart", systemImageName: "handbag",cornerStyle: .capsule)
     
     //MARK: - Initializers
     override init(frame: CGRect) {

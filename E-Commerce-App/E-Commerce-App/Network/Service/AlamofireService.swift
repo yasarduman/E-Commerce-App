@@ -19,6 +19,7 @@ final class AlamofireService: ServiceProtocol {
     
     func request<T:Codable>(path: String, onSuccess: @escaping (T) -> Void, onError: @escaping (AFError) -> Void){
         AF.request(path).validate().responseDecodable(of: T.self) { (response) in
+            if let error = response.error { onError(error) }
             guard let model = response.value else { return }
             onSuccess(model)
         }
