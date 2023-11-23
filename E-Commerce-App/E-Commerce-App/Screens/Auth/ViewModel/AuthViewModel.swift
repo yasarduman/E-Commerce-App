@@ -46,6 +46,23 @@ final class AuthViewModel {
         }
     }
     
+    // MARK: - Change Password
+    func changePassword(password: String, completion: @escaping (Bool, String) -> Void) {
+        guard !password.isEmpty else {
+            completion(false, "Parola alanı boş bırakılamaz.")
+            return
+        }
+        Auth.auth().currentUser?.updatePassword(to: password) { (error) in
+            if let error = error {
+                // Şifreyenileme işlemi başarısız
+                completion(false, "Şifre Güncellendi: \(error.localizedDescription)")
+            } else {
+                // Şifre yenileme başarılı
+                completion(true, "Şifreniz Güncellendi")
+            }
+        }
+    }
+    
     func signInGoogle(credential: AuthCredential, username: String, completion: @escaping () -> Void) {
         firebaseAuthManager.signInWithCredential(credential: credential, username: username) {
             completion()

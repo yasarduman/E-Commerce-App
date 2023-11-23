@@ -65,6 +65,12 @@
 		83997EDC2B0A2B7F00026E48 /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83997EDB2B0A2B7F00026E48 /* UIImageView+Ext.swift */; };
 		83C42F602B0FBA53004C3383 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F5F2B0FBA53004C3383 /* ForgotPasswordView.swift */; };
 		83C42F632B0FC73D004C3383 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 83C42F622B0FC73D004C3383 /* GoogleSignIn */; };
+		83C42F6F2B0FD606004C3383 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F6E2B0FD606004C3383 /* SettingTableViewCell.swift */; };
+		83C42F712B0FD629004C3383 /* ProfileUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F702B0FD629004C3383 /* ProfileUIView.swift */; };
+		83C42F732B0FD640004C3383 /* HelpAndSupportUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F722B0FD640004C3383 /* HelpAndSupportUIView.swift */; };
+		83C42F772B0FD65C004C3383 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F742B0FD65C004C3383 /* ChangePasswordVC.swift */; };
+		83C42F792B0FD65C004C3383 /* HelpAndSupportVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F762B0FD65C004C3383 /* HelpAndSupportVC.swift */; };
+		83C42F7B2B0FDEA9004C3383 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C42F7A2B0FDEA9004C3383 /* ProfileVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +129,12 @@
 		83997ED92B0A0FD100026E48 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		83997EDB2B0A2B7F00026E48 /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		83C42F5F2B0FBA53004C3383 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		83C42F6E2B0FD606004C3383 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		83C42F702B0FD629004C3383 /* ProfileUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileUIView.swift; sourceTree = "<group>"; };
+		83C42F722B0FD640004C3383 /* HelpAndSupportUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpAndSupportUIView.swift; sourceTree = "<group>"; };
+		83C42F742B0FD65C004C3383 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		83C42F762B0FD65C004C3383 /* HelpAndSupportVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpAndSupportVC.swift; sourceTree = "<group>"; };
+		83C42F7A2B0FDEA9004C3383 /* ProfileVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,7 +347,12 @@
 		8342F6FE2B07942D00DD29BB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				83C42F682B0FD3D8004C3383 /* Model */,
+				83C42F672B0FD3D3004C3383 /* ViewModel */,
+				83C42F662B0FD3CE004C3383 /* View */,
 				8342F70B2B0795BD00DD29BB /* ProfileVC.swift */,
+				83C42F742B0FD65C004C3383 /* ChangePasswordVC.swift */,
+				83C42F762B0FD65C004C3383 /* HelpAndSupportVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -522,6 +539,39 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		83C42F662B0FD3CE004C3383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				83C42F702B0FD629004C3383 /* ProfileUIView.swift */,
+				83C42F722B0FD640004C3383 /* HelpAndSupportUIView.swift */,
+				83C42F692B0FD478004C3383 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		83C42F672B0FD3D3004C3383 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				83C42F7A2B0FDEA9004C3383 /* ProfileVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		83C42F682B0FD3D8004C3383 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		83C42F692B0FD478004C3383 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				83C42F6E2B0FD606004C3383 /* SettingTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -609,8 +659,10 @@
 				833F6B4E2B0F5966004FE262 /* ApplicationVariables.swift in Sources */,
 				833F6B502B0F59A1004FE262 /* FirebaseStorageService.swift in Sources */,
 				83756B622B0C88140024039E /* ProductDetailView.swift in Sources */,
+				83C42F712B0FD629004C3383 /* ProfileUIView.swift in Sources */,
 				833F6B522B0F59D1004FE262 /* FirebaseService.swift in Sources */,
 				831F0B682B0B942700949E2B /* SpecialProductVM.swift in Sources */,
+				83C42F732B0FD640004C3383 /* HelpAndSupportUIView.swift in Sources */,
 				8342F72E2B07A4C700DD29BB /* NetworkManager.swift in Sources */,
 				8342F6E62B07932700DD29BB /* AppDelegate.swift in Sources */,
 				8342F7122B0798B700DD29BB /* AlertVC.swift in Sources */,
@@ -620,6 +672,7 @@
 				8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */,
 				833F6B422B0F52AF004FE262 /* RegisterVC.swift in Sources */,
 				8342F7182B0798D900DD29BB /* UIColor+Ext.swift in Sources */,
+				83C42F772B0FD65C004C3383 /* ChangePasswordVC.swift in Sources */,
 				8342F7382B07DE7000DD29BB /* UIStackView+Ext.swift in Sources */,
 				833F6B442B0F531C004FE262 /* ForgotPasswordVC.swift in Sources */,
 				8343AE102B08B3EB0075CA7D /* HomeView.swift in Sources */,
@@ -632,11 +685,13 @@
 				8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */,
 				8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */,
 				8342F7062B0795B200DD29BB /* HomeVC.swift in Sources */,
+				83C42F6F2B0FD606004C3383 /* SettingTableViewCell.swift in Sources */,
 				8342F7232B07990A00DD29BB /* CustomButton.swift in Sources */,
 				8342F7262B07997200DD29BB /* CustomLoadingVC.swift in Sources */,
 				83997EDC2B0A2B7F00026E48 /* UIImageView+Ext.swift in Sources */,
 				833F6B3A2B0F3F1D004FE262 /* LoginVC.swift in Sources */,
 				833F6B542B0F5B0A004FE262 /* AuthUserModel.swift in Sources */,
+				83C42F7B2B0FDEA9004C3383 /* ProfileVM.swift in Sources */,
 				8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */,
 				8342F7332B07BD7A00DD29BB /* CustomCollection.swift in Sources */,
 				8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */,
@@ -651,6 +706,7 @@
 				833F6B462B0F589A004FE262 /* String+Ext.swift in Sources */,
 				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,
 				83997EDA2B0A0FD100026E48 /* HomeVM.swift in Sources */,
+				83C42F792B0FD65C004C3383 /* HelpAndSupportVC.swift in Sources */,
 				833F6B492B0F58CC004FE262 /* AuthViewModel.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,
 				8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */,

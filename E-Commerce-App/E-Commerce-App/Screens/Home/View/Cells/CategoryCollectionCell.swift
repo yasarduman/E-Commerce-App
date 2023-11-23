@@ -13,7 +13,7 @@ final class CategoryCollectionCell: UICollectionViewCell {
     
     //MARK: - UI Elements
     private lazy var categoryImage = CustomImageView(contentMode: .scaleAspectFit, cornerRadius: 30)
-    private lazy var categoryName = TitleLabel(fontSize: 12, textAlignment: .center, fontWeight: .regular, lineBreakMode: .byWordWrapping)
+    private lazy var categoryName   = TitleLabel(fontSize: 12, textAlignment: .center, fontWeight: .regular, lineBreakMode: .byWordWrapping)
     private lazy var categoryVStack = CustomStackView(axis: .vertical, alignment: .center,spacing: 8)
     //MARK: - Initializers
     override init(frame: CGRect) {

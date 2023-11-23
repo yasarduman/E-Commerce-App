@@ -26,8 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         
-        let vc = UINavigationController(rootViewController: LoginVC())
-        window?.rootViewController = vc
+        //let vc = UINavigationController(rootViewController: LoginVC())
+        window?.rootViewController = ProfileVC()
         self.window?.makeKeyAndVisible()
         
         

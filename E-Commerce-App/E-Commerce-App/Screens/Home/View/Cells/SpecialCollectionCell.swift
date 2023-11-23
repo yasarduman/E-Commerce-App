@@ -13,9 +13,9 @@ final class SpecialCollectionCell: UICollectionViewCell {
     static let identifier = "SpecialCollectionCell"
     
     //MARK: - UI Elements
-    private lazy var specialImage = CustomImageView(image: UIImage(named: "tekTas"), contentMode: .scaleAspectFit,cornerRadius: 30)
-    private lazy var specialTitleLabel = TitleLabel(fontSize: 15, textAlignment: .center, lineBreakMode: .byWordWrapping,textColor: .black)
-    private lazy var specialHStack = CustomStackView(axis: .horizontal ,alignment: .center,distiribution: .fillEqually,spacing: 18)
+    private lazy var specialImage       = CustomImageView(image: UIImage(named: "tekTas")!, contentMode: .scaleAspectFit,cornerRadius: 30)
+    private lazy var specialTitleLabel  = TitleLabel(fontSize: 15, textAlignment: .center, lineBreakMode: .byWordWrapping,textColor: .black)
+    private lazy var specialHStack      = CustomStackView(axis: .horizontal ,alignment: .center,distiribution: .fillEqually,spacing: 18)
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -34,10 +34,6 @@ final class SpecialCollectionCell: UICollectionViewCell {
         addSubview(specialHStack)
         specialHStack.addArrangedSubviewsExt(specialTitleLabel, specialImage)
         configureSpecialHStack()
-   
-        // TODO: - Burayı işin bitince sill mocData
-        self.specialTitleLabel.text = "Deneme Special"
-        
     }
     
     private func configureSpecialHStack() {
