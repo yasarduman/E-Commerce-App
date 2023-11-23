@@ -19,6 +19,16 @@
 		833F6B372B0F3F01004FE262 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B362B0F3F01004FE262 /* LoginView.swift */; };
 		833F6B3A2B0F3F1D004FE262 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B392B0F3F1D004FE262 /* LoginVC.swift */; };
 		833F6B3F2B0F40D5004FE262 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B3E2B0F40D5004FE262 /* CustomTextField.swift */; };
+		833F6B422B0F52AF004FE262 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B412B0F52AF004FE262 /* RegisterVC.swift */; };
+		833F6B442B0F531C004FE262 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B432B0F531C004FE262 /* ForgotPasswordVC.swift */; };
+		833F6B462B0F589A004FE262 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B452B0F589A004FE262 /* String+Ext.swift */; };
+		833F6B492B0F58CC004FE262 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B482B0F58CC004FE262 /* AuthViewModel.swift */; };
+		833F6B4B2B0F5939004FE262 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B4A2B0F5939004FE262 /* FirebaseAuthManager.swift */; };
+		833F6B4E2B0F5966004FE262 /* ApplicationVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B4D2B0F5966004FE262 /* ApplicationVariables.swift */; };
+		833F6B502B0F59A1004FE262 /* FirebaseStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B4F2B0F59A1004FE262 /* FirebaseStorageService.swift */; };
+		833F6B522B0F59D1004FE262 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B512B0F59D1004FE262 /* FirebaseService.swift */; };
+		833F6B542B0F5B0A004FE262 /* AuthUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B532B0F5B0A004FE262 /* AuthUserModel.swift */; };
+		833F6B562B0F5DC0004FE262 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833F6B552B0F5DC0004FE262 /* RegisterView.swift */; };
 		8342F6E62B07932700DD29BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F6E52B07932700DD29BB /* AppDelegate.swift */; };
 		8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8342F6E72B07932700DD29BB /* SceneDelegate.swift */; };
 		8342F6EF2B07932800DD29BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8342F6EE2B07932800DD29BB /* Assets.xcassets */; };
@@ -65,6 +75,16 @@
 		833F6B362B0F3F01004FE262 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		833F6B392B0F3F1D004FE262 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		833F6B3E2B0F40D5004FE262 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		833F6B412B0F52AF004FE262 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		833F6B432B0F531C004FE262 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		833F6B452B0F589A004FE262 /* String+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		833F6B482B0F58CC004FE262 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		833F6B4A2B0F5939004FE262 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		833F6B4D2B0F5966004FE262 /* ApplicationVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationVariables.swift; sourceTree = "<group>"; };
+		833F6B4F2B0F59A1004FE262 /* FirebaseStorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageService.swift; sourceTree = "<group>"; };
+		833F6B512B0F59D1004FE262 /* FirebaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		833F6B532B0F5B0A004FE262 /* AuthUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUserModel.swift; sourceTree = "<group>"; };
+		833F6B552B0F5DC0004FE262 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		8342F6E22B07932700DD29BB /* E-Commerce-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-Commerce-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8342F6E52B07932700DD29BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8342F6E72B07932700DD29BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +184,9 @@
 				833F6B342B0F3973004FE262 /* Model */,
 				833F6B332B0F3969004FE262 /* ViewModel */,
 				833F6B322B0F3960004FE262 /* View */,
+				833F6B412B0F52AF004FE262 /* RegisterVC.swift */,
 				833F6B392B0F3F1D004FE262 /* LoginVC.swift */,
+				833F6B432B0F531C004FE262 /* ForgotPasswordVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -173,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				833F6B362B0F3F01004FE262 /* LoginView.swift */,
+				833F6B552B0F5DC0004FE262 /* RegisterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +203,7 @@
 		833F6B332B0F3969004FE262 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				833F6B482B0F58CC004FE262 /* AuthViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -187,6 +211,7 @@
 		833F6B342B0F3973004FE262 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				833F6B532B0F5B0A004FE262 /* AuthUserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +222,14 @@
 				833F6B3E2B0F40D5004FE262 /* CustomTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		833F6B4C2B0F595B004FE262 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				833F6B4D2B0F5966004FE262 /* ApplicationVariables.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		8342F6D92B07932700DD29BB = {
@@ -274,6 +307,7 @@
 		8342F6FC2B07938F00DD29BB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				833F6B452B0F589A004FE262 /* String+Ext.swift */,
 				8342F7152B0798D900DD29BB /* UIColor+Ext.swift */,
 				8342F7162B0798D900DD29BB /* UIView+Ext.swift */,
 				8342F7142B0798D900DD29BB /* UIViewController+Ext.swift */,
@@ -286,6 +320,7 @@
 		8342F6FD2B07939500DD29BB /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				833F6B4C2B0F595B004FE262 /* Utils */,
 				8342F6FC2B07938F00DD29BB /* Extensions */,
 				8342F6FA2B07938000DD29BB /* CustomComponents */,
 			);
@@ -390,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				8342F72D2B07A4C700DD29BB /* NetworkManager.swift */,
+				833F6B4A2B0F5939004FE262 /* FirebaseAuthManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -398,6 +434,8 @@
 			isa = PBXGroup;
 			children = (
 				8342F72F2B07BC7600DD29BB /* AlamofireService.swift */,
+				833F6B4F2B0F59A1004FE262 /* FirebaseStorageService.swift */,
+				833F6B512B0F59D1004FE262 /* FirebaseService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -561,21 +599,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				831F0B612B0B78DF00949E2B /* SpecialProductView.swift in Sources */,
+				833F6B4E2B0F5966004FE262 /* ApplicationVariables.swift in Sources */,
+				833F6B502B0F59A1004FE262 /* FirebaseStorageService.swift in Sources */,
 				83756B622B0C88140024039E /* ProductDetailView.swift in Sources */,
+				833F6B522B0F59D1004FE262 /* FirebaseService.swift in Sources */,
 				831F0B682B0B942700949E2B /* SpecialProductVM.swift in Sources */,
 				8342F72E2B07A4C700DD29BB /* NetworkManager.swift in Sources */,
 				8342F6E62B07932700DD29BB /* AppDelegate.swift in Sources */,
 				8342F7122B0798B700DD29BB /* AlertVC.swift in Sources */,
 				8342F7172B0798D900DD29BB /* UIViewController+Ext.swift in Sources */,
+				833F6B562B0F5DC0004FE262 /* RegisterView.swift in Sources */,
 				8342F71E2B0798FA00DD29BB /* SecondaryTitleLabel.swift in Sources */,
 				8342F7082B0795B600DD29BB /* SearchVC.swift in Sources */,
+				833F6B422B0F52AF004FE262 /* RegisterVC.swift in Sources */,
 				8342F7182B0798D900DD29BB /* UIColor+Ext.swift in Sources */,
 				8342F7382B07DE7000DD29BB /* UIStackView+Ext.swift in Sources */,
+				833F6B442B0F531C004FE262 /* ForgotPasswordVC.swift in Sources */,
 				8343AE102B08B3EB0075CA7D /* HomeView.swift in Sources */,
 				8342F7362B07BDCC00DD29BB /* CustomImageView.swift in Sources */,
 				833F6B372B0F3F01004FE262 /* LoginView.swift in Sources */,
 				8342F7292B079A4F00DD29BB /* CustomStackView.swift in Sources */,
 				831F0B652B0B7AC200949E2B /* SpecialProductVC.swift in Sources */,
+				833F6B4B2B0F5939004FE262 /* FirebaseAuthManager.swift in Sources */,
 				8342F70C2B0795BD00DD29BB /* ProfileVC.swift in Sources */,
 				8342F70A2B0795B900DD29BB /* CartVC.swift in Sources */,
 				8342F7062B0795B200DD29BB /* HomeVC.swift in Sources */,
@@ -583,6 +628,7 @@
 				8342F7262B07997200DD29BB /* CustomLoadingVC.swift in Sources */,
 				83997EDC2B0A2B7F00026E48 /* UIImageView+Ext.swift in Sources */,
 				833F6B3A2B0F3F1D004FE262 /* LoginVC.swift in Sources */,
+				833F6B542B0F5B0A004FE262 /* AuthUserModel.swift in Sources */,
 				8342F7192B0798D900DD29BB /* UIView+Ext.swift in Sources */,
 				8342F7332B07BD7A00DD29BB /* CustomCollection.swift in Sources */,
 				8342F7132B0798B700DD29BB /* AlertContainerView.swift in Sources */,
@@ -594,8 +640,10 @@
 				8315AFD62B092C83006FDA1F /* CustomView.swift in Sources */,
 				8342F71F2B0798FA00DD29BB /* TitleLabel.swift in Sources */,
 				8342F6E82B07932700DD29BB /* SceneDelegate.swift in Sources */,
+				833F6B462B0F589A004FE262 /* String+Ext.swift in Sources */,
 				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,
 				83997EDA2B0A0FD100026E48 /* HomeVM.swift in Sources */,
+				833F6B492B0F58CC004FE262 /* AuthViewModel.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,
 				8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */,
 				839782D52B0E0B0700BCA4C0 /* ProductDetailVM.swift in Sources */,

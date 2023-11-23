@@ -7,12 +7,22 @@
 
 import UIKit
 
-class LoginView: UIView {
+protocol LoginViewProtocol: AnyObject {
+    func signUpTapped()
+    func forgotPasswordTapped()
+    func googleSignIn()
+    func signIn()
     
-    // MARK: - Properties
+}
+
+final class LoginView: UIView {
+    
+    //MARK: - Properties
+    weak var delegate: LoginViewProtocol?
+
     private let HeadLabel                 = TitleLabel(text: "Let's sign you in", fontSize: 20)
-    private lazy var emailTextField       = CustomTextField(fieldType: .email)
-    private lazy var passwordTextField    = CustomTextField(fieldType: .password)
+    lazy var emailTextField       = CustomTextField(fieldType: .email)
+    lazy var passwordTextField    = CustomTextField(fieldType: .password)
     private lazy var signInButton         = CustomButton( bgColor: .productCollectionFavoriteButtonBG ,color: .productCollectionFavoriteButtonBG , title: "Sign In", fontSize: 22)
     private lazy var googleSignInButton   = CustomButton( bgColor: UIColor.systemBlue ,color: UIColor.systemBlue , title: "Sign In with Google", fontSize: 22, systemImageName: "g.circle.fill")
     private let infoLabel                 = SecondaryTitleLabel(text: "Don't have an account?", fontSize: 16,fontWeight: .regular, numberOfLines: 1)
@@ -70,7 +80,7 @@ class LoginView: UIView {
                                     trailing: passwordTextField.trailingAnchor,
                                     padding: .init(top: 10, left: 0, bottom: 0, right: 0))
         
-       // forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
     }
     
     private func configureSignIn(){
@@ -104,7 +114,23 @@ class LoginView: UIView {
         stackView.centerXInSuperview()
   
         
-        //newUserButton.addTarget(self, action: #selector(didTapNewUser), for: .touchUpInside)
+        newUserButton.addTarget(self, action: #selector(didTapNewUser), for: .touchUpInside)
+    }
+    
+    //MARK: - @Actions
+    @objc private func didTapNewUser() {
+        delegate?.signUpTapped()
+    }
+    
+    @objc private func didTapForgotPassword() {
+        delegate?.forgotPasswordTapped()
+    }
+    @objc private func didTapSignIn() {
+        delegate?.signIn()
+    }
+    
+    @objc private func didTapGoogleSignIn() {
+        delegate?.googleSignIn()
     }
 }
 
