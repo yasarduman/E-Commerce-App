@@ -6,7 +6,7 @@
 //
 
 import UIKit
-// TODO: - illerde kullanılmazsa kaldır !!
+
 protocol ProductDetailVCInterface: AnyObject {
     func configureViewController()
 }
@@ -15,7 +15,7 @@ final class ProductDetailVC: UIViewController {
 
     //MARK: - Properties
     private let productDetailView = ProductDetailView()
-    private let viewModel = ProductDetailVM()
+    private lazy var viewModel = ProductDetailVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()

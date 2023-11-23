@@ -5,6 +5,8 @@
 //  Created by Yaşar Duman on 19.11.2023.
 //
 
+import Foundation
+
 
 protocol HomeViewModelInterface {
     var view: HomeVCInterface? { get set }
@@ -93,4 +95,7 @@ extension HomeVM: HomeViewModelInterface {
         fetchAllProducts()
         fetchProductByCategoryAll()
     }
+  
+    
+    
 }

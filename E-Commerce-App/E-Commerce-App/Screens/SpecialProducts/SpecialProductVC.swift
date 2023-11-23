@@ -15,7 +15,7 @@ final class SpecialProductVC: UIViewController {
 
     //MARK: - Properties
     private let specialProductView = SpecialProductView()
-    private let viewModel = SpecialProductVM()
+    private lazy var viewModel = SpecialProductVM()
     var specialProducts: [Product] = []
     
     //MARK: - Lifecycle

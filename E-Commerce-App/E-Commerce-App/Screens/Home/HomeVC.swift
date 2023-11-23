@@ -17,7 +17,7 @@ final class HomeVC: UIViewController {
 
     //MARK: - Properties
     private let homeView = HomeView()
-    private let viewModel = HomeVM()
+    private lazy var viewModel = HomeVM()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -133,6 +133,7 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case homeView.specialProductsCollection:
+            
             let data = viewModel.specialProductsAll[indexPath.item]
             let vc = ProductDetailVC()
             vc.updateUI(with: data)

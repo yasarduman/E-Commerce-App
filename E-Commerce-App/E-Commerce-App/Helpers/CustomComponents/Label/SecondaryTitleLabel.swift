@@ -26,13 +26,14 @@ final class SecondaryTitleLabel: UILabel {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .semibold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label) {
+    convenience init(text:String? = nil, fontSize: CGFloat, textAlignment: NSTextAlignment = .left, fontWeight: FontWeight = .semibold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label, numberOfLines: Int = 0) {
         self.init(frame: .zero)
+        self.text = text
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: fontWightToUIFontWeight(weight: fontWeight))
         self.lineBreakMode = lineBreakMode ?? .byTruncatingTail
         self.textColor = textColor
-        self.numberOfLines = 0
+        self.numberOfLines = numberOfLines
     }
     
     //MARK: - Configuration Methods

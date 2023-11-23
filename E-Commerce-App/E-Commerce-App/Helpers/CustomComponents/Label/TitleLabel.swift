@@ -24,7 +24,7 @@ final class TitleLabel: UILabel {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(text:String? = nil ,fontSize: CGFloat, textAlignment: NSTextAlignment, fontWeight: FontWeight = .bold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label, numberOfLines: Int = 0) {
+    convenience init(text:String? = nil ,fontSize: CGFloat, textAlignment: NSTextAlignment = .left, fontWeight: FontWeight = .bold, lineBreakMode: NSLineBreakMode? = nil, textColor: UIColor = .label, numberOfLines: Int = 0) {
         self.init(frame: .zero)
         self.text = text
         self.numberOfLines = numberOfLines
