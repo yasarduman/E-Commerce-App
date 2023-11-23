@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import FirebaseAuth
 
 final class LoginVC: UIViewController {
 
     //MARK: - Properties
-    private let loginView = LoginView()
+    private let loginView      = LoginView()
     private lazy var viewModel = AuthViewModel()
     
     override func viewDidLoad() {
@@ -62,6 +65,31 @@ extension LoginVC: LoginViewProtocol {
     }
     
     func googleSignIn() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+            guard error == nil else {
+                return
+            }
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString,
+                    let userName: String = user.profile?.name
+            else {
+                return
+            }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+            viewModel.signInGoogle(credential: credential,username: userName) {[weak self] in
+                guard let self else { return }
+                presentAlert(title: "Alert!", message: "Registration Successful 🥳", buttonTitle: "Ok")
+                let mainTabBar = MainTabBarController()
+                self.view.window?.rootViewController = mainTabBar
+            }
+        }
     }
 }

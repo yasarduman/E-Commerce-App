@@ -10,14 +10,14 @@ import UIKit
 final class RegisterVC: UIViewController {
 
     //MARK: - Properties
-    private let registerView = RegisterView()
+    private let registerView       = RegisterView()
     private lazy var authViewModel = AuthViewModel()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        registerView.delegate = self
+        configureNavBar()
     }
     
     override func loadView() {
@@ -25,6 +25,10 @@ final class RegisterVC: UIViewController {
         view = registerView
     }
     
+    private func configureNavBar() {
+        view.backgroundColor = .systemBackground
+        self.navigationItem.setHidesBackButton(true, animated: true)
+    }
 }
 
 extension RegisterVC : RegisterViewProtocol {

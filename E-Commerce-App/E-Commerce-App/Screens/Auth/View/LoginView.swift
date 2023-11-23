@@ -12,7 +12,6 @@ protocol LoginViewProtocol: AnyObject {
     func forgotPasswordTapped()
     func googleSignIn()
     func signIn()
-    
 }
 
 final class LoginView: UIView {
@@ -21,8 +20,8 @@ final class LoginView: UIView {
     weak var delegate: LoginViewProtocol?
 
     private let HeadLabel                 = TitleLabel(text: "Let's sign you in", fontSize: 20)
-    lazy var emailTextField       = CustomTextField(fieldType: .email)
-    lazy var passwordTextField    = CustomTextField(fieldType: .password)
+    lazy var emailTextField               = CustomTextField(fieldType: .email)
+    lazy var passwordTextField            = CustomTextField(fieldType: .password)
     private lazy var signInButton         = CustomButton( bgColor: .productCollectionFavoriteButtonBG ,color: .productCollectionFavoriteButtonBG , title: "Sign In", fontSize: 22)
     private lazy var googleSignInButton   = CustomButton( bgColor: UIColor.systemBlue ,color: UIColor.systemBlue , title: "Sign In with Google", fontSize: 22, systemImageName: "g.circle.fill")
     private let infoLabel                 = SecondaryTitleLabel(text: "Don't have an account?", fontSize: 16,fontWeight: .regular, numberOfLines: 1)

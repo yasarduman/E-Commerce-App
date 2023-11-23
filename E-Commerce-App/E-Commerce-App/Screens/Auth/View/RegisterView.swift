@@ -16,15 +16,15 @@ final class RegisterView: UIView {
     
     // MARK: - Properties
     private let HeadLabel                 = TitleLabel(text: "Create an account",fontSize: 20)
-    lazy var userNameTextField    = CustomTextField(fieldType: .username)
-    lazy var emailTextField       = CustomTextField(fieldType: .email)
-    lazy var passwordTextField    = CustomTextField(fieldType: .password)
-    lazy var repasswordTextField  = CustomTextField(fieldType: .password)
+    lazy var userNameTextField            = CustomTextField(fieldType: .username)
+    lazy var emailTextField               = CustomTextField(fieldType: .email)
+    lazy var passwordTextField            = CustomTextField(fieldType: .password)
+    lazy var repasswordTextField          = CustomTextField(fieldType: .password)
     private lazy var signUpButton         = CustomButton( bgColor: .productCollectionFavoriteButtonBG ,color: .productCollectionFavoriteButtonBG, title: "Sign Up", fontSize: 22, cornerStyle: .capsule)
-    private let infoLabel                 = SecondaryTitleLabel(text: "Already have an account?" ,fontSize: 16)
-    private lazy var signInButton         = CustomButton( bgColor:.clear ,color: .label, title: "Sign In.", fontSize: 16)
+    private let infoLabel                 = SecondaryTitleLabel(text: "Already have an account?" ,fontSize: 16, fontWeight: .regular, numberOfLines: 1)
+    private lazy var signInButton         = CustomButton( bgColor:.clear ,color: .label, title: "Sign In.", fontSize: 16, fontWeight: .bold)
     
-    private lazy var stackView            = CustomStackView(axis: .horizontal)
+    private lazy var stackView            = CustomStackView(axis: .horizontal , alignment: .center)
     
     
     weak var delegate: RegisterViewProtocol?
@@ -32,6 +32,7 @@ final class RegisterView: UIView {
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -90,7 +91,7 @@ final class RegisterView: UIView {
                             padding: .init(top: 20, leading: 20, trailing: 20),
                             size: .init (heightSize: 50))
         
-        //signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
        
     }
 
@@ -99,17 +100,18 @@ final class RegisterView: UIView {
         
         stackView.anchor(top: signUpButton.bottomAnchor,
                          padding: .init(top: 5))
-        
+        signInButton.anchor(size: .init(widthSize: 90))
         stackView.centerXInSuperview()
         
-        //signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
+    
     // MARK: - Action
     @objc private func didTapSignUp() {
         delegate?.signUpTapped()
     }
     
     @objc private func didTapSignIn() {
-        delegate?.signUpTapped()
+        delegate?.signInTapped()
     }
 }
