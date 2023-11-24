@@ -14,7 +14,6 @@ protocol HomeViewModelInterface {
     func viewWillAppear()
 }
 
-
 final class HomeVM {
     
     weak var view: HomeVCInterface?

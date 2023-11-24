@@ -1,18 +1,19 @@
 //
 //  HelpAndSupportVC.swift
-//  Movie-App
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 4.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
 
 import UIKit
 import MessageUI
 
-class HelpAndSupportVC: UIViewController, MFMailComposeViewControllerDelegate {
-    
+final class HelpAndSupportVC: UIViewController, MFMailComposeViewControllerDelegate {
+    //MARK: - Properties
     private let mailComposer = MFMailComposeViewController()
-    private let headLabel    = TitleLabel(fontSize: 25, textAlignment: .center)
-    private let secoLabel    = SecondaryTitleLabel(fontSize: 20)
+    private let headLabel    = TitleLabel(text: "Get In Touch",fontSize: 25, textAlignment: .center)
+    private let secoLabel    = SecondaryTitleLabel(fontSize: 20,textAlignment: .center,numberOfLines: 2)
     lazy var getInTouchImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "getInTouch")
@@ -21,62 +22,59 @@ class HelpAndSupportVC: UIViewController, MFMailComposeViewControllerDelegate {
     }()
     
     // MARK: - Header View
-    private var user1 = HelpAndSupportUIView(
+    private var user1 = HelpAndSupportView(
         userName: "Yaşar Duman",
         userImageName: "userAvatar",
         userEmail: "01.yasarduman@gmail.com")
-    private var user2 = HelpAndSupportUIView(
+    private var user2 = HelpAndSupportView(
         userName: "Erislam Nurluyol",
         userImageName: "userAvatar",
         userEmail: "01.yasarduman@gmail.com")
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemGroupedBackground
-        
+        configureUI()
+    }
+    
+    // MARK: - Cofigure UI
+    private func configureUI() {
         configureGetInTouchImage()
         configureHeadText()
         configureUser1()
         configureUser2()
     }
     
-    // MARK: - Cofigure UI
     private func configureGetInTouchImage(){
-        view.addSubview(getInTouchImage)
+        view.addSubviewsExt(getInTouchImage,headLabel,secoLabel,user1 ,user2)
         getInTouchImage.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                                leading: view.leadingAnchor,
                                trailing: view.trailingAnchor,
                                
-                               size: .init(width: 0, height: 300))
+                               size: .init(heightSize: 300))
     }
     
     private func configureHeadText(){
-        view.addSubview(headLabel)
-        view.addSubview(secoLabel)
-        
-        headLabel.text = "Get In Touch"
         secoLabel.text = "If you have any inquiries get in touch with us. We'll be happy to help you"
         
         headLabel.anchor(top: getInTouchImage.bottomAnchor)
         headLabel.centerXInSuperview()
         
-        secoLabel.numberOfLines = 2
-        secoLabel.textAlignment = .center
         secoLabel.anchor(top: headLabel.bottomAnchor,
                          leading: view.leadingAnchor,
                          trailing: view.trailingAnchor,
-                         padding: .init(top: 20, left: 20, bottom: 0, right: 20)
+                         padding: .init(top: 20, leading: 20, trailing: 20)
         )
     }
     
     // MARK: - Configure Users
     private func configureUser1() {
-      view.addSubview(user1)
         user1.anchor(top: secoLabel.bottomAnchor,
                             leading: view.leadingAnchor,
                             trailing: view.trailingAnchor,
-                            padding: .init(top: 20, left: 10, bottom: 0, right: 10),
-                            size: .init(width: 0, height: 100))
+                            padding: .init(top: 20, leading: 10, trailing: 10),
+                            size: .init(heightSize: 100))
         
         // MARK: - SendEmail
         mailComposer.setToRecipients([user1.userEmail!]) // E-posta alıcısı
@@ -86,13 +84,12 @@ class HelpAndSupportVC: UIViewController, MFMailComposeViewControllerDelegate {
     }
     
     private func configureUser2() {
-        view.addSubview(user2)
         user2.anchor(top: user1.bottomAnchor,
                             leading: view.leadingAnchor,
                             trailing: view.trailingAnchor,
-                            padding: .init(top: 20, left: 10, bottom: 0, right: 10),
-                            size: .init(width: 0, height: 100)
-        )
+                            padding: .init(top: 20, leading: 10, trailing: 10),
+                            size: .init(heightSize: 100))
+        
         // MARK: - SendEmail
         mailComposer.setToRecipients([user2.userEmail!]) // E-posta alıcısı
         let tapGestureRecognizer2 = UITapGestureRecognizer(target: self, action: #selector(sendEmail))

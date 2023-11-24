@@ -100,8 +100,8 @@ final class LoginView: UIView {
                                   size: .init(width: 0, height: 50))
         
         
-        //signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
-       // googleSignInButton.addTarget(self, action: #selector(didTapGoogleSignIn), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        googleSignInButton.addTarget(self, action: #selector(didTapGoogleSignIn), for: .touchUpInside)
     }
     
     private func configureStackView() {

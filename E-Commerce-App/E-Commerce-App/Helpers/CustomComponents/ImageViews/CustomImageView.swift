@@ -20,9 +20,10 @@ final class CustomImageView: UIImageView {
     }
     
     // MARK: - Convenience Initializer
-    convenience init(image: UIImage? = nil  , contentMode: ContentMode = .scaleAspectFit, cornerRadius: CGFloat = 0) {
+    convenience init(image: UIImage? = nil , contentMode: ContentMode = .scaleAspectFit, cornerRadius: CGFloat = 0) {
         self.init(frame: .zero)
-        set(image:image! ,contentMode: contentMode, cornerRadius: cornerRadius)
+        self.image = image
+        set(contentMode: contentMode, cornerRadius: cornerRadius)
 
 
     }
@@ -33,9 +34,8 @@ final class CustomImageView: UIImageView {
     }
 
     // MARK: - Public Methods
-    func set(image: UIImage,contentMode: ContentMode = .scaleAspectFit, cornerRadius: CGFloat = 0) {
+    func set(contentMode: ContentMode = .scaleAspectFit, cornerRadius: CGFloat = 0) {
         self.contentMode = contentMode
-        self.image = image
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = cornerRadius > 0
     }

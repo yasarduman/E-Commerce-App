@@ -1,8 +1,8 @@
 //
 //  ProfileVM.swift
-//  Movie-App
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 3.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
 
 import UIKit
@@ -23,6 +23,8 @@ struct SettingsOption {
 // MARK: - ViewModel
 class ProfileVM {
     let currentUserID = Auth.auth().currentUser!.uid
+    lazy var firebaseAuthManager = FirebaseAuthManager()
+    
     
     func fetchUserName(completion: @escaping (String) -> Void) {
         Firestore.firestore()
@@ -65,6 +67,14 @@ class ProfileVM {
                 let imageUrl = url?.absoluteString
                 completion(imageUrl!)
             }
+        }
+    }
+    
+    func logout(completion: @escaping () -> Void ) {
+        firebaseAuthManager.signOut {
+            completion()
+        } onError: { error in
+            print(error)
         }
     }
 }

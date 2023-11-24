@@ -17,17 +17,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
+    
+        
+
+      
         // MARK: - kullanıcı sürekli giriş yapmamsı için yapılan işlem kullanıcıyı hatırlama işlemi
         if ApplicationVariables.currentUserID != nil {
             let TabBar = MainTabBarController()
             TabBar.modalPresentationStyle = .fullScreen
             window?.rootViewController = TabBar
-            self.window?.makeKeyAndVisible()
+        }else {
+            let vc = UINavigationController(rootViewController: LoginVC())
+            window?.rootViewController = vc
         }
-
         
-        //let vc = UINavigationController(rootViewController: LoginVC())
-        window?.rootViewController = ProfileVC()
         self.window?.makeKeyAndVisible()
         
         

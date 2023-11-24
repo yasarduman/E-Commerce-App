@@ -1,13 +1,18 @@
 //
-//  ProfileUIView.swift
-//  Movie-App
+//  ProfileView.swift
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 4.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
 
 import UIKit
 
-final class ProfileUIView: UIView, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+protocol ProfileViewProtocol: AnyObject {
+    func chooeseImageTapped()
+}
+
+final class ProfileView: UIView, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     //MARK: - UI Elements
     lazy var containerImage: UIView = {
         let container = UIView()
@@ -37,12 +42,17 @@ final class ProfileUIView: UIView, UIImagePickerControllerDelegate & UINavigatio
         image.tintColor = .productCollectionFavoriteButtonBG
         return image
     }()
-    private lazy var userName = TitleLabel(text: "Yaşar DUMAN",fontSize: 20)
-    private lazy var userMesage = TitleLabel(text: "Tekrardan Hoşgeldin Yaşar 🎉",fontSize: 15, textColor: .secondaryLabel)
+    lazy var userName = TitleLabel(text: "Yaşar DUMAN",fontSize: 20)
+    lazy var userMesage = TitleLabel(text: "Tekrardan Hoşgeldin Yaşar 🎉",fontSize: 15, textColor: .secondaryLabel, numberOfLines: 1)
     
-    lazy var tableView = UITableView()
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.isScrollEnabled = false
+        tableView.separatorStyle = .none
+        return tableView
+    }()
     
-  
+    weak var delegate: ProfileViewProtocol?
     
     // MARK: - Initializers
     override init(frame: CGRect) {
@@ -65,7 +75,6 @@ final class ProfileUIView: UIView, UIImagePickerControllerDelegate & UINavigatio
     }
     
     private func configureContainerImage(){
-       
         containerImage.anchor(top: safeAreaLayoutGuide.topAnchor,
                               leading: leadingAnchor,
                               padding: .init(top:20 ,leading: 20))
@@ -82,6 +91,12 @@ final class ProfileUIView: UIView, UIImagePickerControllerDelegate & UINavigatio
                                 trailing: userImage.trailingAnchor,
                                 padding: .init( bottom: 5, trailing: 5),
                                 size: .init(width: 30, height: 30))
+        
+        
+           //image tıklana bilir hale getirdik
+        userImage.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooeseImage))
+        userImage.addGestureRecognizer(gestureRecognizer)
     }
     
     private func configureLabel() {
@@ -92,7 +107,7 @@ final class ProfileUIView: UIView, UIImagePickerControllerDelegate & UINavigatio
         userMesage.anchor(top: userName.topAnchor,
                           leading: userImage.trailingAnchor,
                           trailing: trailingAnchor,
-                          padding: .init(top: 40, leading: 20))
+                          padding: .init(top: 40, leading: 20, trailing: 20))
     }
     
     private func configureTableView() {
@@ -100,7 +115,12 @@ final class ProfileUIView: UIView, UIImagePickerControllerDelegate & UINavigatio
                          leading: leadingAnchor,
                          bottom: safeAreaLayoutGuide.bottomAnchor,
                          trailing: trailingAnchor,
-                         padding: .init(top: 40, leading: 20,trailing: 20)
-        )
+                         padding: .init(top: 40, leading: 20,trailing: 10))
+    }
+
+    
+    // MARK: - @Actions
+    @objc private func chooeseImage() {
+        delegate?.chooeseImageTapped()
     }
 }

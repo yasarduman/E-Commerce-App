@@ -1,13 +1,14 @@
 //
 //  SettingTableViewCell.swift
-//  Movie-App
+//  E-Commerce-App
 //
-//  Created by Yaşar Duman on 3.11.2023.
+//  Created by Yaşar Duman on 17.11.2023.
 //
+
 
 import UIKit
 
-class SettingTableViewCell: UITableViewCell {
+final class SettingTableViewCell: UITableViewCell {
     // MARK: - Properties
     static let identifier = "SettingTableViewCell"
     
@@ -22,11 +23,10 @@ class SettingTableViewCell: UITableViewCell {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.tintColor = .productCollectionFavoriteButtonBG
+        imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
     
     private let label: UILabel = {
         let label = UILabel()
@@ -37,10 +37,9 @@ class SettingTableViewCell: UITableViewCell {
     // MARK: - Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(label)
-        contentView.addSubview(iconContainer)
+        contentView.addSubviewsExt(label,iconContainer)
         iconContainer.addSubview(iconImageView)
-        
+        selectionStyle = .none
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
