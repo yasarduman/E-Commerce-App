@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ProductCollectionCellDelegate: AnyObject {
+protocol ProductCollectionCellProtocol: AnyObject {
     func toggleFavoriteStatus(of product: Product)
     func addToCartButtonTapped(of product: Product)
 }
@@ -21,7 +21,7 @@ final class ProductCollectionCell: UICollectionViewCell {
     //MARK: - Properties
     private var product: Product?
     
-    weak var delegate: ProductCollectionCellDelegate?
+    weak var delegate: ProductCollectionCellProtocol?
     private lazy var isFavorite: Bool = false
     
     //MARK: - UI Elements

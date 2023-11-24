@@ -199,7 +199,7 @@ extension HomeVC: HomeViewProtocol {
     }
 }
 
-extension HomeVC: ProductCollectionCellDelegate {
+extension HomeVC: ProductCollectionCellProtocol {
     func addToCartButtonTapped(of product: Product) {
         viewModel.productCartStatus(for: product)
     }
