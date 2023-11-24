@@ -17,10 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-    
-        
-
-      
         // MARK: - kullanıcı sürekli giriş yapmamsı için yapılan işlem kullanıcıyı hatırlama işlemi
         if ApplicationVariables.currentUserID != nil {
             let TabBar = MainTabBarController()
@@ -32,8 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         self.window?.makeKeyAndVisible()
-        
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
