@@ -8,19 +8,22 @@
 import UIKit
 
 protocol CartCollectionCellInterface: AnyObject {
-    func plusStepperValueChanged()
-    func minusStepperValueChanged()
-    func removeButtonTapped()
+    func plusStepperValueChanged(indexPath: IndexPath?)
+    func minusStepperValueChanged(indexPath: IndexPath?)
+    func removeButtonTapped(indexPath: IndexPath?)
 }
 
 class CartCollectionCell: UICollectionViewCell {
     
     //MARK: - Cell's Identifier
     static let identifier = "CartCollectionCell"
+
+    //MARK: - Properties
+    var indexPath: IndexPath?
+    weak var delegate: CartCollectionCellInterface?
     
     //MARK: - UI Elements
     private lazy var productImage = CustomImageView(image: UIImage(systemName: "exclamationmark.circle"), contentMode: .scaleAspectFit)
-    
     private lazy var productTitle = TitleLabel(text: "Product Title", fontSize: 15,numberOfLines: 1)
     private lazy var removeButton = CustomButton(bgColor: .clear, color: .gray, systemImageName: "trash")
     private lazy var titleAndRemovHstack = CustomStackView(axis: .horizontal, alignment: .center)
@@ -31,10 +34,8 @@ class CartCollectionCell: UICollectionViewCell {
     private lazy var stepperMinusButton = CustomButton(bgColor: .systemGray3, color: .black, systemImageName: "minus", cornerStyle: .capsule)
     private lazy var stepperHStack = CustomStackView(axis: .horizontal, distiribution: .fill, spacing: 6)
     private lazy var stepperAndPriceHStack = CustomStackView(axis: .horizontal, alignment: .center)
-    
     private lazy var allInOneVStack = CustomStackView(axis: .vertical, distiribution: .fillEqually )
     
-    weak var delegate: CartCollectionCellInterface?
     
     //MARK: - Initializers
     override init(frame: CGRect) {
@@ -92,15 +93,15 @@ class CartCollectionCell: UICollectionViewCell {
     
     // MARK: - @Actions
     @objc private func removeButtonTapped() {
-        delegate?.removeButtonTapped()
+        delegate?.removeButtonTapped(indexPath: indexPath)
     }
     
     @objc private func stepperMinusButtonTapped() {
-        delegate?.minusStepperValueChanged()
+        delegate?.minusStepperValueChanged(indexPath: indexPath)
     }
     
     @objc private func stepperPlusButtonTapped() {
-        delegate?.plusStepperValueChanged()
+        delegate?.plusStepperValueChanged(indexPath: indexPath)
     }
 }
 
