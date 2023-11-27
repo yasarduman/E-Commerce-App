@@ -147,6 +147,21 @@ final class ProductDetailView: UIView {
                               size: .init(heightSize: 0.9))
     }
     
+    func updateUI(with data: Product) {
+        if let image = data.image {
+            productImage.downloadSetImage(url: image)
+        }
+        productTitle.text = data.title
+        descriptionLabel.text = data.description
+        if let rating = data.rating {
+            salesAmountLabel.text = String(rating.count!) + " Sold"
+            ratingCountLabel.text = String(rating.rate!)
+        }
+        if let price = data.price {
+            priceLabel.text = "£" + String(price)
+        }
+    }
+    
     // MARK: - @Actions
     @objc private func addToFavoritesTapped(){
         self.delegate?.addToFavorites()

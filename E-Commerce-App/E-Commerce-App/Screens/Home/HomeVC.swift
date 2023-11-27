@@ -134,9 +134,8 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
         switch collectionView {
         case homeView.specialProductsCollection:
             
-            let data = viewModel.specialProductsAll[indexPath.item]
-            let vc = ProductDetailVC()
-            vc.updateUI(with: data)
+            let product = viewModel.specialProductsAll[indexPath.item]
+            let vc = ProductDetailVC(product: product)
             navigationController?.pushViewController(vc, animated: true)
         case homeView.categoryCollection:
             let category = viewModel.categories[indexPath.row]
@@ -146,9 +145,8 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
                 viewModel.fetchProductByCategory(category.rawValue)
             }
         case homeView.productCollection:
-            let data = viewModel.productByCategory[indexPath.item]
-            let vc = ProductDetailVC()
-            vc.updateUI(with: data)
+            let product = viewModel.productByCategory[indexPath.item]
+            let vc = ProductDetailVC(product: product)
             navigationController?.pushViewController(vc, animated: true)
         default:
             return

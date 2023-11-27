@@ -15,6 +15,7 @@ protocol ProductDetailVMIterface {
 
 final class ProductDetailVM {
     weak var view: ProductDetailVCInterface?
+    
 }
 
 extension ProductDetailVM: ProductDetailVMIterface{

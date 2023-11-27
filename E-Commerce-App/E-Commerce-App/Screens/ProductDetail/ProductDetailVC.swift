@@ -12,11 +12,26 @@ protocol ProductDetailVCInterface: AnyObject {
 }
 
 final class ProductDetailVC: UIViewController {
-
+    
     //MARK: - Properties
     private let productDetailView = ProductDetailView()
     private lazy var viewModel = ProductDetailVM()
+    var product: Product
     
+    
+    //MARK: - Initializers
+    init(product: Product) {
+        self.product = product
+        super.init(nibName: nil, bundle: nil)
+        productDetailView.updateUI(with: product)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.view = self
@@ -32,21 +47,6 @@ final class ProductDetailVC: UIViewController {
         view = productDetailView
     }
     
-    func updateUI(with data: Product) {
-        
-        if let image = data.image {
-            productDetailView.productImage.downloadSetImage(url: image)            
-        }
-        productDetailView.productTitle.text = data.title
-        productDetailView.descriptionLabel.text = data.description
-        if let rating = data.rating {
-            productDetailView.salesAmountLabel.text = String(rating.count!) + " Sold"
-            productDetailView.ratingCountLabel.text = String(rating.rate!)
-        }
-        if let price = data.price {
-            productDetailView.priceLabel.text = "£" + String(price)
-        }
-    }
 }
 
 extension ProductDetailVC: ProductDetailVCInterface {
@@ -61,6 +61,10 @@ extension ProductDetailVC: ProductDetailViewProtocol {
     }
     
     func addProductToCart() {
-        print("------->>>>>> DEBUG: addProductToCartTapped VC bak")
+        FirestoreManager.shared.addProductToCart(product: product) {
+            
+        } onError: { error in
+            print(error)
+        }
     }
 }

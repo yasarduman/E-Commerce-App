@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58AC55432B14A691009D631B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC55422B14A691009D631B /* FirestoreManager.swift */; };
 		8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */; };
 		8315AFD62B092C83006FDA1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315AFD52B092C83006FDA1F /* CustomView.swift */; };
 		831ECAB12B108EAF00DDCFAF /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831ECAB02B108EAF00DDCFAF /* ChangePasswordView.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58AC55422B14A691009D631B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		8315AFD52B092C83006FDA1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		831ECAB02B108EAF00DDCFAF /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
@@ -473,6 +475,7 @@
 			children = (
 				8342F72D2B07A4C700DD29BB /* NetworkManager.swift */,
 				833F6B4A2B0F5939004FE262 /* FirebaseAuthManager.swift */,
+				58AC55422B14A691009D631B /* FirestoreManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -754,6 +757,7 @@
 				833F6B462B0F589A004FE262 /* String+Ext.swift in Sources */,
 				8342F7302B07BC7600DD29BB /* AlamofireService.swift in Sources */,
 				83997EDA2B0A0FD100026E48 /* HomeVM.swift in Sources */,
+				58AC55432B14A691009D631B /* FirestoreManager.swift in Sources */,
 				83C42F792B0FD65C004C3383 /* HelpAndSupportVC.swift in Sources */,
 				833F6B492B0F58CC004FE262 /* AuthViewModel.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,

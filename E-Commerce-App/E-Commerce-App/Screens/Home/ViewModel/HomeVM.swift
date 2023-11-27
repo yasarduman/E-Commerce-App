@@ -88,13 +88,10 @@ extension HomeVM: HomeViewModelInterface {
     
     func viewDidLoad() {
         view?.configureViewController()
-    }
-    
-    func viewWillAppear() {
         fetchAllProducts()
         fetchProductByCategoryAll()
     }
-  
     
+    func viewWillAppear() {}
     
 }

@@ -66,8 +66,8 @@ extension SpecialProductVC: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ProductDetailVC()
-        vc.updateUI(with: specialProducts[indexPath.item])
+        let product = specialProducts[indexPath.item]
+        let vc = ProductDetailVC(product: product)
         navigationController?.pushViewController(vc, animated: true)
     }
     
