@@ -10,10 +10,10 @@ import UIKit
 final class CartView: UIView {
 
     //MARK: - UI Elements
-    lazy var cartCollction = CustomCollection(backgroundColor: .systemGray6, showsScrollIndicator: false,scrollDirection: .vertical)
+    lazy var cartCollectionView = CustomCollection(backgroundColor: .systemGray6, showsScrollIndicator: false,scrollDirection: .vertical)
     private lazy var checkoutContainerView = CustomView(backgroundColor: .white,clipsToBound: true, cornerRadius: 30)
     private var priceTitle = TitleLabel(text: "Total Price",fontSize: 16, textColor: .gray)
-    private lazy var priceLabel = TitleLabel(text: "£19.99",fontSize: 24,textAlignment: .center)
+    lazy var priceLabel = TitleLabel(fontSize: 24,textAlignment: .center)
     private lazy var priceVStack = CustomStackView(axis: .vertical, alignment: .leading)
     private lazy var checkoutButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .label, title: "Checkout", systemImageName: "checkmark.shield.fill", cornerStyle: .capsule)
     
@@ -21,8 +21,6 @@ final class CartView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
-        
-  
     }
     
     required init?(coder: NSCoder) {
@@ -31,8 +29,8 @@ final class CartView: UIView {
     
     // MARK: - UI Configuration
     private func configureUI() {
-        backgroundColor = .systemBackground
-        addSubviewsExt(cartCollction,checkoutContainerView)
+        backgroundColor = .secondarySystemBackground
+        addSubviewsExt(cartCollectionView,checkoutContainerView)
         checkoutContainerView.addSubviewsExt(priceVStack,checkoutButton)
         priceVStack.addArrangedSubviewsExt(priceTitle, priceLabel)
         
@@ -43,7 +41,7 @@ final class CartView: UIView {
     }
     
     private func configureCartCollection() {
-        cartCollction.anchor(top: safeAreaLayoutGuide.topAnchor,
+        cartCollectionView.anchor(top: safeAreaLayoutGuide.topAnchor,
                              leading: leadingAnchor,
                              bottom: checkoutContainerView.topAnchor,
                              trailing: trailingAnchor)

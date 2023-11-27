@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5850AE3F2B14B4AE00282C7C /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5850AE3E2B14B4AE00282C7C /* CartItem.swift */; };
+		5850AE412B14B5A500282C7C /* CartVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5850AE402B14B5A500282C7C /* CartVM.swift */; };
 		58AC55432B14A691009D631B /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AC55422B14A691009D631B /* FirestoreManager.swift */; };
 		8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */; };
 		8315AFD62B092C83006FDA1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315AFD52B092C83006FDA1F /* CustomView.swift */; };
@@ -79,6 +81,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5850AE3E2B14B4AE00282C7C /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		5850AE402B14B5A500282C7C /* CartVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartVM.swift; path = "E-Commerce-App/Screens/Cart/ViewModel/CartVM.swift"; sourceTree = SOURCE_ROOT; };
 		58AC55422B14A691009D631B /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		8315AFD22B092AEA006FDA1F /* ProductCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
 		8315AFD52B092C83006FDA1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -163,6 +167,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5850AE422B14B6A500282C7C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5850AE402B14B5A500282C7C /* CartVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		8315AFD42B092C5F006FDA1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,7 +396,7 @@
 		8342F6FF2B07943A00DD29BB /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				83E966AF2B10FEDA00F093B9 /* ViewModel */,
+				5850AE422B14B6A500282C7C /* ViewModel */,
 				83E966AE2B10FED500F093B9 /* View */,
 				8342F7092B0795B900DD29BB /* CartVC.swift */,
 			);
@@ -591,6 +603,7 @@
 			children = (
 				833F6B532B0F5B0A004FE262 /* AuthUserModel.swift */,
 				83997ED42B0A091E00026E48 /* ProductModel.swift */,
+				5850AE3E2B14B4AE00282C7C /* CartItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -602,13 +615,6 @@
 				83E966B02B10FEE800F093B9 /* CartView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		83E966AF2B10FEDA00F093B9 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		83E966B22B11019900F093B9 /* Cell */ = {
@@ -735,6 +741,7 @@
 				83C42F6F2B0FD606004C3383 /* SettingTableViewCell.swift in Sources */,
 				8342F7232B07990A00DD29BB /* CustomButton.swift in Sources */,
 				83E966B12B10FEE800F093B9 /* CartView.swift in Sources */,
+				5850AE3F2B14B4AE00282C7C /* CartItem.swift in Sources */,
 				83E966AD2B10FE2A00F093B9 /* SearchView.swift in Sources */,
 				8342F7262B07997200DD29BB /* CustomLoadingVC.swift in Sources */,
 				83997EDC2B0A2B7F00026E48 /* UIImageView+Ext.swift in Sources */,
@@ -760,6 +767,7 @@
 				58AC55432B14A691009D631B /* FirestoreManager.swift in Sources */,
 				83C42F792B0FD65C004C3383 /* HelpAndSupportVC.swift in Sources */,
 				833F6B492B0F58CC004FE262 /* AuthViewModel.swift in Sources */,
+				5850AE412B14B5A500282C7C /* CartVM.swift in Sources */,
 				8342F7042B07950800DD29BB /* MainTabBarController.swift in Sources */,
 				8315AFD32B092AEA006FDA1F /* ProductCollectionCell.swift in Sources */,
 				839782D52B0E0B0700BCA4C0 /* ProductDetailVM.swift in Sources */,

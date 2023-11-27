@@ -61,10 +61,12 @@ extension ProductDetailVC: ProductDetailViewProtocol {
     }
     
     func addProductToCart() {
-        FirestoreManager.shared.addProductToCart(product: product) {
-            
-        } onError: { error in
-            print(error)
+        FirestoreManager.shared.addProductToCart(product: product) { [weak self] in
+            guard let self else { return }
+            presentAlert(title: "Alert", message: "The product added to cart successfully", buttonTitle: "OK")
+        } onError: { [weak self] error in
+            guard let self else { return }
+            presentAlert(title: "Alert", message: error, buttonTitle: "OK")
         }
     }
 }

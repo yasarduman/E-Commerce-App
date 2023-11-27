@@ -37,11 +37,9 @@ final class AuthViewModel {
             return
         }
         
-        firebaseAuthManager.resetPassword(email: email) { [weak self] in
-            guard let self else { return }
+        firebaseAuthManager.resetPassword(email: email) {
             completion(true, "Please check your e-mail to reset your password.")
-        } onError: { [weak self] error in
-            guard let self else { return }
+        } onError: { error in
             completion(false, error)
         }
     }

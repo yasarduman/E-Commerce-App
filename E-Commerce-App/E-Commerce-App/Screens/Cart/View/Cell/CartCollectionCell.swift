@@ -66,7 +66,7 @@ class CartCollectionCell: UICollectionViewCell {
     private func configureProductImage() {
         productImage.anchor(leading: leadingAnchor,
                             padding: .init(leading: 10),
-                            size: .init(heightSize: 120))
+                            size: .init(width: 100, height: 100))
         
         productImage.centerYInSuperview()
     }
@@ -89,6 +89,25 @@ class CartCollectionCell: UICollectionViewCell {
         removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
         stepperMinusButton.addTarget(self, action: #selector(stepperMinusButtonTapped), for: .touchUpInside)
         stepperPlusButton.addTarget(self, action: #selector(stepperPlusButtonTapped), for: .touchUpInside)
+    }
+    
+    func updateUI(cartItem: CartItem) {
+        if let imageURL = cartItem.product.image {
+            productImage.downloadSetImage(url: imageURL)
+        }
+        if let title = cartItem.product.title {
+            productTitle.text = title
+        }
+        
+        if let category = cartItem.product.category?.rawValue {
+            categoryLabel.text = category
+        }
+        
+        if let price = cartItem.product.price?.description {
+            priceLabel.text = "£\(price)"
+        }
+        
+        stepperLabel.text = cartItem.count.description
     }
     
     // MARK: - @Actions

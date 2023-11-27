@@ -53,4 +53,75 @@ final class FirestoreManager {
         }
     }
     
+    func removeProductFromCart(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
+        let productRef = currentUserRef
+            .collection("cart")
+            .document(product.id!.description)
+        
+        FirestoreService.shared.checkDocumentExists(reference: productRef) { exists in
+            if exists {
+                FirestoreService.shared.deleteDocument(reference: productRef) {
+                    onSuccess()
+                } onError: { error in
+                    onError(error.localizedDescription)
+                }
+            } else { return }
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+        
+    }
+    
+    func getProductsFromCart(onSuccess: @escaping ([CartItem]) -> Void, onError: @escaping (String) -> Void) {
+        let cartRef = currentUserRef
+            .collection("cart")
+        FirestoreService.shared.getDocuments(reference: cartRef) { (cartItems: [CartItem]) in
+            onSuccess(cartItems)
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
+    func increaseCountOfCartItem(cartItem: CartItem, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
+        let cartItemRef = currentUserRef
+            .collection("cart")
+            .document(cartItem.product.id!.description)
+        
+        FirestoreService.shared.checkDocumentExists(reference: cartItemRef) { exists in
+            if exists {
+                FirestoreService.shared.updateData(reference: cartItemRef, data: ["count" : FieldValue.increment(1.0)]) {
+                    onSuccess()
+                } onError: { error in
+                    onError(error.localizedDescription)
+                }
+            } else { return }
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
+    func decreaseCountOfCartItem(cartItem: CartItem, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
+        let cartItemRef = currentUserRef
+            .collection("cart")
+            .document(cartItem.product.id!.description)
+        
+        FirestoreService.shared.getDocument(reference: cartItemRef) { (cartItem: CartItem) in
+            if cartItem.count == 1 {
+                self.removeProductFromCart(product: cartItem.product) {
+                    onSuccess()
+                } onError: { error in
+                    onError(error)
+                }
+            } else {
+                FirestoreService.shared.updateData(reference: cartItemRef, data: ["count" : FieldValue.increment(-1.0)]) {
+                    onSuccess()
+                } onError: { error in
+                    onError(error.localizedDescription)
+                }
+            }
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
 }
