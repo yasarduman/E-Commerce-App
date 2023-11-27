@@ -24,7 +24,7 @@ class CartCollectionCell: UICollectionViewCell {
     
     //MARK: - UI Elements
     private lazy var productImage = CustomImageView(image: UIImage(systemName: "exclamationmark.circle"), contentMode: .scaleAspectFit)
-    private lazy var productTitle = TitleLabel(text: "Product Title", fontSize: 15,numberOfLines: 1)
+    private lazy var productTitle = TitleLabel(text: "Product Title", fontSize: 15,numberOfLines: 0)
     private lazy var removeButton = CustomButton(bgColor: .clear, color: .gray, systemImageName: "trash")
     private lazy var titleAndRemovHstack = CustomStackView(axis: .horizontal, alignment: .center)
     private lazy var categoryLabel = TitleLabel(text: "Category..", fontSize: 12, textColor: .gray, numberOfLines: 1)
@@ -41,7 +41,6 @@ class CartCollectionCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
-      
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +60,7 @@ class CartCollectionCell: UICollectionViewCell {
         configureAllInOneVStack()
         configureStepperButton()
         configureActions()
+        configureRemoveButton()
     }
     
     private func configureProductImage() {
@@ -81,6 +81,9 @@ class CartCollectionCell: UICollectionViewCell {
     private func configureStepperButton() {
         stepperMinusButton.anchor(size: .init(width: 40, height: 40))
         stepperPlusButton.anchor(size: .init(width: 40, height: 40))
+    }
+    private func configureRemoveButton() {
+        removeButton.anchor(size: .init(width: 50, height: 50))
     }
     
 
