@@ -11,9 +11,9 @@ final class CartView: UIView {
 
     //MARK: - UI Elements
     lazy var cartCollectionView = CustomCollection(backgroundColor: .systemGray6, showsScrollIndicator: false,scrollDirection: .vertical)
-    private lazy var checkoutContainerView = CustomView(backgroundColor: .white,clipsToBound: true, cornerRadius: 30)
+    private lazy var checkoutContainerView = CustomView(backgroundColor: .systemGray5, clipsToBound: true, cornerRadius: 30, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
     private var priceTitle = TitleLabel(text: "Total Price",fontSize: 16, textColor: .gray)
-    lazy var priceLabel = TitleLabel(fontSize: 24,textAlignment: .center)
+    lazy var priceLabel = TitleLabel(fontSize: 24,textAlignment: .center, textColor: .label)
     private lazy var priceVStack = CustomStackView(axis: .vertical, alignment: .leading)
     private lazy var checkoutButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .label, title: "Checkout", systemImageName: "checkmark.shield.fill", cornerStyle: .capsule)
     
@@ -43,7 +43,7 @@ final class CartView: UIView {
     private func configureCartCollection() {
         cartCollectionView.anchor(top: safeAreaLayoutGuide.topAnchor,
                              leading: leadingAnchor,
-                             bottom: checkoutContainerView.topAnchor,
+                                  bottom: safeAreaLayoutGuide.bottomAnchor,
                              trailing: trailingAnchor)
     }
     
@@ -51,8 +51,8 @@ final class CartView: UIView {
         checkoutContainerView.anchor(leading: leadingAnchor,
                               bottom: safeAreaLayoutGuide.bottomAnchor,
                               trailing: trailingAnchor,
-                              size: .init(heightSize: 100))
-        checkoutContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                              size: .init(heightSize: 85))
+        cartCollectionView.contentInset = .init(bottom: 90)
     }
     
     private func configureCheckoutButton() {

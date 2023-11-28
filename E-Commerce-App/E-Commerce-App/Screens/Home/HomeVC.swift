@@ -206,4 +206,3 @@ extension HomeVC: ProductCollectionCellProtocol {
         viewModel.toggleFavoriteStatus(for: product)
     }
 }
-

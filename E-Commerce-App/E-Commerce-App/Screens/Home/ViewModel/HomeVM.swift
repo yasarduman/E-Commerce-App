@@ -17,47 +17,56 @@ protocol HomeViewModelInterface {
 final class HomeVM {
     
     weak var view: HomeVCInterface?
-    
-    let manager = NetworkManager.shared
   
     var specialProductsAll : [Product] = []
     var productByCategory: [Product] = []
     var categories = Category.allCases
     
     func fetchAllProducts() {
-        manager.getProducts { [weak self] products in
+        NetworkManager.shared.getProducts { [weak self] products in
             guard let self else { return }
-            
-            if let products = products {
-                self.specialProductsAll = products.shuffled()
-                view?.specialProductReloadData()
+            FirestoreManager.shared.getProductsFromFavorites { favoriteProducts in
+                let favoriteProductsIDs = favoriteProducts.map({ $0.id! })
+                var resultProducts = products.map { product in
+                    var updatedProduct = product
+                    updatedProduct.isFavorited = favoriteProductsIDs.contains(product.id!)
+                    return updatedProduct
+                }
+                self.specialProductsAll = resultProducts
+                self.view?.specialProductReloadData()
+            } onError: { error in
+                print(error)
             }
         } onError: { error in
             print(error)
         }
     }
     
-
     func fetchProductByCategory(_ category: String) {
-        manager.getProductByCategory(category: category) {  [weak self] products in
+        NetworkManager.shared.getProductByCategory(category: category) {  [weak self] products in
             guard let self else { return }
             
-            if let products = products {
-                self.productByCategory = products
-                view?.categoryCollectionReloadData()
-            }
-            
+            self.productByCategory = products
+            view?.categoryCollectionReloadData()
         } onError: { error in
             print(error)
         }
     }
+    
     func fetchProductByCategoryAll() {
-        manager.getProducts { [weak self] products in
+        NetworkManager.shared.getProducts { [weak self] products in
             guard let self else { return }
-            
-            if let products = products {
-                self.productByCategory = products
-                view?.categoryCollectionReloadData()
+            FirestoreManager.shared.getProductsFromFavorites { favoriteProducts in
+                let favoriteProductsIDs = favoriteProducts.map({ $0.id! })
+                var resultProducts = products.map { product in
+                    var updatedProduct = product
+                    updatedProduct.isFavorited = favoriteProductsIDs.contains(product.id!)
+                    return updatedProduct
+                }
+                self.productByCategory = resultProducts
+                self.view?.categoryCollectionReloadData()
+            } onError: { error in
+                print(error)
             }
         } onError: { error in
             print(error)
@@ -65,12 +74,26 @@ final class HomeVM {
     }
     
     func toggleFavoriteStatus(for product: Product) {
-          // TODO: - isFavorite eklenecek Firebase ...
-        print("------->>>>>> DEBUG: Firebase Favoriye Ekleme İşlemi yapıldı...")
-        dump(product)
-        
-        view?.categoryCollectionReloadData()
-      }
+        FirestoreManager.shared.checkProductFavoriteStatus(product: product) { isFavorited in
+            if isFavorited {
+                FirestoreManager.shared.removeProductFromFavorites(product: product) { [weak self] in
+                    guard let self else { return }
+                    self.fetchProductByCategoryAll()
+                } onError: { error in
+                    print(error)
+                }
+            } else {
+                FirestoreManager.shared.addProductToFavorites(product: product) { [weak self] in
+                    guard let self else { return }
+                    self.fetchProductByCategoryAll()
+                } onError: { error in
+                    print(error)
+                }
+            }
+        } onError: { error in
+            print(error)
+        }
+    }
     
     
     func productCartStatus(for product: Product) {

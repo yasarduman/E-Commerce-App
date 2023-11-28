@@ -78,8 +78,7 @@ final class CustomTextField: UITextField {
         }
     }
     
-    @objc
-    func toggleShowHide(button: UIButton) {
+    @objc func toggleShowHide(button: UIButton) {
         toggle()
     }
     

@@ -17,6 +17,7 @@ struct Product: Codable {
     let category: Category?
     let image: String?
     let rating: Rating?
+    var isFavorited: Bool?
 }
 
 enum Category: String, Codable ,CaseIterable{

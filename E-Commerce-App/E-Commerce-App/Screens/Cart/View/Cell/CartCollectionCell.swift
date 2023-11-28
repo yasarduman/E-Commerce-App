@@ -24,17 +24,17 @@ class CartCollectionCell: UICollectionViewCell {
     
     //MARK: - UI Elements
     private lazy var productImage = CustomImageView(image: UIImage(systemName: "exclamationmark.circle"), contentMode: .scaleAspectFit)
-    private lazy var productTitle = TitleLabel(text: "Product Title", fontSize: 15,numberOfLines: 0)
+    private lazy var productTitle = TitleLabel(fontSize: 15, textColor: .black, numberOfLines: 0)
     private lazy var removeButton = CustomButton(bgColor: .clear, color: .gray, systemImageName: "trash")
     private lazy var titleAndRemovHstack = CustomStackView(axis: .horizontal, alignment: .center)
-    private lazy var categoryLabel = TitleLabel(text: "Category..", fontSize: 12, textColor: .gray, numberOfLines: 1)
-    private lazy var priceLabel = TitleLabel(text:"£18.99",fontSize: 18)
+    private lazy var categoryLabel = TitleLabel(fontSize: 12, textColor: .gray, numberOfLines: 1)
+    private lazy var priceLabel = TitleLabel(fontSize: 18, textColor: .black)
     private lazy var stepperPlusButton = CustomButton(bgColor: .systemGray3, color: .black, systemImageName: "plus", cornerStyle: .capsule)
-    lazy var stepperLabel = TitleLabel(text:"1",fontSize: 15, textAlignment: .center)
+    lazy var stepperLabel = TitleLabel(fontSize: 15, textAlignment: .center, textColor: .black)
     private lazy var stepperMinusButton = CustomButton(bgColor: .systemGray3, color: .black, systemImageName: "minus", cornerStyle: .capsule)
     private lazy var stepperHStack = CustomStackView(axis: .horizontal, distiribution: .fill, spacing: 6)
     private lazy var stepperAndPriceHStack = CustomStackView(axis: .horizontal, alignment: .center)
-    private lazy var allInOneVStack = CustomStackView(axis: .vertical, distiribution: .fillEqually )
+    private lazy var allInOneVStack = CustomStackView(axis: .vertical)
     
     
     //MARK: - Initializers
@@ -64,18 +64,16 @@ class CartCollectionCell: UICollectionViewCell {
     }
     
     private func configureProductImage() {
+        productImage.centerYInSuperview()
         productImage.anchor(leading: leadingAnchor,
                             padding: .init(leading: 10),
-                            size: .init(width: 100, height: 100))
-        
-        productImage.centerYInSuperview()
+                            size: .init(widthSize: 100, heightSize: 100))
     }
     
     private func configureAllInOneVStack() {
         allInOneVStack.anchor(leading: productImage.trailingAnchor,
                               trailing: trailingAnchor,
                               padding: .init(leading: 10,trailing: 10))
-        allInOneVStack.heightAnchor.constraint(equalTo: productImage.heightAnchor).isActive = true
         allInOneVStack.centerYInSuperview()
     }
     private func configureStepperButton() {

@@ -124,4 +124,64 @@ final class FirestoreManager {
         }
     }
     
+    func getProductsFromFavorites(onSuccess: @escaping ([Product]) -> Void, onError: @escaping (String) -> Void) {
+        let favoritesRef = currentUserRef
+            .collection("favorites")
+        
+        FirestoreService.shared.getDocuments(reference: favoritesRef) { (favorites: [Product]) in
+            onSuccess(favorites)
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
+    func checkProductFavoriteStatus(product: Product, onSuccess: @escaping (Bool) -> Void, onError: @escaping (String) -> Void) {
+        let productRef = currentUserRef
+            .collection("favorites")
+            .document(product.id!.description)
+        
+        FirestoreService.shared.checkDocumentExists(reference: productRef) { exists in
+            onSuccess(exists)
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
+    func addProductToFavorites(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
+        let productRef = currentUserRef
+            .collection("favorites")
+            .document(product.id!.description)
+        
+        let data = [
+            "id" : product.id!,
+            "title" : product.title!,
+            "price" : product.price!,
+            "description" : product.description!,
+            "category" : product.category!.rawValue,
+            "image" : product.image!,
+            "rating" : [
+                "rate" : product.rating!.rate!,
+                "count" : product.rating!.count!
+            ]
+        ] as [String : Any]
+        
+        FirestoreService.shared.setData(reference: productRef, data: data) {
+            onSuccess()
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
+    func removeProductFromFavorites(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
+        let productRef = currentUserRef
+            .collection("favorites")
+            .document(product.id!.description)
+        
+        FirestoreService.shared.deleteDocument(reference: productRef) {
+            onSuccess()
+        } onError: { error in
+            onError(error.localizedDescription)
+        }
+    }
+    
 }

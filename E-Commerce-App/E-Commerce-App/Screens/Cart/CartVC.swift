@@ -56,53 +56,34 @@ extension CartVC: UICollectionViewDelegate, UICollectionViewDataSource ,UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: cartView.cartCollectionView.frame.width - 20 , height: (cartView.cartCollectionView.frame.width / 2 ) - 25 )
+        return CGSize(width: cartView.cartCollectionView.frame.width - 20 , height: cartView.cartCollectionView.frame.height / 4)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
           return 20
       }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
 }
 
 
 extension CartVC: CartCollectionCellInterface {
     func plusStepperValueChanged(indexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
-        print("DEBUG: Artırma işlemi yapılan hücre index'i: \(indexPath.row)")
         if let cartItems = viewModel.cartItems {
             let item = cartItems[indexPath.item]
             viewModel.increaseCountOfCartItem(cartItem: item)
         }
-//        guard  indexPath == indexPath,
-//               let cell = cartView.cartCollectionView.cellForItem(at: indexPath) as? CartCollectionCell else { return }
-//        
-//        // Artırma işlemi
-//        if let currentCount = Int(cell.stepperLabel.text ?? "0") {
-//            cell.stepperLabel.text = "\(currentCount + 1)"
-//        }
     }
     
     func minusStepperValueChanged(indexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
-        print("DEBUG: Eksiltme işlemi yapılan hücre index'i: \(indexPath.row)")
         if let cartItems = viewModel.cartItems {
             let item = cartItems[indexPath.row]
             viewModel.decreaseCountOfCartItem(cartItem: item)
         }
-//        guard  indexPath == indexPath,
-//               let cell = cartView.cartCollectionView.cellForItem(at: indexPath) as? CartCollectionCell else { return }
-//        
-//        // Eksiltme işlemi
-//        if let currentCount = Int(cell.stepperLabel.text ?? "0"), currentCount > 1 {
-//            cell.stepperLabel.text = "\(currentCount - 1)"
-//        }
     }
     
     func removeButtonTapped(indexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
-        print("DEBUG: Silme işlemi yapılan hücre index'i: \(indexPath.row)")
         if let cartItems = viewModel.cartItems {
             let item = cartItems[indexPath.row]
             viewModel.removeProductFromCart(cartItem: item)

@@ -20,7 +20,7 @@ final class NetworkManager {
     private init() {}
     
     
-    func getProducts(onSuccess: @escaping ([Product]?)->(Void), onError: @escaping (String)->(Void)) {
+    func getProducts(onSuccess: @escaping ([Product])->(Void), onError: @escaping (String)->(Void)) {
         AlamofireService.shared.request(path: baseURL + Endpoint.fetchAllProducts.rawValue) { (response: [Product]) in
             onSuccess(response)
         } onError: { error in
@@ -28,7 +28,7 @@ final class NetworkManager {
         }
     }
     
-    func getProductByCategory(category: String, onSuccess: @escaping ([Product]?)->(Void), onError: @escaping (String)->(Void)) {
+    func getProductByCategory(category: String, onSuccess: @escaping ([Product])->(Void), onError: @escaping (String)->(Void)) {
         AlamofireService.shared.request(path: baseURL + Endpoint.fetchProdudctByCategory.rawValue + category) { (response: [Product]) in
             onSuccess(response)
         } onError: { error in

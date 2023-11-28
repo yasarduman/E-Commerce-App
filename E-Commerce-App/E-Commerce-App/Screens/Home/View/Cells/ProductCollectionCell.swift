@@ -101,11 +101,11 @@ final class ProductCollectionCell: UICollectionViewCell {
     //MARK: - CongifureCell
     func configure(with data: Product){
         self.product = data
-//        if isFavorite {
-//            productFavoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
-//        } else {
-//            productFavoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
-//        }
+        if data.isFavorited! {
+            productFavoriteButton.setImage(UIImage(systemName: "suit.heart.fill"), for: .normal)
+        } else {
+            productFavoriteButton.setImage(UIImage(systemName: "suit.heart"), for: .normal)
+        }
         
         
         if let imageURL = data.image {
