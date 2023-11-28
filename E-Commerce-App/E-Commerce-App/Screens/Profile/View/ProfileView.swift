@@ -42,8 +42,8 @@ final class ProfileView: UIView, UIImagePickerControllerDelegate & UINavigationC
         image.tintColor = .productCollectionFavoriteButtonBG
         return image
     }()
-    lazy var userName = TitleLabel(text: "Yaşar DUMAN",fontSize: 20)
-    lazy var userMesage = TitleLabel(text: "Tekrardan Hoşgeldin Yaşar 🎉",fontSize: 15, textColor: .secondaryLabel, numberOfLines: 1)
+    lazy var userName = TitleLabel(text: "",fontSize: 20)
+    lazy var userMesage = TitleLabel(text: "",fontSize: 15, textColor: .secondaryLabel, numberOfLines: 1)
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
