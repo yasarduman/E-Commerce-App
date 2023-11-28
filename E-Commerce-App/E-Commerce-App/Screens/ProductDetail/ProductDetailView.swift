@@ -20,7 +20,7 @@ final class ProductDetailView: UIView {
     //MARK: - UI Elements
     lazy var productImage = CustomImageView(image: UIImage(named: "tekTas"),contentMode: .scaleAspectFit)
     lazy var productTitle = TitleLabel(text: "Lorem Ipsum is simple",fontSize: 20, textAlignment: .left, lineBreakMode: .byTruncatingTail, numberOfLines: 1)
-    private lazy var addToFavoritesButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 20,cornerStyle: .capsule)
+    lazy var addToFavoritesButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .productCollectionFavoriteButtonBG, systemImageName: "suit.heart", pointSize: 20,cornerStyle: .capsule)
     private lazy var favAndTitleHStack = CustomStackView(axis: .horizontal, distiribution: .fill, spacing: 6)
     private lazy var seperatorView = CustomView(backgroundColor: .tertiaryLabel)
     lazy var descriptionLabel : UITextView = {

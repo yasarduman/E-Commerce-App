@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProductDetailVCInterface: AnyObject {
     func configureViewController()
+
 }
 
 final class ProductDetailVC: UIViewController {
@@ -23,6 +24,7 @@ final class ProductDetailVC: UIViewController {
     init(product: Product) {
         self.product = product
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.product = product
         productDetailView.updateUI(with: product)
     }
     
@@ -50,14 +52,18 @@ final class ProductDetailVC: UIViewController {
 }
 
 extension ProductDetailVC: ProductDetailVCInterface {
+   
     func configureViewController() {
         productDetailView.delegate = self
+        if let isFavorite = viewModel.isFavorite {
+            self.productDetailView.addToFavoritesButton.setImage(UIImage(systemName: isFavorite ? "suit.heart.fill" : "suit.heart"), for: .normal)            
+        }
     }
 }
 
 extension ProductDetailVC: ProductDetailViewProtocol {
     func addToFavorites() {
-        print("------->>>>>> DEBUG: addToFavoritesTapped VC bak")
+        viewModel.toggleFavoriteStatus()
     }
     
     func addProductToCart() {

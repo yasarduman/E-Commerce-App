@@ -15,13 +15,49 @@ protocol ProductDetailVMIterface {
 
 final class ProductDetailVM {
     weak var view: ProductDetailVCInterface?
+    var product: Product?
+    var isFavorite: Bool?
+    
+    func checkProductFavorited() {
+        guard let product else { return }
+        FirestoreManager.shared.checkProductFavoriteStatus(product: product) { isFavorited in
+            self.isFavorite = isFavorited
+            self.view?.configureViewController()
+        } onError: { error in
+            print(error)
+        }
+    }
+    
+    func toggleFavoriteStatus() {
+        guard let product else { return }
+        FirestoreManager.shared.checkProductFavoriteStatus(product: product) { isFavorited in
+            if isFavorited {
+                FirestoreManager.shared.removeProductFromFavorites(product: product) { [weak self] in
+                    guard let self else { return }
+                    checkProductFavorited()
+                } onError: { error in
+                    print(error)
+                }
+            } else {
+                FirestoreManager.shared.addProductToFavorites(product: product) { [weak self] in
+                    guard let self else { return }
+                    checkProductFavorited()
+                } onError: { error in
+                    print(error)
+                }
+            }
+        } onError: { error in
+            print(error)
+        }
+    }
     
 }
 
 extension ProductDetailVM: ProductDetailVMIterface{
     func viewDidLoad() {
-        view?.configureViewController()
+        checkProductFavorited()
     }
+    
     // TODO: - kullanamzsan kaldır !!
     func viewWillAppear() {
         
