@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeViewProtocol: AnyObject {
     func seeAllOfSpecialProducts()
+    func goToFavoritePage()
 }
 
 final class HomeView: UIView {
@@ -35,11 +36,13 @@ final class HomeView: UIView {
     lazy var categoryCollection = CustomCollection(showsScrollIndicator: false, paging: false, scrollDirection: .horizontal)
     lazy var productCollection = CustomCollection(showsScrollIndicator: false, paging: false, scrollDirection: .vertical)
     
+    lazy var favoriteButton = CustomButton(bgColor: .productCollectionFavoriteButtonBG, color: .red, systemImageName: "suit.heart.fill", pointSize: 14 , cornerStyle: .capsule)
+    
     //MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureUI()
-       
+
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +63,7 @@ final class HomeView: UIView {
         configureCategoriesTitle()
         configureCategoryCollection()
         configureProductCollection()
+        favorieButtonTarget()
     }
     
     private func configureSpecialProductsTitle() {
@@ -114,7 +118,9 @@ final class HomeView: UIView {
                                  trailing: trailingAnchor,
                                  padding: .init(top: 10, leading: 10, trailing: 10))
     }
-    
+    private func favorieButtonTarget() {
+        favoriteButton.addTarget(self, action: #selector(favoriteButtonTapped), for: .touchUpInside)
+    }
     
     // MARK: - @Actions
     @objc func pageControlValueChanged() {
@@ -123,7 +129,11 @@ final class HomeView: UIView {
         specialProductsCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
     
-    @objc func seeAllButtonTapped() {
-        self.delegate?.seeAllOfSpecialProducts()
+    @objc private func seeAllButtonTapped() {
+        delegate?.seeAllOfSpecialProducts()
+    }
+    
+    @objc private func favoriteButtonTapped() {
+        delegate?.goToFavoritePage()
     }
 }

@@ -31,9 +31,9 @@ final class SpecialProductView: UIView {
     private func configureSpecialProductCollection() {
         addSubview(allProductCollection)
         allProductCollection.anchor(top: safeAreaLayoutGuide.topAnchor,
-                                     leading: leadingAnchor,
+                                    leading: leadingAnchor,
                                     bottom: safeAreaLayoutGuide.bottomAnchor,
-                                     trailing: trailingAnchor,
-                                     padding: .init(top: 20, leading: 10, trailing: 10))
+                                    trailing: trailingAnchor,
+                                    padding: .init(top: 20, leading: 10, trailing: 10))
     }
 }

@@ -40,6 +40,20 @@ final class HomeVC: UIViewController {
     private func configureNavBar() {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = .label
+      
+        let titleLabel = UILabel()
+        titleLabel.text = "E-Commerce 🛒"
+
+        if let customFont = UIFont(name: "Superlative", size: 15) {
+            titleLabel.font = customFont
+            self.navigationItem.titleView = titleLabel
+        } else {
+            print("Özel font yüklenirken bir hata oluştu.")
+        }
+        
+        let rightBarButton = UIBarButtonItem(customView: homeView.favoriteButton)
+        navigationItem.rightBarButtonItem = rightBarButton
+      
     }
  
     
@@ -52,8 +66,6 @@ final class HomeVC: UIViewController {
     
     //MARK: - Setup Delegates
     private func setupDelegates() {
-      
-        
         homeView.specialProductsCollection.dataSource = self
         homeView.specialProductsCollection.delegate = self
         
@@ -130,13 +142,14 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
         }
     }
     
+    // MARK: - UICollectionView -> didSelectItemAt
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case homeView.specialProductsCollection:
-            
             let product = viewModel.specialProductsAll[indexPath.item]
             let vc = ProductDetailVC(product: product)
             navigationController?.pushViewController(vc, animated: true)
+            
         case homeView.categoryCollection:
             let category = viewModel.categories[indexPath.row]
             if category.rawValue == Category.allCases[0].rawValue {
@@ -144,10 +157,12 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
             } else {
                 viewModel.fetchProductByCategory(category.rawValue)
             }
+            
         case homeView.productCollection:
             let product = viewModel.productByCategory[indexPath.item]
             let vc = ProductDetailVC(product: product)
             navigationController?.pushViewController(vc, animated: true)
+            
         default:
             return
         }
@@ -169,7 +184,6 @@ extension HomeVC: UIScrollViewDelegate {
 
 //MARK: - HomeViewInterface
 extension HomeVC: HomeVCInterface {
-    
     func configureViewController() {
         configureNavBar()
         homeView.delegate = self
@@ -189,8 +203,12 @@ extension HomeVC: HomeVCInterface {
 }
 
 extension HomeVC: HomeViewProtocol {
+    func goToFavoritePage() {
+        let vc = FavoriteProductVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func seeAllOfSpecialProducts() {
-        // TODO: - poduct detay sayafasına geçiş yapılacak
         let vc = SpecialProductVC()
         vc.updateUI(with: viewModel.specialProductsAll)
         navigationController?.pushViewController(vc, animated: true)

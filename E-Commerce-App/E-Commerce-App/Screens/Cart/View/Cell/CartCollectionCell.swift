@@ -84,8 +84,6 @@ class CartCollectionCell: UICollectionViewCell {
         removeButton.anchor(size: .init(width: 50, height: 50))
     }
     
-
-    
     private func configureActions() {
         removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
         stepperMinusButton.addTarget(self, action: #selector(stepperMinusButtonTapped), for: .touchUpInside)
@@ -124,5 +122,3 @@ class CartCollectionCell: UICollectionViewCell {
         delegate?.plusStepperValueChanged(indexPath: indexPath)
     }
 }
-
-

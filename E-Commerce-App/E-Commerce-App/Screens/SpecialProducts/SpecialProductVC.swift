@@ -16,7 +16,7 @@ final class SpecialProductVC: UIViewController {
     //MARK: - Properties
     private let specialProductView = SpecialProductView()
     private lazy var viewModel = SpecialProductVM()
-    var specialProducts: [Product] = []
+    private lazy var specialProducts: [Product] = []
     
     //MARK: - Lifecycle
     override func viewDidLoad() {

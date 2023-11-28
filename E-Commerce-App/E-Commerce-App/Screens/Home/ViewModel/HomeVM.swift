@@ -100,7 +100,6 @@ final class HomeVM {
           // TODO: - isFavorite eklenecek Firebase ...
         print("------->>>>>> DEBUG: Firebase Sepete ekleme Ekleme İşlemi yapıldı...")
         dump(product)
-
         view?.categoryCollectionReloadData()
       }
 }
