@@ -25,6 +25,11 @@ final class FavoriteProductVC: UIViewController {
         viewModel.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
+    }
+    
     override func loadView() {
         super.loadView()
         view = favoriteProtductView

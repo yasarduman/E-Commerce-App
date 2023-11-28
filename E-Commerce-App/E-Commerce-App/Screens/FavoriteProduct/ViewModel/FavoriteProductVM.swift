@@ -10,6 +10,7 @@ import Foundation
 protocol FavoriteProductVMInterface {
     var view: FavoriteProductVCInterface? { get set }
     func viewDidLoad()
+    func viewWillAppear()
 }
 final class FavoriteProductVM {
     weak var view: FavoriteProductVCInterface?
@@ -42,7 +43,9 @@ final class FavoriteProductVM {
 
 // MARK: - SpecialVMInterface
 extension FavoriteProductVM: FavoriteProductVMInterface {
-    func viewDidLoad() {
+    func viewDidLoad() {}
+    
+    func viewWillAppear() {
         getProductsFromFavorites()
     }
 }
