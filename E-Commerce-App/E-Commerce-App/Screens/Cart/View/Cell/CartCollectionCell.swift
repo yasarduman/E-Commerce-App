@@ -13,7 +13,7 @@ protocol CartCollectionCellInterface: AnyObject {
     func removeButtonTapped(indexPath: IndexPath?)
 }
 
-class CartCollectionCell: UICollectionViewCell {
+final class CartCollectionCell: UICollectionViewCell {
     
     //MARK: - Cell's Identifier
     static let identifier = "CartCollectionCell"

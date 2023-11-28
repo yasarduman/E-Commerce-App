@@ -13,8 +13,11 @@ protocol SearchVCInterface: AnyObject {
 
 final class SearchVC: UIViewController {
     
+    //MARK: - Properties
     private lazy var searchView = SearchView()
     private lazy var viewModel = SearchVM()
+    
+    
     
     override func loadView() {
         super.loadView()
