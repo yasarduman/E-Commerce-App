@@ -9,7 +9,6 @@ import UIKit
 
 protocol ProductCollectionCellProtocol: AnyObject {
     func toggleFavoriteStatus(of product: Product)
-    func addToCartButtonTapped(of product: Product)
 }
 
 
@@ -95,7 +94,6 @@ final class ProductCollectionCell: UICollectionViewCell {
                                     leading: imageContainerView.leadingAnchor,
                                     trailing: infoSeperatorView.trailingAnchor,
                                     padding: .init(top: 5))
-        addToCartButton.addTarget(self, action: #selector(addToCartButtonTapped), for: .touchUpInside)
     }
     
     //MARK: - CongifureCell
@@ -126,9 +124,5 @@ final class ProductCollectionCell: UICollectionViewCell {
         delegate?.toggleFavoriteStatus(of: product)
       }
     
-    @objc private func addToCartButtonTapped() {
-          guard let product = product else { return }
-    
-        delegate?.addToCartButtonTapped(of: product)
-      }
+  
 }

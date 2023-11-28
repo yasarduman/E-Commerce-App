@@ -18,18 +18,22 @@ final class FavoriteProductVM {
     
 
     func getProductsFromFavorites() {
-        FirestoreManager.shared.getProductsFromFavorites { favoriteProducts in
+        FirestoreManager.shared.getProductsFromFavorites { [weak self] favoriteProducts in
+            guard let self else { return }
+            
             self.favoriteProducts = favoriteProducts
-            self.view?.configureViewController()
-            self.view?.favoriteCollectionReloadData()
+            view?.configureViewController()
+            view?.favoriteCollectionReloadData()
         } onError: { error in
             print(error)
         }
     }
     
     func removeProductFromFavorites(for product: Product){
-        FirestoreManager.shared.removeProductFromFavorites(product: product) {
-            self.getProductsFromFavorites()
+        FirestoreManager.shared.removeProductFromFavorites(product: product) { [weak self]  in
+            guard let self else { return }
+            
+            getProductsFromFavorites()
         } onError: { error in
             print(error)
         }

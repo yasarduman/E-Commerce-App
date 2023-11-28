@@ -155,7 +155,7 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
             if category.rawValue == Category.allCases[0].rawValue {
                 viewModel.fetchProductByCategoryAll()
             } else {
-                viewModel.fetchProductByCategory(category.rawValue)
+                viewModel.fetchProductByCategory(category)
             }
             
         case homeView.productCollection:
@@ -216,10 +216,6 @@ extension HomeVC: HomeViewProtocol {
 }
 
 extension HomeVC: ProductCollectionCellProtocol {
-    func addToCartButtonTapped(of product: Product) {
-        viewModel.productCartStatus(for: product)
-    }
-    
     func toggleFavoriteStatus(of product: Product) {
         viewModel.toggleFavoriteStatus(for: product)
     }

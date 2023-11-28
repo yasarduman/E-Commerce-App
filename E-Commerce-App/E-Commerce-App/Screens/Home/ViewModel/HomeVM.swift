@@ -21,6 +21,7 @@ final class HomeVM {
     var specialProductsAll : [Product] = []
     var productByCategory: [Product] = []
     var categories = Category.allCases
+    var selectedCategory = Category.all
     
     func fetchAllSpecialProducts() {
         NetworkManager.shared.getProducts { [weak self] products in
@@ -32,8 +33,8 @@ final class HomeVM {
         }
     }
     
-    func fetchProductByCategory(_ category: String) {
-        NetworkManager.shared.getProductByCategory(category: category) {  [weak self] products in
+    func fetchProductByCategory(_ category: Category) {
+        NetworkManager.shared.getProductByCategory(category: category.rawValue) {  [weak self] products in
             guard let self else { return }
             FirestoreManager.shared.getProductsFromFavorites { favoriteProducts in
                 let favoriteProductsIDs = favoriteProducts.map({ $0.id! })
@@ -43,6 +44,7 @@ final class HomeVM {
                     return updatedProduct
                 }
                 self.productByCategory = resultProducts
+                self.selectedCategory = category
                 self.view?.categoryCollectionReloadData()
             } onError: { error in
                 print(error)
@@ -78,14 +80,22 @@ final class HomeVM {
             if isFavorited {
                 FirestoreManager.shared.removeProductFromFavorites(product: product) { [weak self] in
                     guard let self else { return }
-                    self.fetchProductByCategoryAll()
+                    if selectedCategory == Category.all {
+                        self.fetchProductByCategoryAll()
+                    } else {
+                        self.fetchProductByCategory(selectedCategory)
+                    }
                 } onError: { error in
                     print(error)
                 }
             } else {
                 FirestoreManager.shared.addProductToFavorites(product: product) { [weak self] in
                     guard let self else { return }
-                    self.fetchProductByCategoryAll()
+                    if selectedCategory == Category.all {
+                        self.fetchProductByCategoryAll()
+                    } else {
+                        self.fetchProductByCategory(selectedCategory)
+                    }
                 } onError: { error in
                     print(error)
                 }
@@ -95,13 +105,6 @@ final class HomeVM {
         }
     }
     
-    
-    func productCartStatus(for product: Product) {
-          // TODO: - isFavorite eklenecek Firebase ...
-        print("------->>>>>> DEBUG: Firebase Sepete ekleme Ekleme İşlemi yapıldı...")
-        dump(product)
-        view?.categoryCollectionReloadData()
-      }
 }
 
 
@@ -111,11 +114,9 @@ extension HomeVM: HomeViewModelInterface {
     func viewDidLoad() {
         view?.configureViewController()
         fetchAllSpecialProducts()
-        fetchProductByCategoryAll()
     }
     
     func viewWillAppear() {
         fetchProductByCategoryAll()
     }
-    
 }
