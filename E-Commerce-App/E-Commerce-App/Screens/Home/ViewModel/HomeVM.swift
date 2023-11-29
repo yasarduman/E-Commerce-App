@@ -15,7 +15,7 @@ protocol HomeViewModelInterface {
 
 final class HomeVM {
     private weak var view: HomeVCInterface?
-    private let networkManager: NetworkManagerInterfave
+    private let networkManager: NetworkManagerInterface 
     private let firestoreManager: FirestoreManagerInterface
     
     var specialProductsAll : [Product] = []
@@ -24,7 +24,7 @@ final class HomeVM {
     var selectedCategory = Category.all
     
     
-    init(view: HomeVCInterface, networkManager: NetworkManagerInterfave = NetworkManager.shared, firestoreManager: FirestoreManagerInterface = FirestoreManager.shared) {
+    init(view: HomeVCInterface, networkManager: NetworkManagerInterface = NetworkManager.shared, firestoreManager: FirestoreManagerInterface = FirestoreManager.shared) {
         self.view = view
         self.networkManager = networkManager
         self.firestoreManager = firestoreManager
@@ -117,10 +117,12 @@ final class HomeVM {
 //MARK: - HomeViewModelInterface
 extension HomeVM: HomeViewModelInterface {
     
+    
     func viewDidLoad() {
         view?.configureViewController()
         fetchAllSpecialProducts()
     }
+    
     
     func viewWillAppear() {
         fetchProductByCategoryAll()

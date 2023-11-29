@@ -34,7 +34,6 @@ final class HomeVMTests: XCTestCase {
     func test_viewDidLoad_InvokesRequiredMethods() {
         //given
         XCTAssertEqual(view.invokePrepareControllerCount, 0)
-        XCTAssertEqual(view.invokePrepareProductReloadDataCount, 0)
         XCTAssertEqual(networkManager.invokedGetProductsCount, 0)
         XCTAssertEqual(view.invokePrepareProductReloadDataCount, 0)
         
@@ -43,9 +42,9 @@ final class HomeVMTests: XCTestCase {
         
         //then
         XCTAssertEqual(view.invokePrepareControllerCount, 1)
-        XCTAssertEqual(view.invokePrepareProductReloadDataCount, 1)
         XCTAssertEqual(networkManager.invokedGetProductsCount, 1)
         XCTAssertEqual(view.invokePrepareProductReloadDataCount, 1)
+
     }
     
     func test_viewWillAppear_InvokesPrepareProductByCategory() {
@@ -56,7 +55,7 @@ final class HomeVMTests: XCTestCase {
         
         //when
         viewModel.viewWillAppear()
-        
+
         //then
         XCTAssertEqual(networkManager.invokedGetProductsCount, 1)
         XCTAssertEqual(firestoreManager.invokeGetProductsFromFavoritesCount, 1)

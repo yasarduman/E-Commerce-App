@@ -13,12 +13,12 @@ protocol SearchVMInterface {
 
 final class SearchVM {
     private weak var view: SearchVCInterface?
-    private let networkManager: NetworkManagerInterfave
+    private let networkManager: NetworkManagerInterface
     
     var products : [Product] = []
     var filteredProducts: [Product] = []
     
-    init(view: SearchVCInterface,networkManager: NetworkManagerInterfave = NetworkManager.shared) {
+    init(view: SearchVCInterface,networkManager: NetworkManagerInterface = NetworkManager.shared) {
         self.view = view
         self.networkManager = networkManager
     }

@@ -5,16 +5,16 @@
 //  Created by Yaşar Duman on 17.11.2023.
 //
 
-protocol NetworkManagerInterfave {
+protocol NetworkManagerInterface {
     func getProducts(onSuccess: @escaping ([Product])->(Void), onError: @escaping (String)->(Void))
     func getProductByCategory(category: String, onSuccess: @escaping ([Product])->(Void), onError: @escaping (String)->(Void))
     func fetchCategory(onSuccess: @escaping ([Category]?) -> (), onError: @escaping (String)->(Void))
 }
 
-final class NetworkManager: NetworkManagerInterfave {
+final class NetworkManager: NetworkManagerInterface {
     private let baseURL: String = "https://fakestoreapi.com"
     
-    enum Endpoint: String {
+    private enum Endpoint: String {
        case fetchAllProducts       = "/products"
        case fetchAllCategorys       = "/products/categories"
        case fetchProdudctByCategory = "/products/category/"
