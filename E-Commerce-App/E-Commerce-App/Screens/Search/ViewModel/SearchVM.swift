@@ -8,17 +8,23 @@
 import Foundation
 
 protocol SearchVMInterface {
-    var view: SearchVCInterface? { get set }
     func viewDidLoad()
 }
 
 final class SearchVM {
-    weak var view: SearchVCInterface?
+    private weak var view: SearchVCInterface?
+    private let networkManager: NetworkManagerInterfave
+    
     var products : [Product] = []
     var filteredProducts: [Product] = []
     
+    init(view: SearchVCInterface,networkManager: NetworkManagerInterfave = NetworkManager.shared) {
+        self.view = view
+        self.networkManager = networkManager
+    }
+    
     func getAllProducts() {
-        NetworkManager.shared.getProducts { [weak self] products in
+        networkManager.getProducts { [weak self] products in
             guard let self else { return }
             self.products = products
             self.filteredProducts = products

@@ -54,6 +54,7 @@ extension ProductDetailVC: ProductDetailVCInterface {
    
     func configureViewController() {
         productDetailView.delegate = self
+        
         if let isFavorite = viewModel.isFavorite {
             self.productDetailView.addToFavoritesButton.setImage(UIImage(systemName: isFavorite ? "suit.heart.fill" : "suit.heart"), for: .normal)            
         }

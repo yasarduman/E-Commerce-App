@@ -18,7 +18,7 @@ final class SearchVC: UIViewController {
     
     //MARK: - Properties
     private lazy var searchView = SearchView()
-    private lazy var viewModel = SearchVM()
+    private lazy var viewModel = SearchVM(view: self)
     
     
     //MARK: - Lifecycle
@@ -29,7 +29,6 @@ final class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
     

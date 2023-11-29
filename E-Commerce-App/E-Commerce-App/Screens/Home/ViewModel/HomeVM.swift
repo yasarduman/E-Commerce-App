@@ -9,22 +9,29 @@ import Foundation
 
 
 protocol HomeViewModelInterface {
-    var view: HomeVCInterface? { get set }
     func viewDidLoad()
     func viewWillAppear()
 }
 
 final class HomeVM {
+    private weak var view: HomeVCInterface?
+    private let networkManager: NetworkManagerInterfave
+    private let firestoreManager: FirestoreManagerInterface
     
-    weak var view: HomeVCInterface?
-  
     var specialProductsAll : [Product] = []
     var productByCategory: [Product] = []
     var categories = Category.allCases
     var selectedCategory = Category.all
     
+    
+    init(view: HomeVCInterface, networkManager: NetworkManagerInterfave = NetworkManager.shared, firestoreManager: FirestoreManagerInterface = FirestoreManager.shared) {
+        self.view = view
+        self.networkManager = networkManager
+        self.firestoreManager = firestoreManager
+    }
+    
     func fetchAllSpecialProducts() {
-        NetworkManager.shared.getProducts { [weak self] products in
+        networkManager.getProducts { [weak self] products in
             guard let self else { return }
             specialProductsAll = products
             view?.specialProductReloadData()
@@ -34,9 +41,9 @@ final class HomeVM {
     }
     
     func fetchProductByCategory(_ category: Category) {
-        NetworkManager.shared.getProductByCategory(category: category.rawValue) {  [weak self] products in
+        networkManager.getProductByCategory(category: category.rawValue) {  [weak self] products in
             guard let self else { return }
-            FirestoreManager.shared.getProductsFromFavorites { favoriteProducts in
+            firestoreManager.getProductsFromFavorites { favoriteProducts in
                 let favoriteProductsIDs = favoriteProducts.map({ $0.id! })
                 let resultProducts = products.map { product in
                     var updatedProduct = product
@@ -56,9 +63,9 @@ final class HomeVM {
     }
     
     func fetchProductByCategoryAll() {
-        NetworkManager.shared.getProducts { [weak self] products in
+        networkManager.getProducts { [weak self] products in
             guard let self else { return }
-            FirestoreManager.shared.getProductsFromFavorites { favoriteProducts in
+            firestoreManager.getProductsFromFavorites { favoriteProducts in
                 let favoriteProductsIDs = favoriteProducts.map({ $0.id! })
                 let resultProducts = products.map { product in
                     var updatedProduct = product
@@ -76,7 +83,7 @@ final class HomeVM {
     }
     
     func toggleFavoriteStatus(for product: Product) {
-        FirestoreManager.shared.checkProductFavoriteStatus(product: product) { isFavorited in
+        firestoreManager.checkProductFavoriteStatus(product: product) { isFavorited in
             if isFavorited {
                 FirestoreManager.shared.removeProductFromFavorites(product: product) { [weak self] in
                     guard let self else { return }
@@ -89,7 +96,7 @@ final class HomeVM {
                     print(error)
                 }
             } else {
-                FirestoreManager.shared.addProductToFavorites(product: product) { [weak self] in
+                self.firestoreManager.addProductToFavorites(product: product) { [weak self] in
                     guard let self else { return }
                     if selectedCategory == Category.all {
                         self.fetchProductByCategoryAll()
@@ -104,7 +111,6 @@ final class HomeVM {
             print(error)
         }
     }
-    
 }
 
 

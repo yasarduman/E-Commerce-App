@@ -17,12 +17,11 @@ final class HomeVC: UIViewController {
 
     //MARK: - Properties
     private let homeView = HomeView()
-    private lazy var viewModel = HomeVM()
+    private lazy var viewModel = HomeVM(view: self)
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
     

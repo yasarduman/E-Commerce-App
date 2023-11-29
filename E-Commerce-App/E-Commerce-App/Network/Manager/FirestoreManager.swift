@@ -7,7 +7,19 @@
 
 import FirebaseFirestore
 
-final class FirestoreManager {
+protocol FirestoreManagerInterface {
+    func addProductToCart(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void)
+    func removeProductFromCart(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void)
+    func getProductsFromCart(onSuccess: @escaping ([CartItem]) -> Void, onError: @escaping (String) -> Void)
+    func increaseCountOfCartItem(cartItem: CartItem, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void)
+    func decreaseCountOfCartItem(cartItem: CartItem, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void)
+    func getProductsFromFavorites(onSuccess: @escaping ([Product]) -> Void, onError: @escaping (String) -> Void)
+    func checkProductFavoriteStatus(product: Product, onSuccess: @escaping (Bool) -> Void, onError: @escaping (String) -> Void)
+    func addProductToFavorites(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void)
+    func removeProductFromFavorites(product: Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void)
+}
+
+final class FirestoreManager: FirestoreManagerInterface {
     static let shared = FirestoreManager()
     private let currentUserRef = Firestore.firestore().collection("UsersInfo").document(ApplicationVariables.currentUserID!)
     

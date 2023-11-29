@@ -5,8 +5,13 @@
 //  Created by Yaşar Duman on 17.11.2023.
 //
 
-final class NetworkManager {
-    
+protocol NetworkManagerInterfave {
+    func getProducts(onSuccess: @escaping ([Product])->(Void), onError: @escaping (String)->(Void))
+    func getProductByCategory(category: String, onSuccess: @escaping ([Product])->(Void), onError: @escaping (String)->(Void))
+    func fetchCategory(onSuccess: @escaping ([Category]?) -> (), onError: @escaping (String)->(Void))
+}
+
+final class NetworkManager: NetworkManagerInterfave {
     private let baseURL: String = "https://fakestoreapi.com"
     
     enum Endpoint: String {
