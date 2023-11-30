@@ -11,6 +11,7 @@ protocol HomeVCInterface: AnyObject {
     func configureViewController()
     func specialProductReloadData()
     func categoryCollectionReloadData()
+    func pushDetailVC(product: Product)
 }
 
 final class HomeVC: UIViewController {
@@ -145,22 +146,13 @@ extension HomeVC:  UICollectionViewDataSource, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case homeView.specialProductsCollection:
-            let product = viewModel.specialProductsAll[indexPath.item]
-            let vc = ProductDetailVC(product: product)
-            navigationController?.pushViewController(vc, animated: true)
+            viewModel.specialProductsDidSelectItem(at: indexPath)
             
         case homeView.categoryCollection:
-            let category = viewModel.categories[indexPath.row]
-            if category.rawValue == Category.allCases[0].rawValue {
-                viewModel.fetchProductByCategoryAll()
-            } else {
-                viewModel.fetchProductByCategory(category)
-            }
-            
+            viewModel.categoryDidSelectItem(at: indexPath)
+
         case homeView.productCollection:
-            let product = viewModel.productByCategory[indexPath.item]
-            let vc = ProductDetailVC(product: product)
-            navigationController?.pushViewController(vc, animated: true)
+            viewModel.productByCategoryDidSelectItem(at: indexPath)
             
         default:
             return
@@ -183,6 +175,11 @@ extension HomeVC: UIScrollViewDelegate {
 
 //MARK: - HomeViewInterface
 extension HomeVC: HomeVCInterface {
+    func pushDetailVC(product: Product) {
+        let vc = ProductDetailVC(product: product)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func configureViewController() {
         configureNavBar()
         homeView.delegate = self

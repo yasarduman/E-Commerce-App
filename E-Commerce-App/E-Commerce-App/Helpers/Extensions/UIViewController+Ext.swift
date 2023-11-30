@@ -42,4 +42,8 @@ extension UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    func pushVC(vc: UIViewController) {
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

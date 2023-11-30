@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol HomeViewModelInterface {
     func viewDidLoad()
     func viewWillAppear()
+    func specialProductsDidSelectItem(at indexPath: IndexPath)
+    func categoryDidSelectItem(at indexPath: IndexPath)
+    func productByCategoryDidSelectItem(at indexPath: IndexPath)
 }
 
 final class HomeVM {
@@ -116,7 +120,24 @@ final class HomeVM {
 
 //MARK: - HomeViewModelInterface
 extension HomeVM: HomeViewModelInterface {
+    func categoryDidSelectItem(at indexPath: IndexPath) {
+        let category = categories[indexPath.item]
+        if category.rawValue == Category.allCases[0].rawValue {
+           fetchProductByCategoryAll()
+        } else {
+            fetchProductByCategory(category)
+        }
+    }
     
+    func productByCategoryDidSelectItem(at indexPath: IndexPath) {
+        let product = productByCategory[indexPath.item]
+        view?.pushDetailVC(product: product)
+    }
+    
+    func specialProductsDidSelectItem(at indexPath: IndexPath) {
+        let product = specialProductsAll[indexPath.item]
+        view?.pushDetailVC(product: product)
+    }
     
     func viewDidLoad() {
         view?.configureViewController()

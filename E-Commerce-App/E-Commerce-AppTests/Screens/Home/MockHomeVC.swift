@@ -8,28 +8,39 @@
 @testable import E_Commerce_App
 
 final class MockHomeVC: HomeVCInterface{
-    var invokePrepareController = false
-    var invokePrepareControllerCount = 0
+ 
+    var invokedConfigureViewController = false
+    var invokedConfigureViewControllerCount = 0
     
     func configureViewController() {
-        invokePrepareController = true
-        invokePrepareControllerCount += 1
+        invokedConfigureViewController = true
+        invokedConfigureViewControllerCount += 1
     }
     
-    var invokePrepareProductReloadData = false
-    var invokePrepareProductReloadDataCount = 0
+    var invokedProductReloadData = false
+    var invokedProductReloadDataCount = 0
     
     func specialProductReloadData() {
-        invokePrepareProductReloadData = true
-        invokePrepareProductReloadDataCount += 1
+        invokedProductReloadData = true
+        invokedProductReloadDataCount += 1
     }
     
-    var invokePrepareCategoryCollectionReloadData = false
-    var invokePrepareCategoryCollectionReloadDataCount = 0
+    var invokedCategoryCollectionReloadData = false
+    var invokedCategoryCollectionReloadDataCount = 0
     
     func categoryCollectionReloadData() {
-        invokePrepareCategoryCollectionReloadData = true
-        invokePrepareCategoryCollectionReloadDataCount += 1
+        invokedCategoryCollectionReloadData = true
+        invokedCategoryCollectionReloadDataCount += 1
     }
+    
+    
+    var invokedPushDetailVC = false
+    var invokedPushDetailVCCount = 0
+    
+    func pushDetailVC(product: E_Commerce_App.Product) {
+        invokedPushDetailVC = true
+        invokedPushDetailVCCount += 1
+    }
+    
     
 }
