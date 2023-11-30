@@ -12,7 +12,7 @@ protocol ForgotPasswordViewProtocol: AnyObject{
     func signInTapped()
 }
 
-class ForgotPasswordView: UIView {
+final class ForgotPasswordView: UIView {
     
     // MARK: - Properties
     private let HeadLabel                 = TitleLabel(text: "Forgot Password", fontSize: 20)

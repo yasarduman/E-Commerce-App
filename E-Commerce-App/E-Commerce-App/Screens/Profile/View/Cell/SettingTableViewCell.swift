@@ -78,7 +78,7 @@ final class SettingTableViewCell: UITableViewCell {
     }
     
     // MARK: - Configure Cell
-    public func configure(with model: SettingsOption){
+    func configure(with model: SettingsOption){
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackgrondColor

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5824CD312B18BAC100C165E5 /* CartVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5824CD302B18BAC100C165E5 /* CartVMTests.swift */; };
+		5824CD332B18BC5400C165E5 /* MockCartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5824CD322B18BC5400C165E5 /* MockCartVC.swift */; };
 		5850AE3F2B14B4AE00282C7C /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5850AE3E2B14B4AE00282C7C /* CartItem.swift */; };
 		5850AE412B14B5A500282C7C /* CartVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5850AE402B14B5A500282C7C /* CartVM.swift */; };
 		5850AE452B14FE6F00282C7C /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5850AE442B14FE6F00282C7C /* SearchVM.swift */; };
@@ -104,6 +106,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5824CD302B18BAC100C165E5 /* CartVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartVMTests.swift; sourceTree = "<group>"; };
+		5824CD322B18BC5400C165E5 /* MockCartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartVC.swift; sourceTree = "<group>"; };
 		5850AE3E2B14B4AE00282C7C /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		5850AE402B14B5A500282C7C /* CartVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CartVM.swift; path = "E-Commerce-App/Screens/Cart/ViewModel/CartVM.swift"; sourceTree = SOURCE_ROOT; };
 		5850AE442B14FE6F00282C7C /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
@@ -211,6 +215,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5824CD2E2B18BAA000C165E5 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				5824CD2F2B18BAA400C165E5 /* ViewModel */,
+				5824CD322B18BC5400C165E5 /* MockCartVC.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		5824CD2F2B18BAA400C165E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5824CD302B18BAC100C165E5 /* CartVMTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5850AE422B14B6A500282C7C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +688,7 @@
 		838788982B172A8900F2599E /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5824CD2E2B18BAA000C165E5 /* Cart */,
 				838788A62B1756D700F2599E /* Search */,
 				838788992B172A9100F2599E /* Home */,
 			);
@@ -953,9 +975,11 @@
 			files = (
 				838788922B172A5800F2599E /* E_Commerce_AppTests.swift in Sources */,
 				8387889B2B172ACC00F2599E /* HomeVMTests.swift in Sources */,
+				5824CD312B18BAC100C165E5 /* CartVMTests.swift in Sources */,
 				838788A12B17375800F2599E /* MockNetworkManager.swift in Sources */,
 				838788A52B17499C00F2599E /* MockFirestoreManager.swift in Sources */,
 				8387889D2B17301D00F2599E /* MockHomeVC.swift in Sources */,
+				5824CD332B18BC5400C165E5 /* MockCartVC.swift in Sources */,
 				838788A32B173C1C00F2599E /* MockData.swift in Sources */,
 				838788AA2B1758BC00F2599E /* MockSearchVC.swift in Sources */,
 				838788A82B1756FE00F2599E /* SearchVMTests.swift in Sources */,

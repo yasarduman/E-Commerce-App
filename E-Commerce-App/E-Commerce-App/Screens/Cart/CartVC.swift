@@ -17,13 +17,12 @@ protocol CartVCInterface: AnyObject {
 final class CartVC: UIViewController {
 
     //MARK: - Properties
-    private lazy var viewModel = CartVM()
+    private lazy var viewModel = CartVM(view: self)
     private lazy var cartView = CartView()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.view = self
         viewModel.viewDidLoad()
     }
     

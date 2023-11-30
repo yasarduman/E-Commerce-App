@@ -21,7 +21,7 @@ struct SettingsOption {
 
 
 // MARK: - ViewModel
-class ProfileVM {
+final class ProfileVM {
     let currentUserID = Auth.auth().currentUser!.uid
     lazy var firebaseAuthManager = FirebaseAuthManager()
     

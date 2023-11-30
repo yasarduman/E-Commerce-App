@@ -123,7 +123,7 @@ final class HomeView: UIView {
     }
     
     // MARK: - @Actions
-    @objc func pageControlValueChanged() {
+    @objc private func pageControlValueChanged() {
         let selectedPage = pageControl.currentPage
         let indexPath = IndexPath(item: selectedPage, section: 0)
         specialProductsCollection.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)

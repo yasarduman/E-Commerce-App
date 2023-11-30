@@ -8,19 +8,26 @@
 import Foundation
 
 protocol CartVMInterface {
-    var view: CartVCInterface? { get set }
     func viewDidLoad()
     func viewWillAppear()
 }
 
 final class CartVM {
-    weak var view: CartVCInterface?
+    
+    private weak var view: CartVCInterface?
+    private let firestoreManager: FirestoreManagerInterface
     
     var cartItems: [CartItem]?
     var totalPrice: Double = 0
     
+    init(view: CartVCInterface,
+         firestoreManager: FirestoreManagerInterface = FirestoreManager.shared) {
+        self.view = view
+        self.firestoreManager = firestoreManager
+    }
+    
     func getProductsFromCart() {
-        FirestoreManager.shared.getProductsFromCart { [weak self] cartItems in
+        firestoreManager.getProductsFromCart { [weak self] cartItems in
             guard let self else { return }
             self.cartItems = cartItems
             totalPrice = cartItems.reduce(0, {$0 + $1.product.price! * Double($1.count)})
@@ -32,7 +39,7 @@ final class CartVM {
     }
     
     func removeProductFromCart(cartItem: CartItem) {
-        FirestoreManager.shared.removeProductFromCart(product: cartItem.product) { [weak self] in
+        firestoreManager.removeProductFromCart(product: cartItem.product) { [weak self] in
             guard let self else { return }
             getProductsFromCart()
         } onError: { error in
@@ -41,7 +48,7 @@ final class CartVM {
     }
     
     func increaseCountOfCartItem(cartItem: CartItem) {
-        FirestoreManager.shared.increaseCountOfCartItem(cartItem: cartItem) { [weak self] in
+        firestoreManager.increaseCountOfCartItem(cartItem: cartItem) { [weak self] in
             guard let self else { return }
             getProductsFromCart()
         } onError: { error in
@@ -51,7 +58,7 @@ final class CartVM {
     
     
     func decreaseCountOfCartItem(cartItem: CartItem) {
-        FirestoreManager.shared.decreaseCountOfCartItem(cartItem: cartItem) { [weak self] in
+        firestoreManager.decreaseCountOfCartItem(cartItem: cartItem) { [weak self] in
             guard let self else { return }
             getProductsFromCart()
         } onError: { error in

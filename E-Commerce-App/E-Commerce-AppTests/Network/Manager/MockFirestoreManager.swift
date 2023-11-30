@@ -8,85 +8,85 @@
 @testable import E_Commerce_App
 
 final class MockFirestoreManager: FirestoreManagerInterface {
-    var invokeAddProductToCart = false
-    var invokeAddProductToCartCount = 0
+    var invokedAddProductToCart = false
+    var invokedAddProductToCartCount = 0
     
     func addProductToCart(product: E_Commerce_App.Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        invokeAddProductToCart = true
-        invokeAddProductToCartCount += 1
+        invokedAddProductToCart = true
+        invokedAddProductToCartCount += 1
         onSuccess()
     }
     
-    var invokeRemoveProductFromCart = false
-    var invokeRemoveProductFromCartCount = 0
+    var invokedRemoveProductFromCart = false
+    var invokedRemoveProductFromCartCount = 0
     
     func removeProductFromCart(product: E_Commerce_App.Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        invokeRemoveProductFromCart = true
-        invokeRemoveProductFromCartCount += 1
+        invokedRemoveProductFromCart = true
+        invokedRemoveProductFromCartCount += 1
         onSuccess()
     }
     
-    var invokeGetProductsFromCart = false
-    var invokeGetProductsFromCartCount = 0
+    var invokedGetProductsFromCart = false
+    var invokedGetProductsFromCartCount = 0
     
     func getProductsFromCart(onSuccess: @escaping ([E_Commerce_App.CartItem]) -> Void, onError: @escaping (String) -> Void) {
-        invokeGetProductsFromCart = true
-        invokeGetProductsFromCartCount += 1
+        invokedGetProductsFromCart = true
+        invokedGetProductsFromCartCount += 1
         
         onSuccess([MockData.mockCartItem])
     }
     
-    var invokeIncreaseCountOfCartItem = false
-    var invokeIncreaseCountOfCartItemCount = 0
+    var invokedIncreaseCountOfCartItem = false
+    var invokedIncreaseCountOfCartItemCount = 0
     
     func increaseCountOfCartItem(cartItem: E_Commerce_App.CartItem, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        invokeIncreaseCountOfCartItem = true
-        invokeIncreaseCountOfCartItemCount += 1
+        invokedIncreaseCountOfCartItem = true
+        invokedIncreaseCountOfCartItemCount += 1
         onSuccess()
     }
     
-    var invokeDecreaseCountOfCartItem = false
-    var invokeDecreaseCountOfCartItemCount = 0
+    var invokedDecreaseCountOfCartItem = false
+    var invokedDecreaseCountOfCartItemCount = 0
     
     func decreaseCountOfCartItem(cartItem: E_Commerce_App.CartItem, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        invokeDecreaseCountOfCartItem = true
-        invokeDecreaseCountOfCartItemCount += 1
+        invokedDecreaseCountOfCartItem = true
+        invokedDecreaseCountOfCartItemCount += 1
         onSuccess()
     }
     
-    var invokeGetProductsFromFavorites = false
-    var invokeGetProductsFromFavoritesCount = 0
+    var invokedGetProductsFromFavorites = false
+    var invokedGetProductsFromFavoritesCount = 0
     
     func getProductsFromFavorites(onSuccess: @escaping ([E_Commerce_App.Product]) -> Void, onError: @escaping (String) -> Void) {
-        invokeGetProductsFromFavorites = true
-        invokeGetProductsFromFavoritesCount += 1
+        invokedGetProductsFromFavorites = true
+        invokedGetProductsFromFavoritesCount += 1
         onSuccess([MockData.mockProduct1])
     }
     
-    var invokeCheckProductFavoriteStatus = false
-    var invokeCheckProductFavoriteStatusCount = 0
+    var invokedCheckProductFavoriteStatus = false
+    var invokedCheckProductFavoriteStatusCount = 0
     
     func checkProductFavoriteStatus(product: E_Commerce_App.Product, onSuccess: @escaping (Bool) -> Void, onError: @escaping (String) -> Void) {
-        invokeCheckProductFavoriteStatus = true
-        invokeCheckProductFavoriteStatusCount += 1
+        invokedCheckProductFavoriteStatus = true
+        invokedCheckProductFavoriteStatusCount += 1
         onSuccess(true)
     }
     
-    var invokeAddProductToFavorites = false
-    var invokeAddProductToFavoritesCount = 0
+    var invokedAddProductToFavorites = false
+    var invokedAddProductToFavoritesCount = 0
     
     func addProductToFavorites(product: E_Commerce_App.Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        invokeAddProductToFavorites = true
-        invokeAddProductToFavoritesCount += 1
+        invokedAddProductToFavorites = true
+        invokedAddProductToFavoritesCount += 1
         onSuccess()
     }
     
-    var invokeRemoveProductFromFavorites = false
-    var invokeRemoveProductFromFavoritesCount = 0
+    var invokedRemoveProductFromFavorites = false
+    var invokedRemoveProductFromFavoritesCount = 0
     
     func removeProductFromFavorites(product: E_Commerce_App.Product, onSuccess: @escaping () -> Void, onError: @escaping (String) -> Void) {
-        invokeRemoveProductFromFavorites = true
-        invokeRemoveProductFromFavoritesCount += 1
+        invokedRemoveProductFromFavorites = true
+        invokedRemoveProductFromFavoritesCount += 1
         onSuccess()
     }
     

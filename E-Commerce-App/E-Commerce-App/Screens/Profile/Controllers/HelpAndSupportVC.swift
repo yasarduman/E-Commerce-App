@@ -98,7 +98,7 @@ final class HelpAndSupportVC: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     // MARK: - Action
-    @objc func sendEmail() {
+    @objc private func sendEmail() {
         if MFMailComposeViewController.canSendMail() {
                 mailComposer.mailComposeDelegate = self
                 present(mailComposer, animated: true, completion: nil)

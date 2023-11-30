@@ -25,7 +25,7 @@ final class HomeVM {
     var specialProductsAll : [Product] = []
     var productByCategory: [Product] = []
     var categories = Category.allCases
-    var selectedCategory = Category.all
+    private var selectedCategory = Category.all
     
     
     init(view: HomeVCInterface, networkManager: NetworkManagerInterface = NetworkManager.shared, firestoreManager: FirestoreManagerInterface = FirestoreManager.shared) {
@@ -34,7 +34,7 @@ final class HomeVM {
         self.firestoreManager = firestoreManager
     }
     
-    func fetchAllSpecialProducts() {
+    private func fetchAllSpecialProducts() {
         networkManager.getProducts { [weak self] products in
             guard let self else { return }
             specialProductsAll = products
@@ -44,7 +44,7 @@ final class HomeVM {
         }
     }
     
-    func fetchProductByCategory(_ category: Category) {
+    private func fetchProductByCategory(_ category: Category) {
         networkManager.getProductByCategory(category: category.rawValue) {  [weak self] products in
             guard let self else { return }
             firestoreManager.getProductsFromFavorites { favoriteProducts in
@@ -66,7 +66,7 @@ final class HomeVM {
         }
     }
     
-    func fetchProductByCategoryAll() {
+    private func fetchProductByCategoryAll() {
         networkManager.getProducts { [weak self] products in
             guard let self else { return }
             firestoreManager.getProductsFromFavorites { favoriteProducts in

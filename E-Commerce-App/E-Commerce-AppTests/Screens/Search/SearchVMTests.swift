@@ -29,20 +29,20 @@ final class SearchVMTests: XCTestCase {
     func test_viewDidLoad_InvokesRequiredMethods(){
         //given
         XCTAssertFalse(netwokManager.invokedGetProducts)
-        XCTAssertFalse(view.invokePrepareReloadData)
-        XCTAssertFalse(view.invokePrepareNavigationBar)
-        XCTAssertFalse(view.invokePrepareSearchController)
-        XCTAssertFalse(view.invokePrepareCollectionView)
+        XCTAssertFalse(view.invokedPrepareReloadData)
+        XCTAssertFalse(view.invokedPrepareNavigationBar)
+        XCTAssertFalse(view.invokedPrepareSearchController)
+        XCTAssertFalse(view.invokedPrepareCollectionView)
         
         //when
         viewModel.viewDidLoad()
         
         //then
         XCTAssertEqual(netwokManager.invokedGetProductsCount, 1)
-        XCTAssertEqual(view.invokePrepareReloadDataCount, 1)
-        XCTAssertEqual(view.invokePrepareNavigationBarCount, 1)
-        XCTAssertEqual(view.invokePrepareSearchControllerCount, 1)
-        XCTAssertEqual(view.invokePrepareCollectionViewCount, 1)
+        XCTAssertEqual(view.invokedPrepareReloadDataCount, 1)
+        XCTAssertEqual(view.invokedPrepareNavigationBarCount, 1)
+        XCTAssertEqual(view.invokedPrepareSearchControllerCount, 1)
+        XCTAssertEqual(view.invokedPrepareCollectionViewCount, 1)
 
     }
 }

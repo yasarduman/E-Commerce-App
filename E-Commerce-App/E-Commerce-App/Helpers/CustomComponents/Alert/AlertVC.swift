@@ -10,9 +10,9 @@ import UIKit
 
 final class AlertVC: UIViewController {
     // MARK: - Properties
-    var alertTitle: String?
-    var message: String?
-    var buttonTitle: String?
+    private var alertTitle: String?
+    private var message: String?
+    private var buttonTitle: String?
     
     
     //MARK: - UI Elements

@@ -50,7 +50,7 @@ final class HomeVMTests: XCTestCase {
     func test_viewWillAppear_InvokesPrepareProductByCategory() {
         //given
         XCTAssertFalse(networkManager.invokedGetProducts)
-        XCTAssertFalse(firestoreManager.invokeGetProductsFromFavorites)
+        XCTAssertFalse(firestoreManager.invokedGetProductsFromFavorites)
         XCTAssertFalse(view.invokedCategoryCollectionReloadData)
         
         //when
@@ -58,14 +58,14 @@ final class HomeVMTests: XCTestCase {
 
         //then
         XCTAssertEqual(networkManager.invokedGetProductsCount, 1)
-        XCTAssertEqual(firestoreManager.invokeGetProductsFromFavoritesCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 1)
         XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 1)
     }
     
     func test_categoryDidSelectItem_ReturnsCategoryAll() {
         //given
         XCTAssertEqual(networkManager.invokedGetProductsCount, 0)
-        XCTAssertEqual(firestoreManager.invokeGetProductsFromFavoritesCount, 0)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 0)
         XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 0)
         
         //when
@@ -74,7 +74,7 @@ final class HomeVMTests: XCTestCase {
         //then
         XCTAssertEqual(viewModel.categories[0], MockData.mockCategoryAll)
         XCTAssertEqual(networkManager.invokedGetProductsCount, 1)
-        XCTAssertEqual(firestoreManager.invokeGetProductsFromFavoritesCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 1)
         XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 1)
     }
     
@@ -83,7 +83,7 @@ final class HomeVMTests: XCTestCase {
     func test_categoryDidSelectItem_ReturnsMensClothing() {
         //given
         XCTAssertEqual(networkManager.invokedGetProductByCategoryCount, 0)
-        XCTAssertEqual(firestoreManager.invokeGetProductsFromFavoritesCount, 0)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 0)
         XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 0)
         
         //when
@@ -92,7 +92,7 @@ final class HomeVMTests: XCTestCase {
         //then
         XCTAssertEqual(viewModel.categories[1], MockData.mockCategoryMensClothing)
         XCTAssertEqual(networkManager.invokedGetProductByCategoryCount, 1)
-        XCTAssertEqual(firestoreManager.invokeGetProductsFromFavoritesCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 1)
         XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 1)
     }
     
