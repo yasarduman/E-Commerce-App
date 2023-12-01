@@ -28,7 +28,10 @@ final class HomeVMTests: XCTestCase {
     override func tearDown() {//test tamamlandıktan sonra çalışır.
         // Test tamamlandıktan sonra temizlik yap
         super.tearDown()
-        
+        view = nil
+        networkManager = nil
+        firestoreManager = nil
+        viewModel = nil
     }
     
     func test_viewDidLoad_InvokesRequiredMethods() {
@@ -107,5 +110,23 @@ final class HomeVMTests: XCTestCase {
         //then
         XCTAssertTrue(view.invokedPushDetailVC)
  
+    }
+    
+    func test_toggleFavoriteStatus_InvokesRequiredViewMethods() {
+        XCTAssertEqual(firestoreManager.invokedCheckProductFavoriteStatusCount, 0)
+        XCTAssertEqual(firestoreManager.invokedRemoveProductFromFavoritesCount, 0)
+        XCTAssertEqual(networkManager.invokedGetProductsCount, 0)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 0)
+        XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 0)
+        
+        viewModel.toggleFavoriteStatus(for: MockData.mockProduct1)
+        
+        XCTAssertEqual(firestoreManager.invokedCheckProductFavoriteStatusCount, 1)
+        XCTAssertEqual(firestoreManager.invokedRemoveProductFromFavoritesCount, 1)
+        XCTAssertEqual(networkManager.invokedGetProductsCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 1)
+        XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 1)
+        
+        
     }
 }

@@ -10,7 +10,6 @@ import Foundation
 protocol ProductDetailVMIterface {
     var view: ProductDetailVCInterface? { get set}
     func viewDidLoad()
-    func viewWillAppear()
 }
 
 final class ProductDetailVM {
@@ -18,7 +17,7 @@ final class ProductDetailVM {
     var product: Product?
     var isFavorite: Bool?
     
-    func checkProductFavorited() {
+    private func checkProductFavorited() {
         guard let product else { return }
         FirestoreManager.shared.checkProductFavoriteStatus(product: product) { isFavorited in
             self.isFavorite = isFavorited
@@ -56,10 +55,5 @@ final class ProductDetailVM {
 extension ProductDetailVM: ProductDetailVMIterface{
     func viewDidLoad() {
         checkProductFavorited()
-    }
-    
-    // TODO: - kullanamzsan kaldır !!
-    func viewWillAppear() {
-        
     }
 }

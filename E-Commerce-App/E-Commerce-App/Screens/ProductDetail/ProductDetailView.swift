@@ -78,6 +78,8 @@ final class ProductDetailView: UIView {
     }
     
     private func configureFavAndTitleHStack() {
+        productTitle.accessibilityIdentifier = "productTitle"
+
         favAndTitleHStack.addArrangedSubviewsExt(productTitle, addToFavoritesButton)
         
         addToFavoritesButton.widthAnchor.constraint(equalTo: addToFavoritesButton.heightAnchor).isActive = true

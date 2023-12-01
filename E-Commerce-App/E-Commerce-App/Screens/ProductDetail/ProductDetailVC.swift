@@ -39,10 +39,6 @@ final class ProductDetailVC: UIViewController {
         viewModel.view = self
         viewModel.viewDidLoad()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewModel.viewWillAppear()
-    }
     
     override func loadView() {
         super.loadView()

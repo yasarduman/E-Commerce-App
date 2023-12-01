@@ -51,4 +51,51 @@ final class CartVMTests: XCTestCase {
         XCTAssertEqual(view.invokedReloadDataCount, 1)
     }
     
+    func test_removeProductFromCart_InvokesRequiredMethods() {
+        
+        XCTAssertEqual(firestoreManager.invokedRemoveProductFromCartCount, 0)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromCartCount, 0)
+        XCTAssertEqual(view.invokedReloadTotalPriceCount, 0)
+        XCTAssertEqual(view.invokedReloadDataCount, 0)
+        
+        viewModel.removeProductFromCart(cartItem: MockData.mockCartItem)
+        
+        XCTAssertEqual(firestoreManager.invokedRemoveProductFromCartCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromCartCount, 1)
+        XCTAssertEqual(view.invokedReloadTotalPriceCount, 1)
+        XCTAssertEqual(view.invokedReloadDataCount, 1)
+    }
+    
+    func test_increaseCountOfCartItem_InvokesRequiredMethods() {
+        
+        XCTAssertEqual(firestoreManager.invokedIncreaseCountOfCartItemCount, 0)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromCartCount, 0)
+        XCTAssertEqual(view.invokedReloadTotalPriceCount, 0)
+        XCTAssertEqual(view.invokedReloadDataCount, 0)
+        
+        viewModel.increaseCountOfCartItem(cartItem: MockData.mockCartItem)
+        
+        XCTAssertEqual(firestoreManager.invokedIncreaseCountOfCartItemCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromCartCount, 1)
+        XCTAssertEqual(view.invokedReloadTotalPriceCount, 1)
+        XCTAssertEqual(view.invokedReloadDataCount, 1)
+    }
+    
+    func test_decreaseCountOfCartItem_InvokesRequiredMethods() {
+        
+        XCTAssertEqual(firestoreManager.invokedDecreaseCountOfCartItemCount, 0)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromCartCount, 0)
+        XCTAssertEqual(view.invokedReloadTotalPriceCount, 0)
+        XCTAssertEqual(view.invokedReloadDataCount, 0)
+        
+        viewModel.decreaseCountOfCartItem(cartItem: MockData.mockCartItem)
+        
+        XCTAssertEqual(firestoreManager.invokedDecreaseCountOfCartItemCount, 1)
+        XCTAssertEqual(firestoreManager.invokedGetProductsFromCartCount, 1)
+        XCTAssertEqual(view.invokedReloadTotalPriceCount, 1)
+        XCTAssertEqual(view.invokedReloadDataCount, 1)
+    }
+    
+    
+    
 }

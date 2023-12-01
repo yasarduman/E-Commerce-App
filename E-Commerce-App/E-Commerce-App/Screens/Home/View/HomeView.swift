@@ -79,6 +79,7 @@ final class HomeView: UIView {
     }
     
     private func configureSpecialProductsCollection() {
+        specialProductsCollection.accessibilityIdentifier = "specialProductsCollection"
         specialProductsCollection.anchor(top: specialProductsTitle.bottomAnchor,
                                          leading: leadingAnchor,
                                          trailing: trailingAnchor,
@@ -104,6 +105,7 @@ final class HomeView: UIView {
     }
     
     private func configureCategoryCollection() {
+        categoryCollection.accessibilityIdentifier = "categoryCollection"
         categoryCollection.anchor(top: categoriesTitle.bottomAnchor,
                                   leading: leadingAnchor,
                                   trailing: trailingAnchor,
@@ -112,6 +114,7 @@ final class HomeView: UIView {
     }
     
     private func configureProductCollection() {
+        productCollection.accessibilityIdentifier = "productCollection"
         productCollection.anchor(top: categoryCollection.bottomAnchor,
                                  leading: leadingAnchor,
                                  bottom: safeAreaLayoutGuide.bottomAnchor,

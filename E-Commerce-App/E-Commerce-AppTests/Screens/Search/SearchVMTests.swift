@@ -45,4 +45,12 @@ final class SearchVMTests: XCTestCase {
         XCTAssertEqual(view.invokedPrepareCollectionViewCount, 1)
 
     }
+    
+    func test_getProductsBySearchText_InvokesRequiredViewMethods() {
+        XCTAssertEqual(view.invokedPrepareReloadDataCount,0)
+        
+        viewModel.getProductsBySearchText(searchText: "Men")
+        
+        XCTAssertEqual(view.invokedPrepareReloadDataCount,1)
+    }
 }

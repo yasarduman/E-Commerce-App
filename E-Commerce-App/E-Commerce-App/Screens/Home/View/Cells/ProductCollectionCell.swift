@@ -89,7 +89,8 @@ final class ProductCollectionCell: UICollectionViewCell {
         infoSeperatorView.addSubview(productInfoHStackView)
         productInfoHStackView.addArrangedSubviewsExt(productInfoVStackView, addToCartButton)
         productInfoVStackView.addArrangedSubviewsExt(productInfoLabel, priceLabel)
-    
+        
+        
         productInfoHStackView.anchor(top: imageContainerView.bottomAnchor,
                                     leading: imageContainerView.leadingAnchor,
                                     trailing: infoSeperatorView.trailingAnchor,

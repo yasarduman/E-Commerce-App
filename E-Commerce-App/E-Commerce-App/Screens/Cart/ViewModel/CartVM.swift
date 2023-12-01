@@ -26,7 +26,7 @@ final class CartVM {
         self.firestoreManager = firestoreManager
     }
     
-    func getProductsFromCart() {
+    private func getProductsFromCart() {
         firestoreManager.getProductsFromCart { [weak self] cartItems in
             guard let self else { return }
             self.cartItems = cartItems

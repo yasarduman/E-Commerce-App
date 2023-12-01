@@ -89,7 +89,7 @@ final class HomeVM {
     func toggleFavoriteStatus(for product: Product) {
         firestoreManager.checkProductFavoriteStatus(product: product) { isFavorited in
             if isFavorited {
-                FirestoreManager.shared.removeProductFromFavorites(product: product) { [weak self] in
+                self.firestoreManager.removeProductFromFavorites(product: product) { [weak self] in
                     guard let self else { return }
                     if selectedCategory == Category.all {
                         self.fetchProductByCategoryAll()

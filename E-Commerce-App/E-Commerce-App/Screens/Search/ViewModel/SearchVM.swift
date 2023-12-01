@@ -23,7 +23,7 @@ final class SearchVM {
         self.networkManager = networkManager
     }
     
-    func getAllProducts() {
+    private func getAllProducts() {
         networkManager.getProducts { [weak self] products in
             guard let self else { return }
             self.products = products
