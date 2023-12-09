@@ -70,7 +70,7 @@ final class HomeVMTests: XCTestCase {
         XCTAssertEqual(networkManager.invokedGetProductsCount, 0)
         XCTAssertEqual(firestoreManager.invokedGetProductsFromFavoritesCount, 0)
         XCTAssertEqual(view.invokedCategoryCollectionReloadDataCount, 0)
-        
+
         //when
         viewModel.categoryDidSelectItem(at: IndexPath(item: 0, section: 0))
         

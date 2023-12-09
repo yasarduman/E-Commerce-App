@@ -91,8 +91,6 @@ final class E_Commerce_AppUITests: XCTestCase {
 
     func selectCell(at index: Int, in collectionView: XCUIElement) {
            let cell = collectionView.cells.element(boundBy: index)
-
-           // Hücreyi seç
            cell.tap()
        }
 
