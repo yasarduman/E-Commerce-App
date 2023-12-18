@@ -25,12 +25,6 @@ This app is built with the help of the following libraries and dependencies:
 - Lottie (version 4.3.3) 🎮
   
 ## Screenshots📱
-<img width="35<img width="357" alt="7" src="">
-7" alt="3" src="">
-
-
-
-
 
 | Home | Product Detail | Search | Special Producst |
 | --- | --- | --- | --- |
